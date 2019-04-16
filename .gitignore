@@ -1,11 +1,12 @@
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
+.DS_Store
+*/project.pbxproj
 ## Build generated
 build/
 DerivedData/
-
+xcshareddata/
 ## Various settings
 *.pbxuser
 !default.pbxuser
