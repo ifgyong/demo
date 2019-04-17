@@ -24,7 +24,7 @@
 }
 
 - (void)testExample {
-    Person *p1=[[Person alloc]initWithDic:nil];
+    Person *p1=[[Person alloc]initWithDic:@{}];
     XCTAssertTrue(p1!= nil,@"p1 is nil");
     
     Person *p2=[[Person alloc]initWithDic:@{@"age":@(11),@"name":@"张三"}];
