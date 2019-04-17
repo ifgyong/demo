@@ -10,7 +10,9 @@
 		"eslint": "^5.16.0",
 		"npm-watch": "^0.6.0",
 		"react": "16.0.0",
-		"react-native": "0.50.4"
+		"react-native": "^0.58.4",
+		"react-native-gesture-handler": "^1.1.0",
+		"react-navigation": "^3.8.1"
 	},
 	"devDependencies": {
 		"babel-jest": "24.7.1",
