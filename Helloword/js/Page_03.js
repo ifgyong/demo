@@ -9,9 +9,11 @@ export default class Page_03 extends React.Component {
     var views = []
     for(var i=0;i < 4;i++) {
       views.push(
-        <TouchableHighlight onPress={()=>{
-          Alert.alert('index:'+i+'😄');
-        }}>
+        <TouchableHighlight 
+          onPress={()=>{
+            Alert.alert('index:'+i+'😄');
+        }
+        }>
         <Image source ={require('../source/2.png')}
                     style={st.im}/> 
         </TouchableHighlight>

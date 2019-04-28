@@ -54,7 +54,7 @@ export default class Page_02 extends React.Component {
       var views = []
       for(var i=0;i <20;i++) {
         views.push(
-          <View style={s.view_super}>
+          <View >
               <Text style={s.title}>第{i+1}行横</Text>
               <View style={s.view_style_row}>
               <View style={s.v_color_1} />
@@ -77,7 +77,7 @@ export default class Page_02 extends React.Component {
       margin:10,
       fontWeight:'bold',
     },
-    view_super:{},
+    
     view_style_column:{flex: 1, flexDirection: 'column',margin:10},
     view_style_row:{flex: 1, flexDirection: 'row',margin:10},
     v_color_1:{width: 50, height: 50, backgroundColor: 'powderblue',margin:10},

@@ -12,7 +12,7 @@ export default class FYTimer extends React.Component {
                       title="Go back"
                       onPress={() => {console.log('🐲');
                       }}
-                      />
+                      /> 
 
 
 
