@@ -19,14 +19,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-//   This widget is the home page of your application. It is stateful, meaning
-//   that it has a State object (defined below) that contains fields that affect
-//   how it looks.
-//
-//   This class is the configuration for the state. It holds the values (in this
-//   case the title) provided by the parent (in this case the App widget) and
-//   used by the build method of the State. Fields in a Widget subclass are
-//   always marked "final".
 
   final String title;
 
@@ -66,9 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            myText(title: '老弟来了几次？',backgroundColor: Colors.red,fontSize: 30,),
-            myText(title: '老弟来了'+'$_counter'+'次',backgroundColor: Colors.green,fontSize: 30,),
-            myText(title: 'Step:'+'$distance',backgroundColor: Colors.red,fontSize: 30,),
+            MyText(title: '老弟来了几次？',backgroundColor: Colors.red,fontSize: 30,),
+            MyText(title: '老弟来了'+'$_counter'+'次',backgroundColor: Colors.green,fontSize: 30,),
+            MyText(title: 'Step:'+'$distance',backgroundColor: Colors.red,fontSize: 30,),
             new Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,30 +86,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            setTwoIconLine(),
+            SetTwoIconLine(),
           ],
         ),
       ),
     );
   }
 }
-class setTwoIconLine extends StatelessWidget{
+class SetTwoIconLine extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Container(
       child: Column(
         children: <Widget>[
-          setLineIcon(),
-          setLineIcon(),
+          SetLineIcon(index: 1,),
+          SetLineIcon(index: 4,),
         ],
       ),
     );
   }
 }
-class setLineIcon extends StatelessWidget{
+class SetLineIcon extends StatelessWidget{
 final List showTitles;
-setLineIcon({this.showTitles});
+int index;
+SetLineIcon({this.showTitles,this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +120,10 @@ setLineIcon({this.showTitles});
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
         children: <Widget>[
-          _View(bgColor: Colors.green,title: "小白来了",iconname: 'source/icon_1.png',),
-          _View(bgColor: Colors.red,title: "小鹿来了",iconname: 'source/icon_2.png',),
-          _View(bgColor: Colors.green,title: "小红来了",iconname: 'source/icon_3.png',),
-          _View(bgColor: Colors.red,title: "小黑来了",iconname: 'source/icon_1.png',),
+          _View(bgColor: Colors.green,title: "小白来了",iconname: index,),
+          _View(bgColor: Colors.red,title: "小鹿来了",iconname: index+1,),
+          _View(bgColor: Colors.green,title: "小红来了",iconname: index+2,),
+          _View(bgColor: Colors.red,title: "小黑来了",iconname: index+3,),
         ],
       ),
     );
@@ -139,7 +132,7 @@ setLineIcon({this.showTitles});
 class _View extends StatelessWidget{
   final Color bgColor;
   final String title;
-  final String iconname;
+  final int iconname;
   _View({this.bgColor,this.title,this.iconname});
   @override
   Widget build(BuildContext context) {
@@ -150,7 +143,7 @@ class _View extends StatelessWidget{
         height: 80,
       child: Column(
         children: <Widget>[
-          imageIcon(iconname:this.iconname),
+          ImageIcon(iconname:'source/icon_$iconname.png'),
           new Container(
             padding: const EdgeInsets.only(top: 10),
             child: Text(this.title,style: TextStyle(fontSize: 12),),
@@ -160,12 +153,11 @@ class _View extends StatelessWidget{
     );
   }
 }
-class imageIcon extends StatelessWidget{
+class ImageIcon extends StatelessWidget{
   final String iconname;
-  imageIcon({this.iconname});
+  ImageIcon({this.iconname});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Container(
         padding: const EdgeInsets.only(top: 10),
         child: Image.asset(this.iconname,width: 40,),
@@ -174,12 +166,12 @@ class imageIcon extends StatelessWidget{
   }
 }
 
-class myText extends StatelessWidget{
+class MyText extends StatelessWidget{
   final String title;
   final Color backgroundColor;
   double fontSize;
 
-  myText({this.title,this.backgroundColor,this.fontSize});
+  MyText({this.title,this.backgroundColor,this.fontSize});
   @override Widget build(BuildContext context){
     return new Container(
       padding: const EdgeInsets.all(20),
