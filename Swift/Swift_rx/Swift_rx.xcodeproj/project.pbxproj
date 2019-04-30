@@ -23,6 +23,8 @@
 		EE1318C82276E21A00A41D33 /* DateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318C62276E21A00A41D33 /* DateController.xib */; };
 		EE1318CB2276E7AB00A41D33 /* TBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318C92276E7AB00A41D33 /* TBViewController.swift */; };
 		EE1318CC2276E7AB00A41D33 /* TBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318CA2276E7AB00A41D33 /* TBViewController.xib */; };
+		EE1318CF2277DD6900A41D33 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318CD2277DD6900A41D33 /* ImageViewController.swift */; };
+		EE1318D02277DD6900A41D33 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318CE2277DD6900A41D33 /* ImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		EE1318C62276E21A00A41D33 /* DateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateController.xib; sourceTree = "<group>"; };
 		EE1318C92276E7AB00A41D33 /* TBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBViewController.swift; sourceTree = "<group>"; };
 		EE1318CA2276E7AB00A41D33 /* TBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TBViewController.xib; sourceTree = "<group>"; };
+		EE1318CD2277DD6900A41D33 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		EE1318CE2277DD6900A41D33 /* ImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				EE1318C62276E21A00A41D33 /* DateController.xib */,
 				EE1318C92276E7AB00A41D33 /* TBViewController.swift */,
 				EE1318CA2276E7AB00A41D33 /* TBViewController.xib */,
+				EE1318CD2277DD6900A41D33 /* ImageViewController.swift */,
+				EE1318CE2277DD6900A41D33 /* ImageViewController.xib */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1318C42276DA7400A41D33 /* TextViewVC.xib in Resources */,
+				EE1318D02277DD6900A41D33 /* ImageViewController.xib in Resources */,
 				EE1318BF2276BF4700A41D33 /* MusicCell.xib in Resources */,
 				EE1318CC2276E7AB00A41D33 /* TBViewController.xib in Resources */,
 				EE1318B12276A72F00A41D33 /* LaunchScreen.storyboard in Resources */,
@@ -207,13 +214,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swift_rx/Pods-Swift_rx-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -251,6 +262,7 @@
 				EE1318BA2276BE2500A41D33 /* FYTableViewVC.swift in Sources */,
 				EE1318C32276DA7400A41D33 /* TextViewVC.swift in Sources */,
 				EE1318A72276A72E00A41D33 /* AppDelegate.swift in Sources */,
+				EE1318CF2277DD6900A41D33 /* ImageViewController.swift in Sources */,
 				EE1318BE2276BF4700A41D33 /* MusicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

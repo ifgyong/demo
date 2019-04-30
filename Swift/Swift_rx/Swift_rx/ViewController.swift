@@ -8,7 +8,9 @@
 
 import UIKit
 import RxSwift
+import SnapKit
 import RxCocoa
+import Kingfisher
 
 
 class ViewController: UIViewController {
@@ -34,8 +36,20 @@ class ViewController: UIViewController {
             "DateController",
             "TBViewController",
             "TextViewVC",
-            "FYTableViewVC"]
-        
+            "FYTableViewVC",
+            "ImageViewController"]
+        textField.snp.makeConstraints { (ConstraintMaker) in
+            ConstraintMaker.left.equalTo(self.view).offset(15)
+            ConstraintMaker.right.equalTo(self.view.snp_rightMargin).offset(-15)
+            ConstraintMaker.top.equalTo(self.view).offset(20+64+20)
+            ConstraintMaker.height.equalTo(40)
+        }
+        label.snp.makeConstraints { (make) in
+            make.left.right.equalTo(textField)
+            make.top.equalTo(textField.snp_bottomMargin).offset(30)
+            make.height.greaterThanOrEqualTo(15)
+        }
+        label.backgroundColor = UIColor.lightGray
         let model = Observable.just(vcs)
         
         tableView.register(UINib.init(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
@@ -43,6 +57,7 @@ class ViewController: UIViewController {
             let cell:MusicCell = tableView.dequeueReusableCell(withIdentifier: "MusicCell") as! MusicCell
             cell.nameLabel.text = element
             cell.selectionStyle = .none
+            cell.singerLabel.text = ""
             return cell
         }
             .disposed(by: disposebag)
@@ -63,6 +78,9 @@ class ViewController: UIViewController {
                 case 3:
                     vc = FYTableViewVC.init(nibName: "FYTableViewVC", bundle: nil)
                 break
+                case 4:
+                    vc = ImageViewController.init(nibName: "ImageViewController", bundle: nil)
+                    break
             default:
                  print("all skip")
             }
