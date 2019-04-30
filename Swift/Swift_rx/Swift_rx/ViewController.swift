@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         textField.placeholder = "默认输入文字label展示文字23"
 
+
         let test =  textField.rx
             test.text.orEmpty
                 .filter({ (Str) -> Bool in
