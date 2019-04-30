@@ -25,6 +25,10 @@
 		EE1318CC2276E7AB00A41D33 /* TBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318CA2276E7AB00A41D33 /* TBViewController.xib */; };
 		EE1318CF2277DD6900A41D33 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318CD2277DD6900A41D33 /* ImageViewController.swift */; };
 		EE1318D02277DD6900A41D33 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318CE2277DD6900A41D33 /* ImageViewController.xib */; };
+		EE1318D42277F5EB00A41D33 /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318D22277F5EB00A41D33 /* MVVMViewController.swift */; };
+		EE1318D52277F5EB00A41D33 /* MVVMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1318D32277F5EB00A41D33 /* MVVMViewController.xib */; };
+		EE1318D72277F5FB00A41D33 /* PerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318D62277F5FB00A41D33 /* PerModel.swift */; };
+		EE1318D92277F69000A41D33 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1318D82277F69000A41D33 /* PersonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		EE1318CA2276E7AB00A41D33 /* TBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TBViewController.xib; sourceTree = "<group>"; };
 		EE1318CD2277DD6900A41D33 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		EE1318CE2277DD6900A41D33 /* ImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		EE1318D22277F5EB00A41D33 /* MVVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
+		EE1318D32277F5EB00A41D33 /* MVVMViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MVVMViewController.xib; sourceTree = "<group>"; };
+		EE1318D62277F5FB00A41D33 /* PerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerModel.swift; sourceTree = "<group>"; };
+		EE1318D82277F69000A41D33 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 		EE1318A52276A72E00A41D33 /* Swift_rx */ = {
 			isa = PBXGroup;
 			children = (
+				EE1318D12277F5DA00A41D33 /* MVVM */,
 				EE1318A62276A72E00A41D33 /* AppDelegate.swift */,
 				EE1318A82276A72E00A41D33 /* ViewController.swift */,
 				EE1318AA2276A72E00A41D33 /* Main.storyboard */,
@@ -121,6 +130,17 @@
 				EE1318CE2277DD6900A41D33 /* ImageViewController.xib */,
 			);
 			name = VIew;
+			sourceTree = "<group>";
+		};
+		EE1318D12277F5DA00A41D33 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				EE1318D62277F5FB00A41D33 /* PerModel.swift */,
+				EE1318D82277F69000A41D33 /* PersonViewModel.swift */,
+				EE1318D22277F5EB00A41D33 /* MVVMViewController.swift */,
+				EE1318D32277F5EB00A41D33 /* MVVMViewController.xib */,
+			);
+			name = MVVM;
 			sourceTree = "<group>";
 		};
 		FCD03A83118BFBF5E4D900C6 /* Pods */ = {
@@ -192,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1318D52277F5EB00A41D33 /* MVVMViewController.xib in Resources */,
 				EE1318C42276DA7400A41D33 /* TextViewVC.xib in Resources */,
 				EE1318D02277DD6900A41D33 /* ImageViewController.xib in Resources */,
 				EE1318BF2276BF4700A41D33 /* MusicCell.xib in Resources */,
@@ -259,8 +280,11 @@
 				EE1318CB2276E7AB00A41D33 /* TBViewController.swift in Sources */,
 				EE1318A92276A72E00A41D33 /* ViewController.swift in Sources */,
 				EE1318C72276E21A00A41D33 /* DateController.swift in Sources */,
+				EE1318D92277F69000A41D33 /* PersonViewModel.swift in Sources */,
 				EE1318BA2276BE2500A41D33 /* FYTableViewVC.swift in Sources */,
 				EE1318C32276DA7400A41D33 /* TextViewVC.swift in Sources */,
+				EE1318D72277F5FB00A41D33 /* PerModel.swift in Sources */,
+				EE1318D42277F5EB00A41D33 /* MVVMViewController.swift in Sources */,
 				EE1318A72276A72E00A41D33 /* AppDelegate.swift in Sources */,
 				EE1318CF2277DD6900A41D33 /* ImageViewController.swift in Sources */,
 				EE1318BE2276BF4700A41D33 /* MusicCell.swift in Sources */,
