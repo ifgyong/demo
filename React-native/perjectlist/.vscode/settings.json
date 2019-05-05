@@ -1,0 +1,5 @@
+{
+    "typescript.validate.enable": false,
+    "flow.useNPMPackagedFlow": true,
+    "javascript.validate.enable": false,
+}
