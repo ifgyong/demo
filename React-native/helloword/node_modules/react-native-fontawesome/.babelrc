@@ -1,4 +1,0 @@
-{
-  "presets": ["es2015", "react-native"],
-  "plugins": ["transform-es2015-spread"]
-}
