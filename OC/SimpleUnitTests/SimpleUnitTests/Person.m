@@ -8,7 +8,20 @@
 
 #import "Person.h"
 
+@interface Person ()
+@end
+
 @implementation Person
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        self->privateName = @"privateName";
+        self->protectedName = @"protectedName";
+        self->packageName = @"packageName";
+        self->publicName = @"publicName";
+    }
+    return self;
+}
 -(instancetype)initWithDic:(NSDictionary *)dic{
     self = [super init];
     if (self) {
@@ -30,5 +43,21 @@
         }
     }
     return self;
+}
+@end
+
+@implementation Person2
+- (void)good{
+//    
+//    self->protectedName = @"1";
+//    self->packageName = @"2";
+//    self->publicName = @"3";
+//    self->privateName = @"4"; //报错
+//    
+//    Person *p=[Person new];
+//    p->protectedName = @"1";
+//    p->packageName = @"2";
+//    p->publicName = @"3";
+//    p->privateName = @"4";//报错
 }
 @end

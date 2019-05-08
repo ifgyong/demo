@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Person.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    Person2 *p2=[[Person2 alloc]init];
+    p2->packageName = @"packageName";
+    p2->publicName = @"publicName";
+    p2->protectedName = @"protectedName";
+    p2->privateName = @"privateName";
 }
 
 

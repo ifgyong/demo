@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-native": "registry:dt/react-native#0.42.0+20170324170601"
+  }
+}

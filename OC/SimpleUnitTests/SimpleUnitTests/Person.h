@@ -11,10 +11,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
+{
+@public
+    NSString *publicName;
+@private
+    NSString *privateName;
+@protected
+    NSString * protectedName;
+    @package
+    NSString *packageName;
+}
 @property (nonatomic,assign) NSInteger age;
 @property (nonatomic,copy) NSString *name;
 - (instancetype)initWithDic:(NSDictionary *)dic;
 
+@end
+@interface Person2 : Person
 @end
 
 NS_ASSUME_NONNULL_END
