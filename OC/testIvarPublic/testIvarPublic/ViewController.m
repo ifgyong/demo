@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
+    CFRunLoopRef ref = CFRunLoopGetCurrent();
     Person3 *p=[Person3 new];
     [p say];
     
