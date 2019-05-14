@@ -2366,48 +2366,43 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
 #if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
         mach_msg_header_t *msg = NULL;
         mach_port_t livePort = MACH_PORT_NULL;
-#elif DEPLOYMENT_TARGET_WINDOWS
-        HANDLE livePort = NULL;
-        Boolean windowsMessageReceived = false;
 #endif
+        //当前mode的 portset
         __CFPortSet waitSet = rlm->_portSet;
 
         __CFRunLoopUnsetIgnoreWakeUps(rl);
-
+// 开始处理 timer
         if (rlm->_observerMask & kCFRunLoopBeforeTimers) __CFRunLoopDoObservers(rl, rlm, kCFRunLoopBeforeTimers);
+        //开始处理 sources
         if (rlm->_observerMask & kCFRunLoopBeforeSources) __CFRunLoopDoObservers(rl, rlm, kCFRunLoopBeforeSources);
 
         __CFRunLoopDoBlocks(rl, rlm);
-
+//处理source0
         Boolean sourceHandledThisLoop = __CFRunLoopDoSources0(rl, rlm, stopAfterHandle);
         if (sourceHandledThisLoop) {
             __CFRunLoopDoBlocks(rl, rlm);
         }
 
         Boolean poll = sourceHandledThisLoop || (0ULL == timeout_context->termTSR);
-
+//第2次执行  第一次didDispatchPortLastTime = true
+//        主线程中 dispatchPort = _dispatch_get_main_queue_port_4CF()
         if (MACH_PORT_NULL != dispatchPort && !didDispatchPortLastTime) {
 #if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
             msg = (mach_msg_header_t *)msg_buffer;
             if (__CFRunLoopServiceMachPort(dispatchPort, &msg, sizeof(msg_buffer), &livePort, 0)) {
                 goto handle_msg;
             }
-#elif DEPLOYMENT_TARGET_WINDOWS
-            if (__CFRunLoopWaitForMultipleObjects(NULL, &dispatchPort, 0, 0, &livePort, NULL)) {
-                goto handle_msg;
-            }
 #endif
         }
 
         didDispatchPortLastTime = false;
-
+//通知 开始 waiting
 	if (!poll && (rlm->_observerMask & kCFRunLoopBeforeWaiting)) __CFRunLoopDoObservers(rl, rlm, kCFRunLoopBeforeWaiting);
+        //睡眠
 	__CFRunLoopSetSleeping(rl);
-	// do not do any user callouts after this point (after notifying of sleeping)
-
-        // Must push the local-to-this-activation ports in on every loop
-        // iteration, as this mode could be run re-entrantly and we don't
-        // want these ports to get serviced.
+	// 休眠之后 什么也不做
+        // 每个循环将本地端口 设置到激活端口
+        // mode可以重新运行，而我们m不希望这些端口得到服务。
 
         __CFPortSetInsert(dispatchPort, waitSet);
         
@@ -2425,15 +2420,15 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
             __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort, poll ? 0 : TIMEOUT_INFINITY);
             
             if (modeQueuePort != MACH_PORT_NULL && livePort == modeQueuePort) {
-                // Drain the internal queue. If one of the callout blocks sets the timerFired flag, break out and service the timer.
+                //清空内部队列，如果其中一个标示timefire，则终端并维护计时器
                 while (_dispatch_runloop_root_queue_perform_4CF(rlm->_queue));
-                if (rlm->_timerFired) {
-                    // Leave livePort as the queue port, and service timers below
-                    rlm->_timerFired = false;
-                    break;
-                } else {
-                    if (msg && msg != (mach_msg_header_t *)msg_buffer) free(msg);
-                }
+                    if (rlm->_timerFired) {
+                        // Leave livePort as the queue port, and service timers below
+                        rlm->_timerFired = false;
+                        break;
+                    } else {
+                        if (msg && msg != (mach_msg_header_t *)msg_buffer) free(msg);
+                    }
             } else {
                 // Go ahead and leave the inner loop.
                 break;
@@ -2448,19 +2443,10 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
         __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort, poll ? 0 : TIMEOUT_INFINITY);
 #endif
         
-        
-#elif DEPLOYMENT_TARGET_WINDOWS
-        // Here, use the app-supplied message queue mask. They will set this if they are interested in having this run loop receive windows messages.
-        __CFRunLoopWaitForMultipleObjects(waitSet, NULL, poll ? 0 : TIMEOUT_INFINITY, rlm->_msgQMask, &livePort, &windowsMessageReceived);
-#endif
-        
         __CFRunLoopLock(rl);
         __CFRunLoopModeLock(rlm);
 
-        // Must remove the local-to-this-activation ports in on every loop
-        // iteration, as this mode could be run re-entrantly and we don't
-        // want these ports to get serviced. Also, we don't want them left
-        // in there if this function returns.
+        //删除端口 在每个runloop，每个mode可以重新运行，而我们不希望这些端口继续服务，另外不想让他们离开，如果函数返回则返回。
 
         __CFPortSetRemove(dispatchPort, waitSet);
         
@@ -2468,64 +2454,24 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
 
         // user callouts now OK again
 	__CFRunLoopUnsetSleeping(rl);
+        //开始唤醒
 	if (!poll && (rlm->_observerMask & kCFRunLoopAfterWaiting)) __CFRunLoopDoObservers(rl, rlm, kCFRunLoopAfterWaiting);
-
+//标签：handle_msg
         handle_msg:;
         __CFRunLoopSetIgnoreWakeUps(rl);
-
-#if DEPLOYMENT_TARGET_WINDOWS
-        if (windowsMessageReceived) {
-            // These Win32 APIs cause a callout, so make sure we're unlocked first and relocked after
-            __CFRunLoopModeUnlock(rlm);
-	    __CFRunLoopUnlock(rl);
-
-            if (rlm->_msgPump) {
-                rlm->_msgPump();
-            } else {
-                MSG msg;
-                if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE | PM_NOYIELD)) {
-                    TranslateMessage(&msg);
-                    DispatchMessage(&msg);
-                }
-            }
-            
-            __CFRunLoopLock(rl);
-	    __CFRunLoopModeLock(rlm);
- 	    sourceHandledThisLoop = true;
-            
-            // To prevent starvation of sources other than the message queue, we check again to see if any other sources need to be serviced
-            // Use 0 for the mask so windows messages are ignored this time. Also use 0 for the timeout, because we're just checking to see if the things are signalled right now -- we will wait on them again later.
-            // NOTE: Ignore the dispatch source (it's not in the wait set anymore) and also don't run the observers here since we are polling.
-            __CFRunLoopSetSleeping(rl);
-            __CFRunLoopModeUnlock(rlm);
-            __CFRunLoopUnlock(rl);
-            
-            __CFRunLoopWaitForMultipleObjects(waitSet, NULL, 0, 0, &livePort, NULL);
-            
-            __CFRunLoopLock(rl);
-            __CFRunLoopModeLock(rlm);            
-            __CFRunLoopUnsetSleeping(rl);
-            // If we have a new live port then it will be handled below as normal
-        }
         
-        
-#endif
         if (MACH_PORT_NULL == livePort) {
             CFRUNLOOP_WAKEUP_FOR_NOTHING();
             // handle nothing
         } else if (livePort == rl->_wakeUpPort) {
             CFRUNLOOP_WAKEUP_FOR_WAKEUP();
             // do nothing on Mac OS
-#if DEPLOYMENT_TARGET_WINDOWS
-            // Always reset the wake up port, or risk spinning forever
-            ResetEvent(rl->_wakeUpPort);
-#endif
         }
 #if USE_DISPATCH_SOURCE_FOR_TIMERS
         else if (modeQueuePort != MACH_PORT_NULL && livePort == modeQueuePort) {
             CFRUNLOOP_WAKEUP_FOR_TIMER();
             if (!__CFRunLoopDoTimers(rl, rlm, mach_absolute_time())) {
-                // Re-arm the next timer, because we apparently fired early
+                // 计算下次fire的时间
                 __CFArmNextTimerInMode(rlm, rl);
             }
         }
@@ -2546,9 +2492,6 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
             __CFRunLoopModeUnlock(rlm);
             __CFRunLoopUnlock(rl);
             _CFSetTSD(__CFTSDKeyIsInGCDMainQ, (void *)6, NULL);
-#if DEPLOYMENT_TARGET_WINDOWS
-            void *msg = 0;
-#endif
             __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__(msg);
             _CFSetTSD(__CFTSDKeyIsInGCDMainQ, (void *)0, NULL);
 	        __CFRunLoopLock(rl);
@@ -2567,9 +2510,7 @@ static int32_t __CFRunLoopRun(CFRunLoopRef rl, CFRunLoopModeRef rlm, CFTimeInter
                         (void)mach_msg(reply, MACH_SEND_MSG, reply->msgh_size, 0, MACH_PORT_NULL, 0, MACH_PORT_NULL);
                         CFAllocatorDeallocate(kCFAllocatorSystemDefault, reply);
                         }
-            #elif DEPLOYMENT_TARGET_WINDOWS
-                    sourceHandledThisLoop = __CFRunLoopDoSource1(rl, rlm, rls) || sourceHandledThisLoop;
-            #endif
+#endif
                     }
             }
 #if DEPLOYMENT_TARGET_MACOSX || DEPLOYMENT_TARGET_EMBEDDED || DEPLOYMENT_TARGET_EMBEDDED_MINI
