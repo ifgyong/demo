@@ -17,6 +17,13 @@
 		EE53146B22815948002F5E03 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53146822815948002F5E03 /* Person.m */; };
 		EE53146E228159A0002F5E03 /* Person+add2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53146D228159A0002F5E03 /* Person+add2.m */; };
 		EE56B8A922893FAB00F7F005 /* CashReport.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56B8A822893FAB00F7F005 /* CashReport.m */; };
+		EE56BA0C22926BCF00F7F005 /* CreateShape.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA0B22926BCF00F7F005 /* CreateShape.m */; };
+		EE56BA0F2292876000F7F005 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA0E2292876000F7F005 /* Singleton.m */; };
+		EE56BA1322928E9500F7F005 /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA1222928E9500F7F005 /* Builder.m */; };
+		EE56BA162292A4F100F7F005 /* Copy_item.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA152292A4F100F7F005 /* Copy_item.m */; };
+		EE56BA192292AC0D00F7F005 /* MiddlePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA182292AC0D00F7F005 /* MiddlePlayer.m */; };
+		EE56BA1C2293834A00F7F005 /* BridgePatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA1B2293834A00F7F005 /* BridgePatter.m */; };
+		EE56BA1F2293F95D00F7F005 /* Person_2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA1E2293F95D00F7F005 /* Person_2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,20 @@
 		EE53146D228159A0002F5E03 /* Person+add2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+add2.m"; sourceTree = "<group>"; };
 		EE56B8A722893FAB00F7F005 /* CashReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashReport.h; sourceTree = "<group>"; };
 		EE56B8A822893FAB00F7F005 /* CashReport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReport.m; sourceTree = "<group>"; };
+		EE56BA0A22926BCF00F7F005 /* CreateShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateShape.h; sourceTree = "<group>"; };
+		EE56BA0B22926BCF00F7F005 /* CreateShape.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateShape.m; sourceTree = "<group>"; };
+		EE56BA0D2292876000F7F005 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		EE56BA0E2292876000F7F005 /* Singleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		EE56BA1122928E9500F7F005 /* Builder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Builder.h; sourceTree = "<group>"; };
+		EE56BA1222928E9500F7F005 /* Builder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
+		EE56BA142292A4F100F7F005 /* Copy_item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Copy_item.h; sourceTree = "<group>"; };
+		EE56BA152292A4F100F7F005 /* Copy_item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Copy_item.m; sourceTree = "<group>"; };
+		EE56BA172292AC0D00F7F005 /* MiddlePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiddlePlayer.h; sourceTree = "<group>"; };
+		EE56BA182292AC0D00F7F005 /* MiddlePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiddlePlayer.m; sourceTree = "<group>"; };
+		EE56BA1A2293834A00F7F005 /* BridgePatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgePatter.h; sourceTree = "<group>"; };
+		EE56BA1B2293834A00F7F005 /* BridgePatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgePatter.m; sourceTree = "<group>"; };
+		EE56BA1D2293F95D00F7F005 /* Person_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person_2.h; sourceTree = "<group>"; };
+		EE56BA1E2293F95D00F7F005 /* Person_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person_2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +99,7 @@
 				EE5314512281593C002F5E03 /* AppDelegate.m */,
 				EE5314532281593C002F5E03 /* ViewController.h */,
 				EE5314542281593C002F5E03 /* ViewController.m */,
+				EE56BA1022928E6E00F7F005 /* aof */,
 				EE56B8A722893FAB00F7F005 /* CashReport.h */,
 				EE56B8A822893FAB00F7F005 /* CashReport.m */,
 				EE5314562281593C002F5E03 /* Main.storyboard */,
@@ -87,6 +109,27 @@
 				EE53145F2281593D002F5E03 /* main.m */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		EE56BA1022928E6E00F7F005 /* aof */ = {
+			isa = PBXGroup;
+			children = (
+				EE56BA0A22926BCF00F7F005 /* CreateShape.h */,
+				EE56BA0B22926BCF00F7F005 /* CreateShape.m */,
+				EE56BA0D2292876000F7F005 /* Singleton.h */,
+				EE56BA0E2292876000F7F005 /* Singleton.m */,
+				EE56BA1122928E9500F7F005 /* Builder.h */,
+				EE56BA1222928E9500F7F005 /* Builder.m */,
+				EE56BA142292A4F100F7F005 /* Copy_item.h */,
+				EE56BA152292A4F100F7F005 /* Copy_item.m */,
+				EE56BA172292AC0D00F7F005 /* MiddlePlayer.h */,
+				EE56BA182292AC0D00F7F005 /* MiddlePlayer.m */,
+				EE56BA1A2293834A00F7F005 /* BridgePatter.h */,
+				EE56BA1B2293834A00F7F005 /* BridgePatter.m */,
+				EE56BA1D2293F95D00F7F005 /* Person_2.h */,
+				EE56BA1E2293F95D00F7F005 /* Person_2.m */,
+			);
+			path = aof;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +203,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE56BA1322928E9500F7F005 /* Builder.m in Sources */,
+				EE56BA1F2293F95D00F7F005 /* Person_2.m in Sources */,
+				EE56BA162292A4F100F7F005 /* Copy_item.m in Sources */,
+				EE56BA1C2293834A00F7F005 /* BridgePatter.m in Sources */,
+				EE56BA192292AC0D00F7F005 /* MiddlePlayer.m in Sources */,
+				EE56BA0C22926BCF00F7F005 /* CreateShape.m in Sources */,
+				EE56BA0F2292876000F7F005 /* Singleton.m in Sources */,
 				EE5314552281593C002F5E03 /* ViewController.m in Sources */,
 				EE5314602281593D002F5E03 /* main.m in Sources */,
 				EE56B8A922893FAB00F7F005 /* CashReport.m in Sources */,
@@ -307,8 +357,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU5CP57746;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = test/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,8 +377,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU5CP57746;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = test/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
