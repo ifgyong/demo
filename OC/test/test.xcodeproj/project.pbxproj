@@ -15,7 +15,6 @@
 		EE53145D2281593D002F5E03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE53145B2281593D002F5E03 /* LaunchScreen.storyboard */; };
 		EE5314602281593D002F5E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53145F2281593D002F5E03 /* main.m */; };
 		EE53146B22815948002F5E03 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53146822815948002F5E03 /* Person.m */; };
-		EE53146E228159A0002F5E03 /* Person+add2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53146D228159A0002F5E03 /* Person+add2.m */; };
 		EE56B8A922893FAB00F7F005 /* CashReport.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56B8A822893FAB00F7F005 /* CashReport.m */; };
 		EE56BA0C22926BCF00F7F005 /* CreateShape.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA0B22926BCF00F7F005 /* CreateShape.m */; };
 		EE56BA0F2292876000F7F005 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA0E2292876000F7F005 /* Singleton.m */; };
@@ -24,6 +23,16 @@
 		EE56BA192292AC0D00F7F005 /* MiddlePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA182292AC0D00F7F005 /* MiddlePlayer.m */; };
 		EE56BA1C2293834A00F7F005 /* BridgePatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA1B2293834A00F7F005 /* BridgePatter.m */; };
 		EE56BA1F2293F95D00F7F005 /* Person_2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA1E2293F95D00F7F005 /* Person_2.m */; };
+		EE56BA222294DD0400F7F005 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA212294DD0400F7F005 /* Employee.m */; };
+		EE56BA252294E1AD00F7F005 /* Shape_2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA242294E1AD00F7F005 /* Shape_2.m */; };
+		EE56BA282294EB8500F7F005 /* Shape_4.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA272294EB8500F7F005 /* Shape_4.m */; };
+		EE56BA2B2294F19D00F7F005 /* Shape_5.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA2A2294F19D00F7F005 /* Shape_5.m */; };
+		EE56BA2E2294F74D00F7F005 /* DelegateImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA2D2294F74D00F7F005 /* DelegateImage.m */; };
+		EE56BA312294FF7B00F7F005 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA302294FF7B00F7F005 /* Logger.m */; };
+		EE56BA342295196200F7F005 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA332295196200F7F005 /* Order.m */; };
+		EE56BA3722952AAA00F7F005 /* Pattern.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA3622952AAA00F7F005 /* Pattern.m */; };
+		EE56BA3A2295307E00F7F005 /* Iterator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA392295307E00F7F005 /* Iterator.m */; };
+		EE56BA3D2295447500F7F005 /* ChatRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA3C2295447500F7F005 /* ChatRoom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +49,6 @@
 		EE53145F2281593D002F5E03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EE53146822815948002F5E03 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../../SimpleUnitTests/SimpleUnitTests/Person.m; sourceTree = "<group>"; };
 		EE53146922815948002F5E03 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../../SimpleUnitTests/SimpleUnitTests/Person.h; sourceTree = "<group>"; };
-		EE53146C228159A0002F5E03 /* Person+add2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+add2.h"; sourceTree = "<group>"; };
-		EE53146D228159A0002F5E03 /* Person+add2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+add2.m"; sourceTree = "<group>"; };
 		EE56B8A722893FAB00F7F005 /* CashReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashReport.h; sourceTree = "<group>"; };
 		EE56B8A822893FAB00F7F005 /* CashReport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReport.m; sourceTree = "<group>"; };
 		EE56BA0A22926BCF00F7F005 /* CreateShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateShape.h; sourceTree = "<group>"; };
@@ -58,6 +65,26 @@
 		EE56BA1B2293834A00F7F005 /* BridgePatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgePatter.m; sourceTree = "<group>"; };
 		EE56BA1D2293F95D00F7F005 /* Person_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person_2.h; sourceTree = "<group>"; };
 		EE56BA1E2293F95D00F7F005 /* Person_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person_2.m; sourceTree = "<group>"; };
+		EE56BA202294DD0400F7F005 /* Employee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		EE56BA212294DD0400F7F005 /* Employee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		EE56BA232294E1AD00F7F005 /* Shape_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shape_2.h; sourceTree = "<group>"; };
+		EE56BA242294E1AD00F7F005 /* Shape_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shape_2.m; sourceTree = "<group>"; };
+		EE56BA262294EB8500F7F005 /* Shape_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shape_4.h; sourceTree = "<group>"; };
+		EE56BA272294EB8500F7F005 /* Shape_4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shape_4.m; sourceTree = "<group>"; };
+		EE56BA292294F19D00F7F005 /* Shape_5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shape_5.h; sourceTree = "<group>"; };
+		EE56BA2A2294F19D00F7F005 /* Shape_5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shape_5.m; sourceTree = "<group>"; };
+		EE56BA2C2294F74D00F7F005 /* DelegateImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateImage.h; sourceTree = "<group>"; };
+		EE56BA2D2294F74D00F7F005 /* DelegateImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelegateImage.m; sourceTree = "<group>"; };
+		EE56BA2F2294FF7B00F7F005 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		EE56BA302294FF7B00F7F005 /* Logger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		EE56BA322295196200F7F005 /* Order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		EE56BA332295196200F7F005 /* Order.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		EE56BA3522952AAA00F7F005 /* Pattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
+		EE56BA3622952AAA00F7F005 /* Pattern.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pattern.m; sourceTree = "<group>"; };
+		EE56BA382295307E00F7F005 /* Iterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iterator.h; sourceTree = "<group>"; };
+		EE56BA392295307E00F7F005 /* Iterator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Iterator.m; sourceTree = "<group>"; };
+		EE56BA3B2295447500F7F005 /* ChatRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatRoom.h; sourceTree = "<group>"; };
+		EE56BA3C2295447500F7F005 /* ChatRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRoom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +120,6 @@
 				A5990B1822899D980099D56E /* CF-855.17 */,
 				EE53146922815948002F5E03 /* Person.h */,
 				EE53146822815948002F5E03 /* Person.m */,
-				EE53146C228159A0002F5E03 /* Person+add2.h */,
-				EE53146D228159A0002F5E03 /* Person+add2.m */,
 				EE5314502281593C002F5E03 /* AppDelegate.h */,
 				EE5314512281593C002F5E03 /* AppDelegate.m */,
 				EE5314532281593C002F5E03 /* ViewController.h */,
@@ -116,6 +141,14 @@
 			children = (
 				EE56BA0A22926BCF00F7F005 /* CreateShape.h */,
 				EE56BA0B22926BCF00F7F005 /* CreateShape.m */,
+				EE56BA3B2295447500F7F005 /* ChatRoom.h */,
+				EE56BA3C2295447500F7F005 /* ChatRoom.m */,
+				EE56BA382295307E00F7F005 /* Iterator.h */,
+				EE56BA392295307E00F7F005 /* Iterator.m */,
+				EE56BA3522952AAA00F7F005 /* Pattern.h */,
+				EE56BA3622952AAA00F7F005 /* Pattern.m */,
+				EE56BA322295196200F7F005 /* Order.h */,
+				EE56BA332295196200F7F005 /* Order.m */,
 				EE56BA0D2292876000F7F005 /* Singleton.h */,
 				EE56BA0E2292876000F7F005 /* Singleton.m */,
 				EE56BA1122928E9500F7F005 /* Builder.h */,
@@ -128,6 +161,18 @@
 				EE56BA1B2293834A00F7F005 /* BridgePatter.m */,
 				EE56BA1D2293F95D00F7F005 /* Person_2.h */,
 				EE56BA1E2293F95D00F7F005 /* Person_2.m */,
+				EE56BA202294DD0400F7F005 /* Employee.h */,
+				EE56BA212294DD0400F7F005 /* Employee.m */,
+				EE56BA232294E1AD00F7F005 /* Shape_2.h */,
+				EE56BA242294E1AD00F7F005 /* Shape_2.m */,
+				EE56BA262294EB8500F7F005 /* Shape_4.h */,
+				EE56BA272294EB8500F7F005 /* Shape_4.m */,
+				EE56BA292294F19D00F7F005 /* Shape_5.h */,
+				EE56BA2A2294F19D00F7F005 /* Shape_5.m */,
+				EE56BA2C2294F74D00F7F005 /* DelegateImage.h */,
+				EE56BA2D2294F74D00F7F005 /* DelegateImage.m */,
+				EE56BA2F2294FF7B00F7F005 /* Logger.h */,
+				EE56BA302294FF7B00F7F005 /* Logger.m */,
 			);
 			path = aof;
 			sourceTree = "<group>";
@@ -205,17 +250,26 @@
 			files = (
 				EE56BA1322928E9500F7F005 /* Builder.m in Sources */,
 				EE56BA1F2293F95D00F7F005 /* Person_2.m in Sources */,
+				EE56BA2B2294F19D00F7F005 /* Shape_5.m in Sources */,
 				EE56BA162292A4F100F7F005 /* Copy_item.m in Sources */,
+				EE56BA3D2295447500F7F005 /* ChatRoom.m in Sources */,
 				EE56BA1C2293834A00F7F005 /* BridgePatter.m in Sources */,
 				EE56BA192292AC0D00F7F005 /* MiddlePlayer.m in Sources */,
+				EE56BA3722952AAA00F7F005 /* Pattern.m in Sources */,
+				EE56BA342295196200F7F005 /* Order.m in Sources */,
+				EE56BA252294E1AD00F7F005 /* Shape_2.m in Sources */,
 				EE56BA0C22926BCF00F7F005 /* CreateShape.m in Sources */,
+				EE56BA2E2294F74D00F7F005 /* DelegateImage.m in Sources */,
+				EE56BA312294FF7B00F7F005 /* Logger.m in Sources */,
 				EE56BA0F2292876000F7F005 /* Singleton.m in Sources */,
+				EE56BA282294EB8500F7F005 /* Shape_4.m in Sources */,
 				EE5314552281593C002F5E03 /* ViewController.m in Sources */,
 				EE5314602281593D002F5E03 /* main.m in Sources */,
 				EE56B8A922893FAB00F7F005 /* CashReport.m in Sources */,
 				EE53146B22815948002F5E03 /* Person.m in Sources */,
-				EE53146E228159A0002F5E03 /* Person+add2.m in Sources */,
 				EE5314522281593C002F5E03 /* AppDelegate.m in Sources */,
+				EE56BA222294DD0400F7F005 /* Employee.m in Sources */,
+				EE56BA3A2295307E00F7F005 /* Iterator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

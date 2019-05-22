@@ -18,6 +18,16 @@
 #import "aof/MiddlePlayer.h"
 #import "aof/BridgePatter.h"
 #import "aof/Person_2.h"
+#import "aof/Employee.h"
+#import "aof/Shape_2.h"
+#import "aof/Shape_4.h"
+#import "aof/Shape_5.h"
+#import "aof/DelegateImage.h"
+#import "aof/Logger.h"
+#import "aof/Order.h"
+#import "aof/Pattern.h"
+#import "aof/Iterator.h"
+#import "aof/ChatRoom.h"
 
 @class NSPortMessage;
 @interface ViewController ()<NSMachPortDelegate>
@@ -34,7 +44,115 @@
 //    [self skeletonThreadMain];
 //    [self test];
 //    [self threadMain];
-    [self test_person2];
+    [self test_user];
+}
+- (void)test_user{
+    User *us=[User User:@"Robert"];
+    User *john=[User User:@"John"];
+    [us sendMessage:@"hi!John"];
+    [john sendMessage:@"Hello!Robert"];
+
+}
+- (void)test_itertor{
+    NameRepository *res=[[NameRepository alloc]init];
+    for (NameIterator *itertor= [res getIterator]; [itertor hasNext]; ) {
+        NSString *name = (NSString *)itertor.next;
+        NSLog(@"name:%@",name);
+    }
+}
+- (id<PatternProtocol> )getMaleTer{
+    TerminalExpression *ter1=[TerminalExpression TerminalExpression:@"Rob"];
+    TerminalExpression *ter2=[TerminalExpression TerminalExpression:@"John"];
+    return [orTerminalExpression TerminalExpression:ter1 or:ter2];
+}
+- (id<PatternProtocol> )getMarriedWodn{
+    TerminalExpression *ter1=[TerminalExpression TerminalExpression:@"Julie"];
+    TerminalExpression *ter2=[TerminalExpression TerminalExpression:@"Married"];
+    return [andTerminalExpression TerminalExpression:ter1 or:ter2];
+}
+- (void)test_pattern{
+    id <PatternProtocol> ter =[self getMaleTer];
+    id<PatternProtocol> ter2 =[self getMarriedWodn];
+    NSLog(@"John is male? %d",[ter interpret:@"John"]);
+    NSLog(@"Julie is a married women? ? %d",[ter2 interpret:@"Married Julie"]);
+
+}
+- (void)test_order{
+    Stock *st=[[Stock alloc]init];
+    BuyStock *buyst=[BuyStock BuyStock:st];
+    SellStock *sell=[SellStock SellStock:st];
+    Order *order=[[Order alloc]init];
+    [order takeOrder:buyst];
+    [order takeOrder:sell];
+    [order placeOrder];
+}
+- (AbstractLogger *)getChainOfLoggers{
+    AbstractLogger *log=[ErrorLogger ErrorLogger:LevelError];
+    AbstractLogger *file=[FileLogger FileLogger:LevelDEBUG];
+    AbstractLogger *console=[ConsoleLogger consoleLogger:LevelInfo];
+    log.nextLogger = file;
+    file.nextLogger = console;
+    return log;
+}
+- (void)test_log{
+    AbstractLogger *log=[self getChainOfLoggers];
+    [log logMessage:LevelInfo msg:@"this is info"];
+    [log logMessage:LevelDEBUG msg:@"thi is debug"];
+    [log logMessage:LevelError msg:@"this is error"];
+}
+- (void)test_delegate{
+    id<ImageProtocol> obj =[ProxyImage ProxyImage:@"test_01.jpg"];
+    //第一次需要从个磁盘加载
+    [obj display];
+    NSLog(@" ");
+    //不需要从磁盘加载
+    [obj display];
+}
+- (void)test_shape5{
+    NSArray *colors = @[@"white",@"Blue",@"black",@"Red"];
+    Shape_5_Factory *f=[[Shape_5_Factory alloc]init];
+    for (int i = 0; i < 20; i ++) {
+        Circle_5 *c5=[f getShape:colors[arc4random()%4]];
+        c5.x = arc4random()%100;
+        c5.y = arc4random() %100;
+        c5.radius = arc4random() % 100;
+        [c5 draw];
+    }
+}
+- (void)test_shape4{
+    Shape_4_Maker *make=[Shape_4_Maker initWithCircle:[Cirle_4 new] rectang:[Rectangle_4 new]];
+    [make drawCircle];
+    [make drawRectang];
+}
+- (void)test_shape2{
+    Circle_3 *s1 =[[Circle_3 alloc]init];
+    ShapeDecorator *d1=[ShapeDecorator new];
+    d1.obj = s1;
+    ShapeDecorator *d2 =[Shape_3 new];
+    d2.obj = [Rectangle_3 new];
+    NSLog(@"Circle with normal border");
+    [s1 draw];
+    NSLog(@"Circle of red border");
+    [d1 draw];
+    NSLog(@"Rectangle of red border");
+    [d2 draw];
+}
+- (void)test_employee{
+    Employee *ceo=[[Employee alloc]initWithName:@"Kimi" dept:@"CEO" sal:99999];
+    Employee *l1=[[Employee alloc]initWithName:@"Bob" dept:@"CTO" sal:8];
+    Employee *l2=[[Employee alloc]initWithName:@"Job" dept:@"COO" sal:7];
+    Employee *l3=[[Employee alloc]initWithName:@"Linder" dept:@"COO" sal:6];
+    [ceo add:l1];
+    [l1 add:l2];
+    [l1 add:l3];
+    NSLog(@"%@",ceo.description);
+    for (Employee *item in ceo.subordinates) {
+        NSLog(@"%@",item.description);
+        for (Employee *item2 in item.subordinates) {
+            NSLog(@"%@",item2.description);
+        }
+    }
+    
 }
 - (void)test_person2{
     
