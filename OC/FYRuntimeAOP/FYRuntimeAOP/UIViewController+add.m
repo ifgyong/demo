@@ -24,9 +24,12 @@
 
     if (vcloadMethod && new_loadMethod) {
         static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            method_exchangeImplementations(vcloadMethod, new_loadMethod);
-        });
+        if (!class_addMethod([self class], @selector(viewDidLoad), method_getImplementation(vcloadMethod), method_getTypeEncoding(vcloadMethod))) {
+            dispatch_once(&onceToken, ^{
+                method_exchangeImplementations(vcloadMethod, new_loadMethod);
+            });
+        }
+       
     }
     {
         Method alloc = class_getClassMethod(vcclass, @selector(alloc));
