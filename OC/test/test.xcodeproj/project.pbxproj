@@ -33,6 +33,12 @@
 		EE56BA3722952AAA00F7F005 /* Pattern.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA3622952AAA00F7F005 /* Pattern.m */; };
 		EE56BA3A2295307E00F7F005 /* Iterator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA392295307E00F7F005 /* Iterator.m */; };
 		EE56BA3D2295447500F7F005 /* ChatRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA3C2295447500F7F005 /* ChatRoom.m */; };
+		EE56BA402296258B00F7F005 /* MementoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA3F2296258B00F7F005 /* MementoObj.m */; };
+		EE56BA4322962D9700F7F005 /* SubjectOb.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA4222962D9700F7F005 /* SubjectOb.m */; };
+		EE56BA462296365E00F7F005 /* FYState.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA452296365E00F7F005 /* FYState.m */; };
+		EE56BA4922963E2F00F7F005 /* Strategy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA4822963E2F00F7F005 /* Strategy.m */; };
+		EE56BA4C229643BD00F7F005 /* ComputerPartObj.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA4B229643BD00F7F005 /* ComputerPartObj.m */; };
+		EE56BA4F2296490800F7F005 /* TemplatePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA4E2296490800F7F005 /* TemplatePattern.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +91,18 @@
 		EE56BA392295307E00F7F005 /* Iterator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Iterator.m; sourceTree = "<group>"; };
 		EE56BA3B2295447500F7F005 /* ChatRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatRoom.h; sourceTree = "<group>"; };
 		EE56BA3C2295447500F7F005 /* ChatRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRoom.m; sourceTree = "<group>"; };
+		EE56BA3E2296258B00F7F005 /* MementoObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MementoObj.h; sourceTree = "<group>"; };
+		EE56BA3F2296258B00F7F005 /* MementoObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MementoObj.m; sourceTree = "<group>"; };
+		EE56BA4122962D9700F7F005 /* SubjectOb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectOb.h; sourceTree = "<group>"; };
+		EE56BA4222962D9700F7F005 /* SubjectOb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectOb.m; sourceTree = "<group>"; };
+		EE56BA442296365E00F7F005 /* FYState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYState.h; sourceTree = "<group>"; };
+		EE56BA452296365E00F7F005 /* FYState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYState.m; sourceTree = "<group>"; };
+		EE56BA4722963E2F00F7F005 /* Strategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Strategy.h; sourceTree = "<group>"; };
+		EE56BA4822963E2F00F7F005 /* Strategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Strategy.m; sourceTree = "<group>"; };
+		EE56BA4A229643BD00F7F005 /* ComputerPartObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputerPartObj.h; sourceTree = "<group>"; };
+		EE56BA4B229643BD00F7F005 /* ComputerPartObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputerPartObj.m; sourceTree = "<group>"; };
+		EE56BA4D2296490800F7F005 /* TemplatePattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemplatePattern.h; sourceTree = "<group>"; };
+		EE56BA4E2296490800F7F005 /* TemplatePattern.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplatePattern.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +159,18 @@
 			children = (
 				EE56BA0A22926BCF00F7F005 /* CreateShape.h */,
 				EE56BA0B22926BCF00F7F005 /* CreateShape.m */,
+				EE56BA4D2296490800F7F005 /* TemplatePattern.h */,
+				EE56BA4E2296490800F7F005 /* TemplatePattern.m */,
+				EE56BA4A229643BD00F7F005 /* ComputerPartObj.h */,
+				EE56BA4B229643BD00F7F005 /* ComputerPartObj.m */,
+				EE56BA4722963E2F00F7F005 /* Strategy.h */,
+				EE56BA4822963E2F00F7F005 /* Strategy.m */,
+				EE56BA442296365E00F7F005 /* FYState.h */,
+				EE56BA452296365E00F7F005 /* FYState.m */,
+				EE56BA4122962D9700F7F005 /* SubjectOb.h */,
+				EE56BA4222962D9700F7F005 /* SubjectOb.m */,
+				EE56BA3E2296258B00F7F005 /* MementoObj.h */,
+				EE56BA3F2296258B00F7F005 /* MementoObj.m */,
 				EE56BA3B2295447500F7F005 /* ChatRoom.h */,
 				EE56BA3C2295447500F7F005 /* ChatRoom.m */,
 				EE56BA382295307E00F7F005 /* Iterator.h */,
@@ -254,6 +284,7 @@
 				EE56BA162292A4F100F7F005 /* Copy_item.m in Sources */,
 				EE56BA3D2295447500F7F005 /* ChatRoom.m in Sources */,
 				EE56BA1C2293834A00F7F005 /* BridgePatter.m in Sources */,
+				EE56BA462296365E00F7F005 /* FYState.m in Sources */,
 				EE56BA192292AC0D00F7F005 /* MiddlePlayer.m in Sources */,
 				EE56BA3722952AAA00F7F005 /* Pattern.m in Sources */,
 				EE56BA342295196200F7F005 /* Order.m in Sources */,
@@ -262,7 +293,11 @@
 				EE56BA2E2294F74D00F7F005 /* DelegateImage.m in Sources */,
 				EE56BA312294FF7B00F7F005 /* Logger.m in Sources */,
 				EE56BA0F2292876000F7F005 /* Singleton.m in Sources */,
+				EE56BA4C229643BD00F7F005 /* ComputerPartObj.m in Sources */,
 				EE56BA282294EB8500F7F005 /* Shape_4.m in Sources */,
+				EE56BA4922963E2F00F7F005 /* Strategy.m in Sources */,
+				EE56BA4F2296490800F7F005 /* TemplatePattern.m in Sources */,
+				EE56BA4322962D9700F7F005 /* SubjectOb.m in Sources */,
 				EE5314552281593C002F5E03 /* ViewController.m in Sources */,
 				EE5314602281593D002F5E03 /* main.m in Sources */,
 				EE56B8A922893FAB00F7F005 /* CashReport.m in Sources */,
@@ -270,6 +305,7 @@
 				EE5314522281593C002F5E03 /* AppDelegate.m in Sources */,
 				EE56BA222294DD0400F7F005 /* Employee.m in Sources */,
 				EE56BA3A2295307E00F7F005 /* Iterator.m in Sources */,
+				EE56BA402296258B00F7F005 /* MementoObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

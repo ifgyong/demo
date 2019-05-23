@@ -28,9 +28,15 @@
 #import "aof/Pattern.h"
 #import "aof/Iterator.h"
 #import "aof/ChatRoom.h"
+#import "aof/MementoObj.h"
+#import "aof/SubjectOb.h"
+#import "aof/FYState.h"
+#import "aof/Strategy.h"
+#import "aof/ComputerPartObj.h"
+#import "aof/TemplatePattern.h"
 
 @class NSPortMessage;
-@interface ViewController ()<NSMachPortDelegate>
+@interface ViewController ()<NSMachPortDelegate,ValueChangeProtocol>
 {
     
 }
@@ -44,7 +50,58 @@
 //    [self skeletonThreadMain];
 //    [self test];
 //    [self threadMain];
-    [self test_user];
+    [self test_ball];
+}
+- (void)test_ball{
+    Game *foot=[Football new];
+    [foot play];
+    Game *pp=[PingPangBall new];
+    [pp play];
+}
+- (void)test_visitor{
+    ComputerPart *part=[Computer new];
+    [part accept:[ComputerDisplayVisitor new]];
+}
+- (void)test_strategy{
+    Context_1 *context =[Context_1 Context_1:[OperationMultiply alloc]];
+    NSLog(@"2*4=%ld",(long)[context exce:2 and:4]);
+    Context_1 * contexe2 =[Context_1 Context_1:[Opertation alloc]];
+    NSLog(@"2+4=%ld",(long)[contexe2 exce:2 and:4]);
+}
+- (void)test_state{
+    Context *context = [[Context alloc]init];
+    StartState *start =[[StartState alloc]init];
+    [start doAction:context];
+    NSLog(@"%@",[[context state] performSelector:@selector(toString)]);
+    StopState *stop =[[StopState alloc]init];
+    [stop doAction:context];
+    NSLog(@"%@",[[context state] performSelector:@selector(toString)]);
+}
+- (void)test_subject{
+    SubjectOb *obj=[[SubjectOb alloc]init];
+    [obj attach:self];
+    obj.state  = 2;
+    obj.state = 3;
+}
+- (void)didChange{
+    NSLog(@"value change");
+}
+
+- (void)test_taker{
+    Originator *ori=[Originator new];
+    CareTaker *care =[CareTaker new];
+    ori.stateStr = @"state #1";
+    ori.stateStr = @"state #2";
+    [care add:[ori saveMement]];
+    ori.stateStr = @"state #3";
+    [care add:[ori saveMement]];
+    ori.stateStr = @"state #4";
+    NSLog(@"current: %@",[ori stateStr]);
+    [ori getMementState:[care get:0]];
+    NSLog(@"first: %@",[ori stateStr]);
+    [ori getMementState:[care get:1]];
+    NSLog(@"second: %@",[ori stateStr]);
+
 }
 - (void)test_user{
     User *us=[User User:@"Robert"];
