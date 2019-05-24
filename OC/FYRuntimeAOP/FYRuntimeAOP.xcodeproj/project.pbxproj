@@ -16,6 +16,8 @@
 		EE56BA7A22968FDB00F7F005 /* UIViewController+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA7922968FDB00F7F005 /* UIViewController+add.m */; };
 		EE56BA7D22969EE100F7F005 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA7C22969EE100F7F005 /* ViewController2.m */; };
 		EE56BA802296A46000F7F005 /* AOPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA7F2296A46000F7F005 /* AOPViewController.m */; };
+		EE56BA83229795CE00F7F005 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA82229795CE00F7F005 /* Aspects.m */; };
+		EE56BA862297D25000F7F005 /* ViewController3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BA852297D25000F7F005 /* ViewController3ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		EE56BA7C22969EE100F7F005 /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		EE56BA7E2296A46000F7F005 /* AOPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPViewController.h; sourceTree = "<group>"; };
 		EE56BA7F2296A46000F7F005 /* AOPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPViewController.m; sourceTree = "<group>"; };
+		EE56BA81229795CE00F7F005 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		EE56BA82229795CE00F7F005 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		EE56BA842297D25000F7F005 /* ViewController3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController3ViewController.h; sourceTree = "<group>"; };
+		EE56BA852297D25000F7F005 /* ViewController3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController3ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +79,14 @@
 				EE56BA6022968BDE00F7F005 /* ViewController.m */,
 				EE56BA7B22969EE100F7F005 /* ViewController2.h */,
 				EE56BA7C22969EE100F7F005 /* ViewController2.m */,
+				EE56BA842297D25000F7F005 /* ViewController3ViewController.h */,
+				EE56BA852297D25000F7F005 /* ViewController3ViewController.m */,
 				EE56BA7E2296A46000F7F005 /* AOPViewController.h */,
 				EE56BA7F2296A46000F7F005 /* AOPViewController.m */,
 				EE56BA7822968FDB00F7F005 /* UIViewController+add.h */,
 				EE56BA7922968FDB00F7F005 /* UIViewController+add.m */,
+				EE56BA81229795CE00F7F005 /* Aspects.h */,
+				EE56BA82229795CE00F7F005 /* Aspects.m */,
 				EE56BA6222968BDE00F7F005 /* Main.storyboard */,
 				EE56BA6522968BDF00F7F005 /* Assets.xcassets */,
 				EE56BA6722968BDF00F7F005 /* LaunchScreen.storyboard */,
@@ -157,7 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE56BA6122968BDE00F7F005 /* ViewController.m in Sources */,
+				EE56BA83229795CE00F7F005 /* Aspects.m in Sources */,
 				EE56BA802296A46000F7F005 /* AOPViewController.m in Sources */,
+				EE56BA862297D25000F7F005 /* ViewController3ViewController.m in Sources */,
 				EE56BA6C22968BDF00F7F005 /* main.m in Sources */,
 				EE56BA7D22969EE100F7F005 /* ViewController2.m in Sources */,
 				EE56BA7A22968FDB00F7F005 /* UIViewController+add.m in Sources */,

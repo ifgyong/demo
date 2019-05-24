@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <objc/objc.h>
+#include <objc/NSObjCRuntime.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
