@@ -20,11 +20,11 @@
     [super viewDidLoad];
 //    [self logSelf];
     sleep(2);
-    printf("%s:%.2f \n",__func__,CFAbsoluteTimeGetCurrent());
+    printf("%s %s:%.2f \n",NSStringFromClass(self.class).UTF8String,__func__,CFAbsoluteTimeGetCurrent());
     // Do any additional setup after loading the view.
 }
 - (void)say{
-    NSLog(@"%@",__func__);
+    NSLog(@"%s",__func__);
 }
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     ViewController2 *vc=[[ViewController2 alloc]init];

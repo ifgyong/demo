@@ -18,7 +18,8 @@ static NSString * const FYAOPMessageSubClassSuffix = @"_FYAOPMessageSubClassSuff
 
 @implementation UIViewController (add)
 + (void)load{
-    [UIViewController getAllViewControllerDownDidLoadTime];
+//    [UIViewController getAllViewControllerDownDidLoadTime];
+//    NSLog(@"%@ %s",NSStringFromClass(self.class),__func__);
 }
 +(instancetype)fy_alloc{
     return [UIViewController fy_alloc];
@@ -29,7 +30,6 @@ static NSString * const FYAOPMessageSubClassSuffix = @"_FYAOPMessageSubClassSuff
     if ([self isSubclassOfClass:[UIViewController class]] &&
         [classList containsObject:NSStringFromClass(self)] == NO) {
         NSLog(@"%@",NSStringFromClass(self.class));
-//        [self fy_exchangeDidLoad:self.class];
         fy_setAllHookClassAndSel(self);
     }
 }
