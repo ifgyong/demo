@@ -101,7 +101,7 @@ class nocopy_t {
 #   include <mach-o/getsect.h>
 #   include <mach-o/dyld_priv.h>
 #   include <malloc/malloc.h>
-//#   include <os/lock_private.h> 暂时注释掉
+#   include <os/lock_private.h>
 #   include <libkern/OSAtomic.h>
 #   include <libkern/OSCacheControl.h>
 #   include <System/pthread_machdep.h>

@@ -552,10 +552,10 @@ void fixupCopiedIvars(id newObject, id oldObject)
                 while ((byte = *weakLayout++)) {
                     unsigned skips = (byte >> 4);
                     unsigned weaks = (byte & 0x0F);
-                    newPtr += skips, oldPtr += skips;
+                    static_cast<void>(newPtr += skips), oldPtr += skips;
                     while (weaks--) {
                         objc_copyWeak(newPtr, oldPtr);
-                        ++newPtr, ++oldPtr;
+                        static_cast<void>(++newPtr), ++oldPtr;
                     }
                 }
             }

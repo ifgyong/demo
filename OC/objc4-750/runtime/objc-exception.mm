@@ -581,7 +581,7 @@ void objc_exception_throw(id obj)
     
     OBJC_RUNTIME_OBJC_EXCEPTION_THROW(obj);  // dtrace probe to log throw activity
     __cxa_throw(exc, &exc->tinfo, &_objc_exception_destructor);
-    __builtin_trap();
+//    __builtin_trap();
 }
 
 
