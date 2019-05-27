@@ -7,6 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
+#import <dlfcn.h>
+#import <mach-o/ldsyms.h>
+
+
 struct NSObject_IMPL {
     Class isa;
 };
@@ -37,8 +43,30 @@ struct Student_IMPL {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"key1",nil];
-    NSLog(@"d:%@",dic);
+    void (^block)(int)=^(int a){
+        NSLog(@"block:%d",a);
+    };
+//    IMP imp = imp_implementationWithBlock(block);
+    
+    void(*fun)(id,SEL) = (void*)imp_implementationWithBlock(block);
+    block(2);
+    fun(nil,NULL);
+    Class newClass = objc_allocateClassPair(objc_getClass("NSObject"), "newClass", 0);
+    
+    SEL _sel = sel_registerName("log2");
+
+    class_addMethod(newClass, _sel, (IMP)fun, "v:i");
+    objc_registerClassPair(newClass);
+    [[newClass new] performSelector:_sel withObject:@(3)];
+    
+    
+    void (^block2)(void) = ^(void){
+        NSLog(@"block2");
+    };
+    void (*fun2)(id,SEL) =(void *) imp_implementationWithBlock(block2);
+    fun2(nil,NULL);
+    
+    
     
 }
 

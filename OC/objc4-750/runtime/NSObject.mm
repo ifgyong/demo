@@ -2007,13 +2007,19 @@ void arr_init(void)
 
 + (BOOL)isKindOfClass:(Class)cls {
     for (Class tcls = object_getClass((id)self); tcls; tcls = tcls->superclass) {
-        if (tcls == cls) return YES;
+        printf("%s %s\n",class_getName(tcls),class_getName(cls));
+        if (tcls == cls)
+        {return YES;}else{
+            printf("%s",class_getName(tcls));
+        }
     }
     return NO;
 }
 
 - (BOOL)isKindOfClass:(Class)cls {
     for (Class tcls = [self class]; tcls; tcls = tcls->superclass) {
+
+        printf(" %s %s\n",class_getName(tcls),class_getName(cls));
         if (tcls == cls) return YES;
     }
     return NO;

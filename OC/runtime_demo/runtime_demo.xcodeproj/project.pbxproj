@@ -16,6 +16,7 @@
 		A57B672A2268B26F005B9C18 /* runtime_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A57B67292268B26F005B9C18 /* runtime_demoTests.m */; };
 		A57B67352268B26F005B9C18 /* runtime_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A57B67342268B26F005B9C18 /* runtime_demoUITests.m */; };
 		A57B67462268BE8C005B9C18 /* ClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A57B67452268BE8C005B9C18 /* ClassInfo.m */; };
+		EE56BAE6229BC95100F7F005 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BAE4229BC95100F7F005 /* Aspects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		A57B67362268B26F005B9C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57B67442268BE8C005B9C18 /* ClassInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassInfo.h; sourceTree = "<group>"; };
 		A57B67452268BE8C005B9C18 /* ClassInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassInfo.m; sourceTree = "<group>"; };
+		EE56BAE4229BC95100F7F005 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		EE56BAE5229BC95100F7F005 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 		A57B670F2268B26E005B9C18 /* runtime_demo */ = {
 			isa = PBXGroup;
 			children = (
+				EE56BAE5229BC95100F7F005 /* Aspects.h */,
+				EE56BAE4229BC95100F7F005 /* Aspects.m */,
 				A57B67102268B26E005B9C18 /* AppDelegate.h */,
 				A57B67112268B26E005B9C18 /* AppDelegate.m */,
 				A57B67132268B26E005B9C18 /* ViewController.h */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE56BAE6229BC95100F7F005 /* Aspects.m in Sources */,
 				A57B67462268BE8C005B9C18 /* ClassInfo.m in Sources */,
 				A57B67152268B26E005B9C18 /* ViewController.m in Sources */,
 				A57B67202268B26F005B9C18 /* main.m in Sources */,
