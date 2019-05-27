@@ -42,6 +42,38 @@
         Class aclass = NSClassFromString(name);
         if ([aclass isSubclassOfClass:UIViewController.class]) {
             NSLog(@"name:%@",name);
+            if (1) {
+                SEL didload = @selector(viewDidLoad);
+                
+                Method md = class_getInstanceMethod(aclass, didload);
+                IMP load = method_getImplementation(md);
+                void(*loadFunc)(id,SEL) = (void *)load;
+                if (md) {
+                    __block typeof(Class) __blockClass = aclass;
+//                    __block typeof(IMP) __blockIMP = load;
+                    __block typeof(loadFunc)__blockFunc = loadFunc;
+                    void (^block)(id _self) = ^(id _self){
+//                        Class cl = (Class )_self;
+//                        NSLog(@"class=%s",class_getName(cl));
+                        CFAbsoluteTime time1= CFAbsoluteTimeGetCurrent();
+                        __blockFunc(aclass,NULL);
+                        NSLog(@"%s %.2f",class_getName(__blockClass),CFAbsoluteTimeGetCurrent() - time1);
+//                        SEL _sel = sel_registerName("fy_ViewDidLoad");
+//                        Method md2 = class_getInstanceMethod(__blockClass, _sel);
+//                        if (md2) {
+//
+//                        }else{
+//                            BOOL add = class_addMethod(aclass, _sel, __blockIMP, method_getTypeEncoding(md));
+//                            if (add) {
+//                                [aclass performSelector:_sel];
+//                            }
+//                        }
+                        
+                    };
+                    void(*func)(id,SEL) =(void*)imp_implementationWithBlock(block);
+                    class_replaceMethod(aclass, didload, (IMP)func, method_getTypeEncoding(md));
+                }
+            }
         }
     }
 }

@@ -1,24 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t0i-za-hYv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="I4O-YE-gVc">
+            <objects>
+                <navigationController id="t0i-za-hYv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r8K-HV-Qb6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1da-ys-Cyp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="om8-0F-Vpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-855" y="38"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-mc-gKF">
+                                <rect key="frame" x="124" y="238" width="135" height="81"/>
+                                <state key="normal" title="push"/>
+                                <connections>
+                                    <action selector="push:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dab-rT-t0N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="th3-I5-pad">
+                                <rect key="frame" x="132" y="449" width="135" height="30"/>
+                                <state key="normal" title="pop"/>
+                                <connections>
+                                    <action selector="pop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jKq-EY-p3J"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a9V-mc-gKF" secondAttribute="bottom" constant="348" id="COY-ME-adb"/>
+                            <constraint firstItem="th3-I5-pad" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="132" id="G7R-yb-Kks"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="th3-I5-pad" secondAttribute="trailing" constant="108" id="NDv-XY-7G0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="th3-I5-pad" secondAttribute="bottom" constant="188" id="OKh-zb-LWa"/>
+                            <constraint firstItem="a9V-mc-gKF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="PcZ-dX-BAT"/>
+                            <constraint firstItem="a9V-mc-gKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="hWS-3u-bHg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a9V-mc-gKF" secondAttribute="trailing" constant="116" id="xl1-6w-4rf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AZk-MI-zAA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="114.69265367316342"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="KGK-5L-9b6">
+            <objects>
+                <viewController storyboardIdentifier="ViewController2" id="Vc2-SA-HQF" customClass="ViewController2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KZg-h4-at8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QW0-kY-Pg5">
+                                <rect key="frame" x="124" y="194" width="135" height="125"/>
+                                <state key="normal" title="push"/>
+                                <connections>
+                                    <action selector="push:" destination="Vc2-SA-HQF" eventType="touchUpInside" id="Ve5-o7-xUP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHS-5v-1f5">
+                                <rect key="frame" x="132" y="449" width="135" height="30"/>
+                                <state key="normal" title="pop"/>
+                                <connections>
+                                    <action selector="pop:" destination="Vc2-SA-HQF" eventType="touchUpInside" id="sEL-NA-dml"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QW0-kY-Pg5" firstAttribute="top" secondItem="tf0-qp-fFX" secondAttribute="top" constant="174" id="5H8-fi-ciN"/>
+                            <constraint firstItem="tf0-qp-fFX" firstAttribute="trailing" secondItem="QW0-kY-Pg5" secondAttribute="trailing" constant="116" id="6DL-yn-HjB"/>
+                            <constraint firstItem="QW0-kY-Pg5" firstAttribute="leading" secondItem="tf0-qp-fFX" secondAttribute="leading" constant="124" id="7dY-QR-cU6"/>
+                            <constraint firstItem="YHS-5v-1f5" firstAttribute="leading" secondItem="tf0-qp-fFX" secondAttribute="leading" constant="132" id="Hps-kh-MkQ"/>
+                            <constraint firstItem="tf0-qp-fFX" firstAttribute="trailing" secondItem="YHS-5v-1f5" secondAttribute="trailing" constant="108" id="WKo-IV-odz"/>
+                            <constraint firstItem="tf0-qp-fFX" firstAttribute="bottom" secondItem="YHS-5v-1f5" secondAttribute="bottom" constant="188" id="XI6-Lz-kuc"/>
+                            <constraint firstItem="tf0-qp-fFX" firstAttribute="bottom" secondItem="QW0-kY-Pg5" secondAttribute="bottom" constant="348" id="dj5-zY-58q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tf0-qp-fFX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f6i-j8-ekS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLA-bA-c98" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="115"/>
         </scene>
     </scenes>
 </document>
