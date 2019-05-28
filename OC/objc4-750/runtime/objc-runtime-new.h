@@ -225,8 +225,7 @@ struct method_t {
     MethodListIMP imp;
 
     struct SortBySELAddress :
-        public std::binary_function<const method_t&,
-                                    const method_t&, bool>
+        public std::binary_function<const method_t&,const method_t&, bool>
     {
         bool operator() (const method_t& lhs,
                          const method_t& rhs)

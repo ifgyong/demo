@@ -562,7 +562,7 @@ static void cache_fill_nolock(Class cls, SEL sel, IMP imp, id receiver)
 {
     cacheUpdateLock.assertLocked();
 
-    // Never cache before +initialize is done
+    //当initialized 没有执行完毕的时候不缓存
     if (!cls->isInitialized()) return;
 
     // Make sure the entry wasn't added to the cache by some other thread 

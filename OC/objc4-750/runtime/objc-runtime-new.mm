@@ -4735,7 +4735,8 @@ getMethodNoSuper_nolock(Class cls, SEL sel)
     // fixme nil cls? 
     // fixme nil sel?
 
-    for (auto mlists = cls->data()->methods.beginLists(), 
+
+    for (auto mlists = cls->data()->methods.beginLists(),
               end = cls->data()->methods.endLists(); 
          mlists != end;
          ++mlists)
@@ -4907,6 +4908,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     if (imp) goto done;
 
     // Try this class's method lists.
+    //在本类中查找method
     {
         Method meth = getMethodNoSuper_nolock(cls, sel);
         if (meth) {
@@ -4987,8 +4989,11 @@ IMP lookUpImpOrNil(Class cls, SEL sel, id inst,
                    bool initialize, bool cache, bool resolver)
 {
     IMP imp = lookUpImpOrForward(cls, sel, inst, initialize, cache, resolver);
-    if (imp == _objc_msgForward_impcache) return nil;
-    else return imp;
+    if (imp == _objc_msgForward_impcache) {
+        return nil;
+    }else {
+        return imp;
+    }
 }
 
 
@@ -5690,7 +5695,7 @@ addMethod(Class cls, SEL name, IMP imp, const char *types, bool replace)
     checkIsKnownClass(cls);
     
     assert(types);
-    assert(cls->isRealized());
+    assert(cls->isRealized());//
 
     method_t *m;
     if ((m = getMethodNoSuper_nolock(cls, name))) {
