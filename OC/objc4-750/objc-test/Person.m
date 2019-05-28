@@ -8,5 +8,7 @@
 #import "Person.h"
 
 @implementation Person
-
+- (void)say{
+    NSLog(@"===== %s ",__func__);
+}
 @end
