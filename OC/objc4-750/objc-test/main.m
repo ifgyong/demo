@@ -14,31 +14,32 @@
 
 
 void checkClassKindAndMember(void);
-static void register_Block(void);
+static void register_Block(SEL _sel);
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        register_Block();
-        register_Block();
+        register_Block(@selector(say));
+        register_Block(@selector(hello));
         Person *p =  [[Person new] init];
         Class aclass = Person.class;
         SEL didload = @selector(say);
-        Method md = class_getInstanceMethod(aclass, didload);
+//        Method md = class_getInstanceMethod(aclass, didload);
         IMP imp= class_getMethodImplementation(aclass, didload);
-        NSLog(@"new2IMP:%p",imp);
+        NSLog(@"IMP:%p",imp);
 
         [p say];
+        [p hello];
     }
     return 0;
 }
-static void register_Block(void){
-    SEL didload = @selector(say);
+static void register_Block(SEL _sel){
+    SEL didload = _sel;
     Class aclass = Person.class;
     Method md = class_getInstanceMethod(aclass, didload);
     
     if (md) {
         //获取didload函数的的IMP
         IMP load = method_getImplementation(md);
-        NSLog(@"load:%p",load);
+//        NSLog(@"load:%p",load);
         void(*loadFunc)(id,SEL) = (void *)load;
         __block typeof(Class) __blockClass = aclass;
         __block typeof(loadFunc)__blockFunc = loadFunc;
@@ -68,11 +69,11 @@ static void register_Block(void){
         };
 //        IMP new1 = class_getMethodImplementation(aclass, didload);
 //        NSLog(@"new1IMP:%p",new1);
-        void(*func2)(id,SEL) =(void*)imp_implementationWithBlock(block2);
-        class_replaceMethod(aclass, didload, (IMP)func2, method_getTypeEncoding(md));
+        IMP blockIMP = imp_implementationWithBlock(block2);
+        void(*func2)(id,SEL) =(void*)blockIMP;
         class_replaceMethod(aclass, didload, (IMP)func2, method_getTypeEncoding(md));
 
         IMP new2 = class_getMethodImplementation(aclass, didload);
-        NSLog(@"new2IMP:%p block2:%p",new2,block2);
+        NSLog(@"new2IMP:%p func:%p block2:%p blockIMP:%ld",new2,func2,block2,sizeof(blockIMP));
     }
 }

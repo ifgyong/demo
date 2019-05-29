@@ -11,4 +11,7 @@
 - (void)say{
     NSLog(@"===== %s ",__func__);
 }
+- (void)hello{
+    NSLog(@"%s",__func__);
+}
 @end
