@@ -11,26 +11,31 @@
 #import <dlfcn.h>
 #import <mach-o/ldsyms.h>
 #import "Person.h"
+#include "ffi.h"
 
 
 void checkClassKindAndMember(void);
 static void register_Block(SEL _sel);
+
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        register_Block(@selector(say));
-        register_Block(@selector(hello));
-        Person *p =  [[Person new] init];
-        Class aclass = Person.class;
-        SEL didload = @selector(say);
-//        Method md = class_getInstanceMethod(aclass, didload);
-        IMP imp= class_getMethodImplementation(aclass, didload);
-        NSLog(@"IMP:%p",imp);
-
-        [p say];
-        [p hello];
+//        register_Block(@selector(say));
+//        register_Block(@selector(hello));
+//        Person *p =  [[Person new] init];
+//        Class aclass = Person.class;
+//        SEL didload = @selector(say);
+//        IMP imp= class_getMethodImplementation(aclass, didload);
+//        NSLog(@"IMP:%p",imp);
+//
+//        [p say];
+//        [p hello];
+        
+        hookC();
     }
     return 0;
 }
+
 static void register_Block(SEL _sel){
     SEL didload = _sel;
     Class aclass = Person.class;
@@ -71,6 +76,7 @@ static void register_Block(SEL _sel){
 //        NSLog(@"new1IMP:%p",new1);
         IMP blockIMP = imp_implementationWithBlock(block2);
         void(*func2)(id,SEL) =(void*)blockIMP;
+//        sel_registerName(<#const char * _Nonnull str#>)
         class_replaceMethod(aclass, didload, (IMP)func2, method_getTypeEncoding(md));
 
         IMP new2 = class_getMethodImplementation(aclass, didload);

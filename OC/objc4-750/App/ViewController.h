@@ -6,9 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#include "ffi.h"
 @interface ViewController : UIViewController
 
 
 @end
 
+static void hookC(void);
+static int add(int,int);
+static int plus(void);

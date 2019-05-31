@@ -111,8 +111,8 @@ NXMapTable *NXCreateMapTableFromZone(NXMapTablePrototype prototype, unsigned cap
     }
     proto = (NXMapTablePrototype *)NXHashGet(prototypes, &prototype); 
     if (! proto) {
-	proto = (NXMapTablePrototype *)malloc(sizeof(NXMapTablePrototype));
-	*proto = prototype;
+        proto = (NXMapTablePrototype *)malloc(sizeof(NXMapTablePrototype));
+        *proto = prototype;
     	(void)NXHashInsert(prototypes, proto);
     }
     table->prototype = proto; table->count = 0;
@@ -315,46 +315,46 @@ void *NXMapInsert(NXMapTable *table, const void *key, const void *value) {
     unsigned	index = bucketOf(table, key);
     MapPair	*pair = pairs + index;
     if (key == NX_MAPNOTAKEY) {
-	_objc_inform("*** NXMapInsert: invalid key: -1\n");
-	return NULL;
+        _objc_inform("*** NXMapInsert: invalid key: -1\n");
+        return NULL;
     }
 
     unsigned numBuckets = table->nbBucketsMinusOne + 1;
 
     if (pair->key == NX_MAPNOTAKEY) {
-	pair->key = key; pair->value = value;
-	table->count++;
-	if (table->count * 4 > numBuckets * 3) _NXMapRehash(table);
-	return NULL;
+        pair->key = key; pair->value = value;
+        table->count++;
+        if (table->count * 4 > numBuckets * 3) _NXMapRehash(table);
+        return NULL;
     }
     
     if (isEqual(table, pair->key, key)) {
-	const void	*old = pair->value;
-	if (old != value) pair->value = value;/* avoid writing unless needed! */
-	return (void *)old;
+        const void	*old = pair->value;
+        if (old != value) pair->value = value;/* avoid writing unless needed! */
+        return (void *)old;
     } else if (table->count == numBuckets) {
-	/* no room: rehash and retry */
-	_NXMapRehash(table);
-	return NXMapInsert(table, key, value);
+        /* no room: rehash and retry */
+        _NXMapRehash(table);
+        return NXMapInsert(table, key, value);
     } else {
-	unsigned	index2 = index;
-	while ((index2 = nextIndex(table, index2)) != index) {
-	    pair = pairs + index2;
-	    if (pair->key == NX_MAPNOTAKEY) {
-		pair->key = key; pair->value = value;
-		table->count++;
-		if (table->count * 4 > numBuckets * 3) _NXMapRehash(table);
-		return NULL;
-	    }
-	    if (isEqual(table, pair->key, key)) {
-		const void	*old = pair->value;
-		if (old != value) pair->value = value;/* avoid writing unless needed! */
-		return (void *)old;
-	    }
+        unsigned	index2 = index;
+        while ((index2 = nextIndex(table, index2)) != index) {
+            pair = pairs + index2;
+            if (pair->key == NX_MAPNOTAKEY) {
+            pair->key = key; pair->value = value;
+            table->count++;
+            if (table->count * 4 > numBuckets * 3) _NXMapRehash(table);
+            return NULL;
+            }
+            if (isEqual(table, pair->key, key)) {
+            const void	*old = pair->value;
+            if (old != value) pair->value = value;/* avoid writing unless needed! */
+            return (void *)old;
+            }
 	}
-	/* no room: can't happen! */
-	_objc_inform("**** NXMapInsert: bug\n");
-	return NULL;
+        /* no room: can't happen! */
+        _objc_inform("**** NXMapInsert: bug\n");
+        return NULL;
     }
 }
 
