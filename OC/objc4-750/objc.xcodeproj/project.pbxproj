@@ -131,6 +131,18 @@
 		EE56BAE0229B7BDE00F7F005 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BADF229B7BDE00F7F005 /* ViewController2.m */; };
 		EE56BAE3229B7C0C00F7F005 /* FYLogCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BAE2229B7C0C00F7F005 /* FYLogCenter.m */; };
 		EE6ADC2F229CCECF00AAE5B6 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6ADC2E229CCECF00AAE5B6 /* NSObject+add.m */; };
+		EE6ADCC822A1080900AAE5B6 /* ffitarget_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8022A1080800AAE5B6 /* ffitarget_arm64.h */; };
+		EE6ADCC922A1080900AAE5B6 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8122A1080800AAE5B6 /* ffitarget.h */; };
+		EE6ADCCA22A1080900AAE5B6 /* ffi_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8222A1080800AAE5B6 /* ffi_arm.h */; };
+		EE6ADCCB22A1080900AAE5B6 /* ffi_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8322A1080800AAE5B6 /* ffi_i386.h */; };
+		EE6ADCCC22A1080900AAE5B6 /* ffitarget_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8422A1080800AAE5B6 /* ffitarget_x86_64.h */; };
+		EE6ADCCD22A1080900AAE5B6 /* ffi_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8522A1080800AAE5B6 /* ffi_x86_64.h */; };
+		EE6ADCCE22A1080900AAE5B6 /* ffitarget_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8622A1080800AAE5B6 /* ffitarget_arm.h */; };
+		EE6ADCCF22A1080900AAE5B6 /* ffitarget_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8722A1080800AAE5B6 /* ffitarget_i386.h */; };
+		EE6ADCD022A1080900AAE5B6 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6ADC8822A1080800AAE5B6 /* libffi.a */; };
+		EE6ADCD122A1080900AAE5B6 /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8922A1080800AAE5B6 /* ffi.h */; };
+		EE6ADCD222A1080900AAE5B6 /* ffi_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8A22A1080800AAE5B6 /* ffi_arm64.h */; };
+		EE6ADCDD22A11A4B00AAE5B6 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6ADC8822A1080800AAE5B6 /* libffi.a */; };
 		F9BCC71B205C68E800DD9AFC /* objc-blocktramps-arm64.s in Sources */ = {isa = PBXBuildFile; fileRef = 8379996D13CBAF6F007C2B5F /* objc-blocktramps-arm64.s */; };
 /* End PBXBuildFile section */
 
@@ -298,6 +310,17 @@
 		EE56BAE2229B7C0C00F7F005 /* FYLogCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYLogCenter.m; sourceTree = "<group>"; };
 		EE6ADC2D229CCECF00AAE5B6 /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
 		EE6ADC2E229CCECF00AAE5B6 /* NSObject+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+add.m"; sourceTree = "<group>"; };
+		EE6ADC8022A1080800AAE5B6 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		EE6ADC8122A1080800AAE5B6 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		EE6ADC8222A1080800AAE5B6 /* ffi_arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm.h; sourceTree = "<group>"; };
+		EE6ADC8322A1080800AAE5B6 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		EE6ADC8422A1080800AAE5B6 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
+		EE6ADC8522A1080800AAE5B6 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
+		EE6ADC8622A1080800AAE5B6 /* ffitarget_arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm.h; sourceTree = "<group>"; };
+		EE6ADC8722A1080800AAE5B6 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		EE6ADC8822A1080800AAE5B6 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
+		EE6ADC8922A1080800AAE5B6 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		EE6ADC8A22A1080800AAE5B6 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
 		F9BCC727205C68E800DD9AFC /* libobjc-trampolines.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libobjc-trampolines.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -313,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6ADCD022A1080900AAE5B6 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6ADCDD22A11A4B00AAE5B6 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +361,7 @@
 		08FB7794FE84155DC02AAC07 /* objc */ = {
 			isa = PBXGroup;
 			children = (
+				EE6ADC4322A1080800AAE5B6 /* Extensions */,
 				BC8B5D1212D3D48100C78A5B /* libauto.dylib */,
 				52BC309121C64DD50027D1EA /* Common */,
 				838485C60D6D687700CEA253 /* Public Headers */,
@@ -605,6 +631,40 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		EE6ADC4322A1080800AAE5B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE6ADC7C22A1080800AAE5B6 /* JPLibffi */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EE6ADC7C22A1080800AAE5B6 /* JPLibffi */ = {
+			isa = PBXGroup;
+			children = (
+				EE6ADC7F22A1080800AAE5B6 /* libffi */,
+			);
+			path = JPLibffi;
+			sourceTree = "<group>";
+		};
+		EE6ADC7F22A1080800AAE5B6 /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				EE6ADC8022A1080800AAE5B6 /* ffitarget_arm64.h */,
+				EE6ADC8122A1080800AAE5B6 /* ffitarget.h */,
+				EE6ADC8222A1080800AAE5B6 /* ffi_arm.h */,
+				EE6ADC8322A1080800AAE5B6 /* ffi_i386.h */,
+				EE6ADC8422A1080800AAE5B6 /* ffitarget_x86_64.h */,
+				EE6ADC8522A1080800AAE5B6 /* ffi_x86_64.h */,
+				EE6ADC8622A1080800AAE5B6 /* ffitarget_arm.h */,
+				EE6ADC8722A1080800AAE5B6 /* ffitarget_i386.h */,
+				EE6ADC8822A1080800AAE5B6 /* libffi.a */,
+				EE6ADC8922A1080800AAE5B6 /* ffi.h */,
+				EE6ADC8A22A1080800AAE5B6 /* ffi_arm64.h */,
+			);
+			path = libffi;
+			sourceTree = "<group>";
+		};
 		F9BCC72A205C6A1600DD9AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A4AEDE1EA08C7200ACADDE /* ObjectiveC.apinotes in Headers */,
+				EE6ADCCD22A1080900AAE5B6 /* ffi_x86_64.h in Headers */,
 				75A95051202BAA9A00D7D56F /* objc-locks.h in Headers */,
 				83A4AEDC1EA0840800ACADDE /* module.modulemap in Headers */,
 				830F2A980D738DC200392440 /* hashtable.h in Headers */,
@@ -641,18 +702,23 @@
 				838485F00D6D68A200CEA253 /* objc-auto.h in Headers */,
 				52BC309F21C6639D0027D1EA /* tsd_private.h in Headers */,
 				838485F40D6D68A200CEA253 /* objc-class.h in Headers */,
+				EE6ADCCE22A1080900AAE5B6 /* ffitarget_arm.h in Headers */,
 				838485F60D6D68A200CEA253 /* objc-config.h in Headers */,
 				838485F80D6D68A200CEA253 /* objc-exception.h in Headers */,
 				52B8691721C67E9300192B32 /* Block_private.h in Headers */,
 				52BC30AF21C66C020027D1EA /* pthread_machdep.h in Headers */,
+				EE6ADCC922A1080900AAE5B6 /* ffitarget.h in Headers */,
+				EE6ADCCC22A1080900AAE5B6 /* ffitarget_x86_64.h in Headers */,
 				52BC309721C659A60027D1EA /* dyld_priv.h in Headers */,
 				83BE02E80FCCB24D00661494 /* objc-file-old.h in Headers */,
 				52B8691921C67F5500192B32 /* objc-shared-cache.h in Headers */,
+				EE6ADCD222A1080900AAE5B6 /* ffi_arm64.h in Headers */,
 				83BE02E90FCCB24D00661494 /* objc-file.h in Headers */,
 				75A9504F202BAA0600D7D56F /* objc-locks-new.h in Headers */,
 				834266D80E665A8B002E4DA2 /* objc-gdb.h in Headers */,
 				838485FB0D6D68A200CEA253 /* objc-initialize.h in Headers */,
 				7593EC58202248E50046AB96 /* objc-object.h in Headers */,
+				EE6ADCCB22A1080900AAE5B6 /* ffi_i386.h in Headers */,
 				83112ED40F00599600A5FBAF /* objc-internal.h in Headers */,
 				838485FE0D6D68A200CEA253 /* objc-load.h in Headers */,
 				52BC30A721C665990027D1EA /* spinlock_private.h in Headers */,
@@ -660,22 +726,26 @@
 				75A95053202BAC4100D7D56F /* objc-lockdebug.h in Headers */,
 				52B8691521C67D7800192B32 /* CrashReporterClient.h in Headers */,
 				5228CE7921C684D30001A999 /* _simple.h in Headers */,
+				EE6ADCD122A1080900AAE5B6 /* ffi.h in Headers */,
 				831C85D50E10CF850066E64C /* objc-os.h in Headers */,
 				838486030D6D68A200CEA253 /* objc-private.h in Headers */,
 				393CEAC60DC69E67000B69DE /* objc-references.h in Headers */,
 				838486070D6D68A200CEA253 /* objc-runtime-new.h in Headers */,
 				83BE02EA0FCCB24D00661494 /* objc-runtime-old.h in Headers */,
+				EE6ADCCF22A1080900AAE5B6 /* ffitarget_i386.h in Headers */,
 				8384860A0D6D68A200CEA253 /* objc-runtime.h in Headers */,
 				8384860C0D6D68A200CEA253 /* objc-sel-set.h in Headers */,
 				52BC309A21C65B4A0027D1EA /* lock_private.h in Headers */,
 				52BC309C21C65F560027D1EA /* base_private.h in Headers */,
 				838486100D6D68A200CEA253 /* objc-sync.h in Headers */,
 				838486130D6D68A200CEA253 /* objc.h in Headers */,
+				EE6ADCC822A1080900AAE5B6 /* ffitarget_arm64.h in Headers */,
 				838486140D6D68A200CEA253 /* Object.h in Headers */,
 				8384861E0D6D68A800CEA253 /* Protocol.h in Headers */,
 				838486200D6D68A800CEA253 /* runtime.h in Headers */,
 				39ABD72312F0B61800D1054C /* objc-weak.h in Headers */,
 				83F4B52815E843B100E0926F /* NSObjCRuntime.h in Headers */,
+				EE6ADCCA22A1080900AAE5B6 /* ffi_arm.h in Headers */,
 				83F4B52915E843B100E0926F /* NSObject.h in Headers */,
 				52BC30A521C665360027D1EA /* tsd.h in Headers */,
 				5246421121C68926000909D5 /* isa.h in Headers */,
@@ -1001,6 +1071,10 @@
 				);
 				INSTALL_PATH = /usr/lib;
 				IS_ZIPPERED = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions/JPLibffi/libffi",
+				);
 				ORDER_FILE = "$(SRCROOT)/libobjc.order";
 				"ORDER_FILE[sdk=iphonesimulator*]" = "";
 				OTHER_CFLAGS = (
@@ -1083,6 +1157,10 @@
 				);
 				INSTALL_PATH = /usr/lib;
 				IS_ZIPPERED = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions/JPLibffi/libffi",
+				);
 				ORDER_FILE = "$(SRCROOT)/libobjc.order";
 				"ORDER_FILE[sdk=iphonesimulator*]" = "";
 				OTHER_CFLAGS = (
@@ -1388,6 +1466,10 @@
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions/JPLibffi/libffi",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = FY.App;
@@ -1422,6 +1504,10 @@
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions/JPLibffi/libffi",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = FY.App;
