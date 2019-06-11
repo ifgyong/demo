@@ -276,7 +276,7 @@ static void FYAspect_addLog(NSObject * self){
                     //将 block block 转化成 IMP 存储到SEL ViewDidload 中
                     if (FYAspect_getClassBlockSetCount((id)aclass, didload) == 0) {
                         FYAspect_setClassBlockCount((id)aclass, didload, 1);
-                        void(*func)(id,SEL) =(void*)imp_implementationWithBlock(block);
+                        void(*func)(id,SEL) = (void*)imp_implementationWithBlock(block);
                         class_replaceMethod(aclass, didload, (IMP)func, method_getTypeEncoding(md));
                     }
                 }

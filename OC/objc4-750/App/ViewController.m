@@ -32,11 +32,73 @@
 //    int time = arc4random() %30;
 //    usleep(100000 * time);
 
-    hookC();
+//    hookC();
+    void(^block)(void)=^{
+        NSLog(@"122");
+    };
+    struct Block_layout *layout =(__bridge void*)block;
+    
 }
 //static void ffi_closure(void){
 //
 //}
+#define BLOCK_DESCRIPTOR_1 1
+struct Block_descriptor_1 {
+    unsigned long int reserved;
+    unsigned long int size;
+};
+
+#define BLOCK_DESCRIPTOR_2 1
+struct Block_descriptor_2 {
+    // requires BLOCK_HAS_COPY_DISPOSE
+    void (*copy)(void *dst, const void *src);
+    void (*dispose)(const void *);
+};
+
+#define BLOCK_DESCRIPTOR_3 1
+struct Block_descriptor_3 {
+    // requires BLOCK_HAS_SIGNATURE
+    const char *signature;
+    const char *layout;
+};
+
+struct Block_layout {
+    void *isa;
+    volatile int flags; // contains ref count
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor_1 *descriptor;
+    // imported variables
+};
+enum {
+    BLOCK_DEALLOCATING =      (0x0001),  // runtime
+    BLOCK_REFCOUNT_MASK =     (0xfffe),  // runtime
+    BLOCK_NEEDS_FREE =        (1 << 24), // runtime
+    BLOCK_HAS_COPY_DISPOSE =  (1 << 25), // compiler
+    BLOCK_HAS_CTOR =          (1 << 26), // compiler: helpers have C++ code
+    BLOCK_IS_GC =             (1 << 27), // runtime
+    BLOCK_IS_GLOBAL =         (1 << 28), // compiler
+    BLOCK_USE_STRET =         (1 << 29), // compiler: undefined if !BLOCK_HAS_SIGNATURE
+    BLOCK_HAS_SIGNATURE  =    (1 << 30)  // compiler
+};
+NSString *signatureForBlock(id block) {
+    struct Block_layout *layout = (__bridge void *)block;
+    if (!(layout->flags & BLOCK_HAS_SIGNATURE))
+        return nil;
+    
+    void *descRef = layout->descriptor;
+    descRef += 2 * sizeof(unsigned long int);
+    
+    if (layout->flags & BLOCK_HAS_COPY_DISPOSE)
+        descRef += 2 * sizeof(void *);
+    
+    if (!descRef)
+        return nil;
+    
+    const char *signature = (*(const char **)descRef);
+    return [NSString stringWithUTF8String:signature];
+}
+
 static void hookC(void){
     //生成参数的type
     ffi_type **types;
