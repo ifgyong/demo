@@ -121,6 +121,7 @@
 		87BB4EA70EC39854005D08E1 /* objc-probes.d in Sources */ = {isa = PBXBuildFile; fileRef = 87BB4E900EC39633005D08E1 /* objc-probes.d */; };
 		9672F7EE14D5F488007CEC96 /* NSObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9672F7ED14D5F488007CEC96 /* NSObject.mm */; };
 		E8923DA5116AB2820071B552 /* objc-block-trampolines.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8923DA0116AB2820071B552 /* objc-block-trampolines.mm */; };
+		EE0D4B6122B2015B00F1BF9D /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = EE0D4B5F22B2015B00F1BF9D /* fishhook.c */; };
 		EE56BAC3229B777D00F7F005 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BAC2229B777D00F7F005 /* Person.m */; };
 		EE56BACC229B7A8A00F7F005 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BACB229B7A8A00F7F005 /* AppDelegate.m */; };
 		EE56BACF229B7A8A00F7F005 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BACE229B7A8A00F7F005 /* ViewController.m */; };
@@ -292,6 +293,8 @@
 		E8923D9C116AB2820071B552 /* objc-blocktramps-i386.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "objc-blocktramps-i386.s"; path = "runtime/objc-blocktramps-i386.s"; sourceTree = "<group>"; };
 		E8923D9D116AB2820071B552 /* objc-blocktramps-x86_64.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = "objc-blocktramps-x86_64.s"; path = "runtime/objc-blocktramps-x86_64.s"; sourceTree = "<group>"; };
 		E8923DA0116AB2820071B552 /* objc-block-trampolines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "objc-block-trampolines.mm"; path = "runtime/objc-block-trampolines.mm"; sourceTree = "<group>"; };
+		EE0D4B5F22B2015B00F1BF9D /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		EE0D4B6022B2015B00F1BF9D /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		EE56BAC1229B777D00F7F005 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		EE56BAC2229B777D00F7F005 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		EE56BAC8229B7A8A00F7F005 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -609,9 +612,19 @@
 			name = "Project Headers";
 			sourceTree = "<group>";
 		};
+		EE0D4B5E22B2015B00F1BF9D /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				EE0D4B5F22B2015B00F1BF9D /* fishhook.c */,
+				EE0D4B6022B2015B00F1BF9D /* fishhook.h */,
+			);
+			path = fishhook;
+			sourceTree = "<group>";
+		};
 		EE56BAC9229B7A8A00F7F005 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EE0D4B5E22B2015B00F1BF9D /* fishhook */,
 				EE56BACA229B7A8A00F7F005 /* AppDelegate.h */,
 				EE56BACB229B7A8A00F7F005 /* AppDelegate.m */,
 				EE56BACD229B7A8A00F7F005 /* ViewController.h */,
@@ -984,6 +997,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE56BACF229B7A8A00F7F005 /* ViewController.m in Sources */,
+				EE0D4B6122B2015B00F1BF9D /* fishhook.c in Sources */,
 				EE56BAE3229B7C0C00F7F005 /* FYLogCenter.m in Sources */,
 				EE56BAE0229B7BDE00F7F005 /* ViewController2.m in Sources */,
 				EE6ADC2F229CCECF00AAE5B6 /* NSObject+add.m in Sources */,
@@ -1455,8 +1469,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = PU5CP57746;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1498,7 +1514,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = PU5CP57746;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = App/Info.plist;

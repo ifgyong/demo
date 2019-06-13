@@ -13,12 +13,20 @@
 #import <mach-o/ldsyms.h>
 #import "ViewController2.h"
 #include <stdio.h>
+#include "fishhook/fishhook.h"
+
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
++(void)load{
+    
+    fy_rebind("class_replaceMethod",fy_class_replaceMethod,(void*)&ori_class_replaceMethod);
+    fy_rebind("class_replaceMethod",fy_class_replaceMethod_new,(void*)&ori_class_replaceMethod_new);
+
+}
 - (IBAction)push:(UIButton *)sender {
     ViewController2 *vc= [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"ViewController2"] ;
     [self.navigationController pushViewController:vc animated:YES];
@@ -33,15 +41,67 @@
 //    usleep(100000 * time);
 
 //    hookC();
-    void(^block)(void)=^{
-        NSLog(@"122");
-    };
-    struct Block_layout *layout =(__bridge void*)block;
-    
+//    void(^block)(void)=^{
+//        NSLog(@"122");
+//    };
+//    struct Block_layout *layout =(__bridge void*)block;
+
+    Class cl = object_getClass(self);
+    Class cl3= self.class;
+    Class cl2 = object_getClass(cl3);
+
+    if (cl == cl2) {
+        NSLog(@"cl == cl2");
+    }
+    test();
+
+}
+
+void fy_rebind(const char * selName,void *replacement,void **replaced){
+    struct rebinding ex;
+    ex.name = selName;
+    ex.replacement = replacement;
+    ex.replaced = replaced;
+    struct rebinding res[] = {ex};
+    rebind_symbols(res, 1);
+    // 初始化方法里进行替换
+//    rebind_symbols((struct rebinding[1]){{"NSLog", new_NSLog, (void *)&orig_NSLog}}, 1);
+}
+static Class (*orig_test)(id _Nullable obj);
+Class (new_test)(id _Nullable obj){
+    NSLog(@"func:%s %@",__func__,orig_test(obj));
+    return ViewController.class;
+}
+static IMP  (*ori_class_replaceMethod)(Class _Nullable __unsafe_unretained cls,SEL _Nonnull name,IMP _Nonnull imp,const char * _Nullable types);
+IMP (fy_class_replaceMethod)(Class _Nullable __unsafe_unretained cls,SEL _Nonnull name,IMP _Nonnull imp,const char * _Nullable types){
+    NSLog(@"class:%@ sel:%@ did exchange",NSStringFromClass(cls),NSStringFromSelector(name));
+    return ori_class_replaceMethod(cls, name, imp, types);
+}
+static IMP  (*ori_class_replaceMethod_new)(Class _Nullable __unsafe_unretained cls,SEL _Nonnull name,IMP _Nonnull imp,const char * _Nullable types);
+IMP (fy_class_replaceMethod_new)(Class _Nullable __unsafe_unretained cls,SEL _Nonnull name,IMP _Nonnull imp,const char * _Nullable types){
+    NSLog(@"cls2:%@ sel2:%@ did exchange",NSStringFromClass(cls),NSStringFromSelector(name));
+    return ori_class_replaceMethod(cls, name, imp, types);
+}
+
+void test(void){
+    NSLog(@"test 来了 老弟！");
 }
 //static void ffi_closure(void){
 //
 //}
+static void (*orig_NSLog)(NSString *format, ...);
+void(new_NSLog)(NSString *format, ...) {
+    va_list args;
+    if(format) {
+        va_start(args, format);
+        NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+        orig_NSLog(@"_%@", message);
+        va_end(args);
+    }
+}
+
+
+
 #define BLOCK_DESCRIPTOR_1 1
 struct Block_descriptor_1 {
     unsigned long int reserved;
