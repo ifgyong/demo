@@ -22,10 +22,10 @@
 
 @implementation ViewController
 +(void)load{
-    
-    fy_rebind("class_replaceMethod",fy_class_replaceMethod,(void*)&ori_class_replaceMethod);
-    fy_rebind("class_replaceMethod",fy_class_replaceMethod_new,(void*)&ori_class_replaceMethod_new);
-
+    NSLog(@"%s cls:%@",__func__,NSStringFromClass(self));
+//    fy_rebind("class_replaceMethod",fy_class_replaceMethod,(void*)&ori_class_replaceMethod);
+//    fy_rebind("_lookUpImpOrForward", new_lookUpImpOrForward,(void*)&ori_lookUpImpOrForward);
+//    fy_rebind("class_replaceMethod",fy_class_replaceMethod_new,(void*)&ori_class_replaceMethod_new);
 }
 - (IBAction)push:(UIButton *)sender {
     ViewController2 *vc= [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"ViewController2"] ;
@@ -46,24 +46,33 @@
 //    };
 //    struct Block_layout *layout =(__bridge void*)block;
 
-    Class cl = object_getClass(self);
-    Class cl3= self.class;
-    Class cl2 = object_getClass(cl3);
-
-    if (cl == cl2) {
-        NSLog(@"cl == cl2");
-    }
-    test();
+//    Class cl = object_getClass(self);
+//    Class cl3= self.class;
+//    Class cl2 = object_getClass(cl3);
+//
+//    if (cl == cl2) {
+//        NSLog(@"cl == cl2");
+//    }
+//    test();
 
 }
-
+static IMP (*ori_lookUpImpOrForward)(Class cls, SEL sel, id inst,
+                       bool initialize, bool cache, bool resolver);
+IMP (new_lookUpImpOrForward)(Class cls, SEL sel, id inst,
+                                    bool initialize, bool cache, bool resolver){
+    NSLog(@"new:%@ sel:%@",NSStringFromClass(cls),NSStringFromSelector(sel));
+    return ori_lookUpImpOrForward(cls,sel,inst,initialize,cache,resolver);
+}
 void fy_rebind(const char * selName,void *replacement,void **replaced){
     struct rebinding ex;
     ex.name = selName;
     ex.replacement = replacement;
     ex.replaced = replaced;
     struct rebinding res[] = {ex};
-    rebind_symbols(res, 1);
+   int ret = rebind_symbols(res, 1);
+    if (ret == 0) {
+        NSLog(@"%s did replaced",selName);
+    }
     // 初始化方法里进行替换
 //    rebind_symbols((struct rebinding[1]){{"NSLog", new_NSLog, (void *)&orig_NSLog}}, 1);
 }

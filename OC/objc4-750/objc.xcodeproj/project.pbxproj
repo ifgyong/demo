@@ -131,7 +131,6 @@
 		EE56BADA229B7A8B00F7F005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BAD9229B7A8B00F7F005 /* main.m */; };
 		EE56BAE0229B7BDE00F7F005 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BADF229B7BDE00F7F005 /* ViewController2.m */; };
 		EE56BAE3229B7C0C00F7F005 /* FYLogCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE56BAE2229B7C0C00F7F005 /* FYLogCenter.m */; };
-		EE6ADC2F229CCECF00AAE5B6 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6ADC2E229CCECF00AAE5B6 /* NSObject+add.m */; };
 		EE6ADCC822A1080900AAE5B6 /* ffitarget_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8022A1080800AAE5B6 /* ffitarget_arm64.h */; };
 		EE6ADCC922A1080900AAE5B6 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8122A1080800AAE5B6 /* ffitarget.h */; };
 		EE6ADCCA22A1080900AAE5B6 /* ffi_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8222A1080800AAE5B6 /* ffi_arm.h */; };
@@ -144,6 +143,7 @@
 		EE6ADCD122A1080900AAE5B6 /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8922A1080800AAE5B6 /* ffi.h */; };
 		EE6ADCD222A1080900AAE5B6 /* ffi_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6ADC8A22A1080800AAE5B6 /* ffi_arm64.h */; };
 		EE6ADCDD22A11A4B00AAE5B6 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6ADC8822A1080800AAE5B6 /* libffi.a */; };
+		EE95792F22C35C0E0069AAFD /* UIViewController+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE95792E22C35C0E0069AAFD /* UIViewController+add.m */; };
 		F9BCC71B205C68E800DD9AFC /* objc-blocktramps-arm64.s in Sources */ = {isa = PBXBuildFile; fileRef = 8379996D13CBAF6F007C2B5F /* objc-blocktramps-arm64.s */; };
 /* End PBXBuildFile section */
 
@@ -311,8 +311,6 @@
 		EE56BADF229B7BDE00F7F005 /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		EE56BAE1229B7C0C00F7F005 /* FYLogCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYLogCenter.h; sourceTree = "<group>"; };
 		EE56BAE2229B7C0C00F7F005 /* FYLogCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYLogCenter.m; sourceTree = "<group>"; };
-		EE6ADC2D229CCECF00AAE5B6 /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
-		EE6ADC2E229CCECF00AAE5B6 /* NSObject+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+add.m"; sourceTree = "<group>"; };
 		EE6ADC8022A1080800AAE5B6 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
 		EE6ADC8122A1080800AAE5B6 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
 		EE6ADC8222A1080800AAE5B6 /* ffi_arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm.h; sourceTree = "<group>"; };
@@ -324,6 +322,8 @@
 		EE6ADC8822A1080800AAE5B6 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
 		EE6ADC8922A1080800AAE5B6 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
 		EE6ADC8A22A1080800AAE5B6 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
+		EE95792D22C35C0E0069AAFD /* UIViewController+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+add.h"; sourceTree = "<group>"; };
+		EE95792E22C35C0E0069AAFD /* UIViewController+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+add.m"; sourceTree = "<group>"; };
 		F9BCC727205C68E800DD9AFC /* libobjc-trampolines.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libobjc-trampolines.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -615,8 +615,8 @@
 		EE0D4B5E22B2015B00F1BF9D /* fishhook */ = {
 			isa = PBXGroup;
 			children = (
-				EE0D4B5F22B2015B00F1BF9D /* fishhook.c */,
 				EE0D4B6022B2015B00F1BF9D /* fishhook.h */,
+				EE0D4B5F22B2015B00F1BF9D /* fishhook.c */,
 			);
 			path = fishhook;
 			sourceTree = "<group>";
@@ -631,10 +631,10 @@
 				EE56BACE229B7A8A00F7F005 /* ViewController.m */,
 				EE56BAE1229B7C0C00F7F005 /* FYLogCenter.h */,
 				EE56BAE2229B7C0C00F7F005 /* FYLogCenter.m */,
+				EE95792D22C35C0E0069AAFD /* UIViewController+add.h */,
+				EE95792E22C35C0E0069AAFD /* UIViewController+add.m */,
 				EE56BADE229B7BDE00F7F005 /* ViewController2.h */,
 				EE56BADF229B7BDE00F7F005 /* ViewController2.m */,
-				EE6ADC2D229CCECF00AAE5B6 /* NSObject+add.h */,
-				EE6ADC2E229CCECF00AAE5B6 /* NSObject+add.m */,
 				EE56BAD0229B7A8A00F7F005 /* Main.storyboard */,
 				EE56BAD3229B7A8B00F7F005 /* Assets.xcassets */,
 				EE56BAD5229B7A8B00F7F005 /* LaunchScreen.storyboard */,
@@ -998,9 +998,9 @@
 			files = (
 				EE56BACF229B7A8A00F7F005 /* ViewController.m in Sources */,
 				EE0D4B6122B2015B00F1BF9D /* fishhook.c in Sources */,
+				EE95792F22C35C0E0069AAFD /* UIViewController+add.m in Sources */,
 				EE56BAE3229B7C0C00F7F005 /* FYLogCenter.m in Sources */,
 				EE56BAE0229B7BDE00F7F005 /* ViewController2.m in Sources */,
-				EE6ADC2F229CCECF00AAE5B6 /* NSObject+add.m in Sources */,
 				EE56BADA229B7A8B00F7F005 /* main.m in Sources */,
 				EE56BACC229B7A8A00F7F005 /* AppDelegate.m in Sources */,
 			);

@@ -93,7 +93,9 @@ if (error) { *error = [NSError errorWithDomain:AspectErrorDomain code:errorCode 
 
 @implementation NSObject (FYLogCenter)
 + (void)load{
-    [self run];
+    NSLog(@"%s cls:%@",__func__,NSStringFromClass(self));
+
+//    [self run];
 }
 const char **_clss;//获取所有的子类
 NSMutableArray *_hookClassInfo;
