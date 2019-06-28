@@ -1326,6 +1326,7 @@ struct objc_class : objc_object {
     }
 
     // Class's ivar size rounded up to a pointer-size boundary.
+	//对象指针的大小
     uint32_t alignedInstanceSize() {
         return word_align(unalignedInstanceSize());
     }
