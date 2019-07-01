@@ -35051,20 +35051,16 @@ typedef struct {} _objc_exc_Person;
 #endif
 
 extern "C" unsigned long OBJC_IVAR_$_Person$_age;
-extern "C" unsigned long OBJC_IVAR_$_Person$_level;
 struct Person_IMPL {
 	struct NSObject_IMPL NSObject_IVARS;
 	int _age;
 	int _level;
+	int _code;
 };
 
-// @property (nonatomic,assign) int level;
 /* @end */
 
 // @implementation Person
-
-static int _I_Person_level(Person * self, SEL _cmd) { return (*(int *)((char *)self + OBJC_IVAR_$_Person$_level)); }
-static void _I_Person_setLevel_(Person * self, SEL _cmd, int level) { (*(int *)((char *)self + OBJC_IVAR_$_Person$_level)) = level; }
 // @end
 
 
@@ -35108,7 +35104,9 @@ int main(int argc, const char * argv[]) {
   size_t size = class_getInstanceSize(ocl);
 
   size_t size2 = malloc_size((__bridge const void *)(obj));
-  printf("InstanceSize:%zu malloc_size:%zu \n",size,size2);
+  printf("InstanceSize:%zu malloc_size:%zu  sizeof:%d\n",size,size2,sizeof(size_t));
+
+
  }
  return 0;
 }
@@ -35182,37 +35180,18 @@ extern "C" __declspec(dllimport) struct objc_cache _objc_empty_cache;
 
 extern "C" unsigned long int OBJC_IVAR_$_Person$_age __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct Person, _age);
 extern "C" unsigned long int OBJC_IVAR_$_Person$_level __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct Person, _level);
+extern "C" unsigned long int OBJC_IVAR_$_Person$_code __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct Person, _code);
 
 static struct /*_ivar_list_t*/ {
 	unsigned int entsize;  // sizeof(struct _prop_t)
 	unsigned int count;
-	struct _ivar_t ivar_list[2];
+	struct _ivar_t ivar_list[3];
 } _OBJC_$_INSTANCE_VARIABLES_Person __attribute__ ((used, section ("__DATA,__objc_const"))) = {
 	sizeof(_ivar_t),
-	2,
+	3,
 	{{(unsigned long int *)&OBJC_IVAR_$_Person$_age, "_age", "i", 2, 4},
-	 {(unsigned long int *)&OBJC_IVAR_$_Person$_level, "_level", "i", 2, 4}}
-};
-
-static struct /*_method_list_t*/ {
-	unsigned int entsize;  // sizeof(struct _objc_method)
-	unsigned int method_count;
-	struct _objc_method method_list[2];
-} _OBJC_$_INSTANCE_METHODS_Person __attribute__ ((used, section ("__DATA,__objc_const"))) = {
-	sizeof(_objc_method),
-	2,
-	{{(struct objc_selector *)"level", "i16@0:8", (void *)_I_Person_level},
-	{(struct objc_selector *)"setLevel:", "v20@0:8i16", (void *)_I_Person_setLevel_}}
-};
-
-static struct /*_prop_list_t*/ {
-	unsigned int entsize;  // sizeof(struct _prop_t)
-	unsigned int count_of_properties;
-	struct _prop_t prop_list[1];
-} _OBJC_$_PROP_LIST_Person __attribute__ ((used, section ("__DATA,__objc_const"))) = {
-	sizeof(_prop_t),
-	1,
-	{{"level","Ti,N,V_level"}}
+	 {(unsigned long int *)&OBJC_IVAR_$_Person$_level, "_level", "i", 2, 4},
+	 {(unsigned long int *)&OBJC_IVAR_$_Person$_code, "_code", "i", 2, 4}}
 };
 
 static struct _class_ro_t _OBJC_METACLASS_RO_$_Person __attribute__ ((used, section ("__DATA,__objc_const"))) = {
@@ -35230,11 +35209,11 @@ static struct _class_ro_t _OBJC_CLASS_RO_$_Person __attribute__ ((used, section 
 	0, __OFFSETOFIVAR__(struct Person, _age), sizeof(struct Person_IMPL), 
 	0, 
 	"Person",
-	(const struct _method_list_t *)&_OBJC_$_INSTANCE_METHODS_Person,
+	0, 
 	0, 
 	(const struct _ivar_list_t *)&_OBJC_$_INSTANCE_VARIABLES_Person,
 	0, 
-	(const struct _prop_list_t *)&_OBJC_$_PROP_LIST_Person,
+	0, 
 };
 
 extern "C" __declspec(dllimport) struct _class_t OBJC_METACLASS_$_NSObject;
