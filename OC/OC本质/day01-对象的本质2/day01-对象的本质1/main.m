@@ -15,6 +15,7 @@
 	@public
 	int _age;//4bytes 
 }
+@property (nonatomic,assign) int level;
 @end
 @implementation Person
 @end
@@ -46,10 +47,10 @@ struct Student_IMPL {
 int main(int argc, const char * argv[]) {
 	@autoreleasepool {
 	    // insert code here...
-		Student *obj=[[Student alloc]init];
+		Person *obj=[[Person alloc]init];
 		obj->_age = 6;
-		obj->_no = 7;
-		obj->_name=@"12";
+//		obj->_no = 7;
+//		obj->_name=@"12";
 		
 //		struct Student_IMPL *p = (__bridge struct Student_IMPL*)obj;
 //		NSLog(@"height:%d",p->Person_IVARS._age);
@@ -60,7 +61,7 @@ int main(int argc, const char * argv[]) {
 		size_t size = class_getInstanceSize(ocl);
 		//获取NSObjet指针的指向的内存大小 ->16
 		size_t size2 = malloc_size((__bridge const void *)(obj));
-		NSLog(@"size:%zu size2:%zu",size,size2);
+		printf("InstanceSize:%zu malloc_size:%zu \n",size,size2);
 	}
 	return 0;
 }
