@@ -71,6 +71,11 @@ int main(int argc, const char * argv[]) {
 		class_rw_t *personMetaClassData = personMetaClass->data();
 		class_rw_t *studentMetaClassData = studentMetaClass->data();
 		//Student -> Person -> NSObject
+//# if __arm64__
+//#   define ISA_MASK        0x0000000ffffffff8ULL //iphoneos 属于arm64架构
+//# elif __x86_64__
+//#   define ISA_MASK        0x00007ffffffffff8ULL mac 命令行属于mac 程序
+//# endif
 		// 0x00007ffffffffff8
 		NSLog(@"%p %p %p %p %p %p",  objectClassData, personClassData, studentClassData,
 			  objectMetaClassData, personMetaClassData, studentMetaClassData);
