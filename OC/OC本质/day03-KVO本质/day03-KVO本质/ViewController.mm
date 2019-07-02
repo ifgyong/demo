@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FYPerson.h"
+#import "Header.h"
 
 @interface ViewController ()
 @property (nonatomic,strong)FYPerson *person;
@@ -24,6 +25,10 @@
 					  forKeyPath:@"age"
 						 options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
 						 context:nil];
+    Class NSKVONotifying_FYPerson = objc_getClass("NSKVONotifying_FYPerson");
+    fy_objc_class* NSKVONotifying_FYPerson_class = (__bridge fy_objc_class *)NSKVONotifying_FYPerson;
+    class_rw_t *metaClass = NSKVONotifying_FYPerson_class->data();
+    
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 	self.person.age += 1;

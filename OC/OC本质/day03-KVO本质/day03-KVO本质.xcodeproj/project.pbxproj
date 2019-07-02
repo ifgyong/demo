@@ -7,28 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53085DF22CB9A6200F73F24 /* FYPerson.mm in Sources */ = {isa = PBXBuildFile; fileRef = A53085DE22CB9A6200F73F24 /* FYPerson.mm */; };
 		EE83DC0522CB5D1700F77B9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0422CB5D1700F77B9E /* AppDelegate.m */; };
-		EE83DC0822CB5D1700F77B9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0722CB5D1700F77B9E /* ViewController.m */; };
+		EE83DC0822CB5D1700F77B9E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0722CB5D1700F77B9E /* ViewController.mm */; };
 		EE83DC0B22CB5D1700F77B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0922CB5D1700F77B9E /* Main.storyboard */; };
 		EE83DC0D22CB5D1800F77B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */; };
 		EE83DC1022CB5D1800F77B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0E22CB5D1800F77B9E /* LaunchScreen.storyboard */; };
 		EE83DC1322CB5D1800F77B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC1222CB5D1800F77B9E /* main.m */; };
-		EE83DC1B22CB5D4600F77B9E /* FYPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC1A22CB5D4600F77B9E /* FYPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A53085DD22CB9A6200F73F24 /* FYPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYPerson.h; sourceTree = "<group>"; };
+		A53085DE22CB9A6200F73F24 /* FYPerson.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FYPerson.mm; sourceTree = "<group>"; };
+		A53085E022CB9A9400F73F24 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		EE83DC0022CB5D1700F77B9E /* day03-KVO本质.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day03-KVO本质.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE83DC0322CB5D1700F77B9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE83DC0422CB5D1700F77B9E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE83DC0622CB5D1700F77B9E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EE83DC0722CB5D1700F77B9E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE83DC0722CB5D1700F77B9E /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		EE83DC0A22CB5D1700F77B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE83DC0F22CB5D1800F77B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE83DC1122CB5D1800F77B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE83DC1222CB5D1800F77B9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EE83DC1922CB5D4600F77B9E /* FYPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYPerson.h; sourceTree = "<group>"; };
-		EE83DC1A22CB5D4600F77B9E /* FYPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +62,13 @@
 		EE83DC0222CB5D1700F77B9E /* day03-KVO本质 */ = {
 			isa = PBXGroup;
 			children = (
+				A53085E022CB9A9400F73F24 /* Header.h */,
 				EE83DC0322CB5D1700F77B9E /* AppDelegate.h */,
 				EE83DC0422CB5D1700F77B9E /* AppDelegate.m */,
 				EE83DC0622CB5D1700F77B9E /* ViewController.h */,
-				EE83DC0722CB5D1700F77B9E /* ViewController.m */,
-				EE83DC1922CB5D4600F77B9E /* FYPerson.h */,
-				EE83DC1A22CB5D4600F77B9E /* FYPerson.m */,
+				EE83DC0722CB5D1700F77B9E /* ViewController.mm */,
+				A53085DD22CB9A6200F73F24 /* FYPerson.h */,
+				A53085DE22CB9A6200F73F24 /* FYPerson.mm */,
 				EE83DC0922CB5D1700F77B9E /* Main.storyboard */,
 				EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */,
 				EE83DC0E22CB5D1800F77B9E /* LaunchScreen.storyboard */,
@@ -146,10 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE83DC0822CB5D1700F77B9E /* ViewController.m in Sources */,
+				EE83DC0822CB5D1700F77B9E /* ViewController.mm in Sources */,
 				EE83DC1322CB5D1800F77B9E /* main.m in Sources */,
 				EE83DC0522CB5D1700F77B9E /* AppDelegate.m in Sources */,
-				EE83DC1B22CB5D4600F77B9E /* FYPerson.m in Sources */,
+				A53085DF22CB9A6200F73F24 /* FYPerson.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
