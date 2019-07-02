@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE5F9A5622CA0050003CAC9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5F9A5522CA0050003CAC9C /* main.m */; };
+		EE5F9A5622CA0050003CAC9C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE5F9A5522CA0050003CAC9C /* main.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,12 +24,21 @@
 
 /* Begin PBXFileReference section */
 		EE5F9A5222CA0050003CAC9C /* day02-类的本质1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "day02-类的本质1"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE5F9A5522CA0050003CAC9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE5F9A5522CA0050003CAC9C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		EE83DBD922CA095100F77B9E /* main64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main64.cpp; sourceTree = "<group>"; };
+		EE83DBDC22CB0A6C00F77B9E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		EE83DBE122CB283800F77B9E /* class的本质.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "class的本质.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE5F9A4F22CA0050003CAC9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE83DBDE22CB283800F77B9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				EE5F9A5222CA0050003CAC9C /* day02-类的本质1 */,
+				EE83DBE122CB283800F77B9E /* class的本质.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,7 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				EE83DBD922CA095100F77B9E /* main64.cpp */,
-				EE5F9A5522CA0050003CAC9C /* main.m */,
+				EE83DBDC22CB0A6C00F77B9E /* Header.h */,
+				EE5F9A5522CA0050003CAC9C /* main.mm */,
 			);
 			path = "day02-类的本质1";
 			sourceTree = "<group>";
@@ -84,6 +95,23 @@
 			productReference = EE5F9A5222CA0050003CAC9C /* day02-类的本质1 */;
 			productType = "com.apple.product-type.tool";
 		};
+		EE83DBE022CB283800F77B9E /* class的本质 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE83DBF422CB283A00F77B9E /* Build configuration list for PBXNativeTarget "class的本质" */;
+			buildPhases = (
+				EE83DBDD22CB283800F77B9E /* Sources */,
+				EE83DBDE22CB283800F77B9E /* Frameworks */,
+				EE83DBDF22CB283800F77B9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "class的本质";
+			productName = "class的本质";
+			productReference = EE83DBE122CB283800F77B9E /* class的本质.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +124,9 @@
 					EE5F9A5122CA0050003CAC9C = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					EE83DBE022CB283800F77B9E = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = EE5F9A4D22CA0050003CAC9C /* Build configuration list for PBXProject "day02-类的本质1" */;
@@ -104,6 +135,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = EE5F9A4922CA0050003CAC9C;
 			productRefGroup = EE5F9A5322CA0050003CAC9C /* Products */;
@@ -111,16 +143,34 @@
 			projectRoot = "";
 			targets = (
 				EE5F9A5122CA0050003CAC9C /* day02-类的本质1 */,
+				EE83DBE022CB283800F77B9E /* class的本质 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE83DBDF22CB283800F77B9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE5F9A4E22CA0050003CAC9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5F9A5622CA0050003CAC9C /* main.m in Sources */,
+				EE5F9A5622CA0050003CAC9C /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE83DBDD22CB283800F77B9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +306,55 @@
 			};
 			name = Release;
 		};
+		EE83DBF522CB283A00F77B9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B4ENM74X68;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
+				INFOPLIST_FILE = "class的本质/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "FY.class---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EE83DBF622CB283A00F77B9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B4ENM74X68;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
+				INFOPLIST_FILE = "class的本质/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "FY.class---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -273,6 +372,15 @@
 			buildConfigurations = (
 				EE5F9A5A22CA0050003CAC9C /* Debug */,
 				EE5F9A5B22CA0050003CAC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE83DBF422CB283A00F77B9E /* Build configuration list for PBXNativeTarget "class的本质" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE83DBF522CB283A00F77B9E /* Debug */,
+				EE83DBF622CB283A00F77B9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

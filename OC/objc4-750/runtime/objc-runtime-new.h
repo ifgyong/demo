@@ -560,12 +560,12 @@ struct class_ro_t {
     const uint8_t * ivarLayout;
     
     const char * name;
-    method_list_t * baseMethodList;
-    protocol_list_t * baseProtocols;
-    const ivar_list_t * ivars;
+    method_list_t * baseMethodList;//方法列表
+    protocol_list_t * baseProtocols;//协议列表
+    const ivar_list_t * ivars;//成员变量列表
 
     const uint8_t * weakIvarLayout;
-    property_list_t *baseProperties;
+    property_list_t *baseProperties;//属性列表
 
     method_list_t *baseMethods() const {
         return baseMethodList;
@@ -829,9 +829,9 @@ struct class_rw_t {
 
     const class_ro_t *ro;
 
-    method_array_t methods;
-    property_array_t properties;
-    protocol_array_t protocols;
+    method_array_t methods;//方法列表
+    property_array_t properties;//属性列表
+    protocol_array_t protocols;//协议列表
 
     Class firstSubclass;
     Class nextSiblingClass;
