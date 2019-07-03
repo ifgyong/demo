@@ -1,0 +1,53 @@
+
+//NSKVONotifying_FYPerson setAge:
+- NSKVONotifying_FYPerson NSKVONotifying_FYPerson setAge:
+- NSKVONotifying_FYPerson NSObject _changeValueForKey:key:key:usingBlock:
+- NSKVONotifying_FYPerson NSObject _changeValueForKeys:count:maybeOldValuesDict:maybeNewValuesDict:usingBlock:
+
+- NSKeyValueUnnestedProperty NSKeyValueUnnestedProperty keyPathIfAffectedByValueForKey:exactMatch:
+- NSKeyValueUnnestedProperty NSKeyValueUnnestedProperty _keyPathIfAffectedByValueForKey:exactMatch:
+
+//will changeValueForKey
+- NSKeyValueUnnestedProperty NSKeyValueUnnestedProperty object:withObservance:willChangeValueForKeyOrKeys:recurse:forwardingValues:
+ 
+//
+- FYPerson FYPerson setAge:
+
+//didChangeValueForKeyOrKeys
+- NSKeyValueUnnestedProperty NSKeyValueUnnestedProperty object:withObservance:didChangeValueForKeyOrKeys:recurse:forwardingValues:
+- NSKeyValueUnnestedProperty NSKeyValueProperty keyPath
+
+//找到key 发送 具体的key对应的value 到observe
+- NSKVONotifying_FYPerson NSObject valueForKeyPath:
+
+- NSKVONotifying_FYPerson NSObject valueForKey:
++ NSKVONotifying_FYPerson NSObject _createValueGetterWithContainerClassID:key:
+-
++ NSKVONotifying_FYPerson NSObject resolveInstanceMethod:
++ NSKVONotifying_FYPerson NSObject resolveInstanceMethod:
+- NSKVONotifying_FYPerson FYPerson age
++ NSKeyValueMethodGetter NSObject alloc
+- NSKeyValueMethodGetter NSKeyValueMethodGetter initWithContainerClassID:key:method:
+- NSKeyValueGetter NSKeyValueAccessor initWithContainerClassID:key:implementation:selector:extraArguments:count:
+
+
+- NSKVONotifying_FYPerson NSObject respondsToSelector:
+- NSKVONotifying_FYPerson NSKVONotifying_FYPerson class
+- NSKVONotifying_FYPerson NSKVONotifying_FYPerson _isKVOA
++ FYPerson NSObject class
++ FYPerson NSObject resolveInstanceMethod:
++ FYPerson NSObject resolveInstanceMethod:
+
+//数据字典
++ NSDictionary NSObject self
++ NSMutableDictionary NSObject self
+- NSKeyValueChangeDictionary NSKeyValueChangeDictionary initWithDetailsNoCopy:originalObservable:isPriorNotification:
+- NSDictionary NSObject init
+
+// 执行观察者回调函数
+- NSKVONotifying_FYPerson FYPerson observeValueForKeyPath:ofObject:change:context:
+
+
++ Student NSObject alloc
+- Student NSObject init
+- Student NSObject dealloc

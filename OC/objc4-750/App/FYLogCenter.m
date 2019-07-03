@@ -111,7 +111,7 @@ NSMutableArray *_hookClassInfo;
     FYAspect_addSelector((id)aclass, selector, block, options, error);
 }
 -(void)fyaspect_hookClass:(Class)aclass WithSelector:(SEL)selector withOptions:(HookOptions)options usingBlock:(id)block error:(NSError **)error{
-    FYAspect_addSelector(aclass, selector, block, options, error);
+    FYAspect_addSelector((id)aclass, selector, block, options, error);
 }
 static void FYAspect_addSelector(NSObject * self,SEL selector,dispatch_block_t block,HookOptions ops,NSError ** error){
     NSCParameterAssert(self);
@@ -259,28 +259,34 @@ static void FYAspect_addLog(NSObject * self){
                     }
                 }
             }else{
-                SEL didload = @selector(viewDidLoad);
-                Method md = class_getInstanceMethod(aclass, didload);
-                if (md) {
-                    //获取didload函数的的IMP
-                    IMP load = method_getImplementation(md);
-                    void(*loadFunc)(id,SEL) = (void *)load;
-                    __block typeof(Class) __blockClass = aclass;
-                    //                    __block typeof(IMP) __blockIMP = load;
-                    __block typeof(loadFunc)__blockFunc = loadFunc;
-                    void (^block)(id _self) = ^(id _self){
-                        //统计时间
-                        CFAbsoluteTime time1 = CFAbsoluteTimeGetCurrent();
-                        //执行ViewDidLoad IMP
-                        __blockFunc(aclass,NULL);
-                        NSLog(@"%s %.2f",class_getName(__blockClass),CFAbsoluteTimeGetCurrent() - time1);
-                    };
-                    //将 block block 转化成 IMP 存储到SEL ViewDidload 中
-                    if (FYAspect_getClassBlockSetCount((id)aclass, didload) == 0) {
-                        FYAspect_setClassBlockCount((id)aclass, didload, 1);
-                        void(*func)(id,SEL) = (void*)imp_implementationWithBlock(block);
-                        class_replaceMethod(aclass, didload, (IMP)func, method_getTypeEncoding(md));
-                    }
+                NSArray *sels=@[@"viewDidLoad",@"viewWillAppear:"];
+                NSInteger countSels = sels.count;
+                for (NSInteger i = 0; i < countSels; i ++) {
+                    NSString *selName = [sels objectAtIndex:i];
+                    SEL didload = NSSelectorFromString(selName);
+                    Method md = class_getInstanceMethod(aclass, didload);
+                    if (md) {
+                        //获取didload函数的的IMP
+                        IMP load = method_getImplementation(md);
+                        void(*loadFunc)(id,SEL) = (void *)load;
+                        __block typeof(Class) __blockClass = aclass;
+                        //                    __block typeof(IMP) __blockIMP = load;
+                        __block typeof(loadFunc)__blockFunc = loadFunc;
+                        __block typeof(NSString*)__blockSelName = selName;
+                        void (^block)(id _self) = ^(id _self){
+                            //统计时间
+                            CFAbsoluteTime time1 = CFAbsoluteTimeGetCurrent();
+                            //执行ViewDidLoad IMP
+                            __blockFunc(aclass,NULL);
+                            NSLog(@"%s %@ %.2f",class_getName(__blockClass),__blockSelName,CFAbsoluteTimeGetCurrent() - time1);
+                        };
+                        //将 block block 转化成 IMP 存储到SEL ViewDidload 中
+                        if (FYAspect_getClassBlockSetCount((id)aclass, didload) == 0) {
+                            FYAspect_setClassBlockCount((id)aclass, didload, 1);
+                            void(*func)(id,SEL) =(void*)imp_implementationWithBlock(block);
+                            class_replaceMethod(aclass, didload, (IMP)func, method_getTypeEncoding(md));
+                        }
+                }
                 }
             }
         }
@@ -296,9 +302,9 @@ static void FYAspect_setClassBlockCount(NSObject * self,SEL selector,int count){
     NSCParameterAssert(selector);
     objc_setAssociatedObject(self, selector, [NSString stringWithFormat:@"%d",count], OBJC_ASSOCIATION_COPY);
 }
-static void FYAspect_callBlock(NSArray * array){
-    
-}
+//static void FYAspect_callBlock(NSArray * array){
+//    
+//}
 //是否可以被hook
 - (BOOL)isCanHookClass:(Class)cls {
     return [cls isSubclassOfClass:UIViewController.class];

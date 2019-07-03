@@ -7,29 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53085DF22CB9A6200F73F24 /* FYPerson.mm in Sources */ = {isa = PBXBuildFile; fileRef = A53085DE22CB9A6200F73F24 /* FYPerson.mm */; };
 		EE83DC0522CB5D1700F77B9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0422CB5D1700F77B9E /* AppDelegate.m */; };
-		EE83DC0822CB5D1700F77B9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0722CB5D1700F77B9E /* ViewController.m */; };
+		EE83DC0822CB5D1700F77B9E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC0722CB5D1700F77B9E /* ViewController.mm */; };
 		EE83DC0B22CB5D1700F77B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0922CB5D1700F77B9E /* Main.storyboard */; };
 		EE83DC0D22CB5D1800F77B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */; };
 		EE83DC1022CB5D1800F77B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC0E22CB5D1800F77B9E /* LaunchScreen.storyboard */; };
 		EE83DC1322CB5D1800F77B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC1222CB5D1800F77B9E /* main.m */; };
+		EE83DC2322CC547100F77B9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC2222CC547100F77B9E /* main.m */; };
+		EE83DC2822CC863200F77B9E /* msgSends-1823 in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC2722CC863200F77B9E /* msgSends-1823 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EE83DC1E22CC547100F77B9E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A53085DD22CB9A6200F73F24 /* FYPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYPerson.h; sourceTree = "<group>"; };
+		A53085DE22CB9A6200F73F24 /* FYPerson.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FYPerson.mm; sourceTree = "<group>"; };
+		A53085E022CB9A9400F73F24 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		EE83DC0022CB5D1700F77B9E /* day03-KVO本质.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day03-KVO本质.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE83DC0322CB5D1700F77B9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE83DC0422CB5D1700F77B9E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE83DC0622CB5D1700F77B9E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EE83DC0722CB5D1700F77B9E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE83DC0722CB5D1700F77B9E /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		EE83DC0A22CB5D1700F77B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE83DC0F22CB5D1800F77B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE83DC1122CB5D1800F77B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE83DC1222CB5D1800F77B9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE83DC2022CC547100F77B9E /* log */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = log; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE83DC2222CC547100F77B9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE83DC2722CC863200F77B9E /* msgSends-1823 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "msgSends-1823"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE83DBFD22CB5D1700F77B9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE83DC1D22CC547100F77B9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				EE83DC0222CB5D1700F77B9E /* day03-KVO本质 */,
+				EE83DC2122CC547100F77B9E /* log */,
 				EE83DC0122CB5D1700F77B9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EE83DC0022CB5D1700F77B9E /* day03-KVO本质.app */,
+				EE83DC2022CC547100F77B9E /* log */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,10 +88,14 @@
 		EE83DC0222CB5D1700F77B9E /* day03-KVO本质 */ = {
 			isa = PBXGroup;
 			children = (
+				EE83DC2722CC863200F77B9E /* msgSends-1823 */,
+				A53085E022CB9A9400F73F24 /* Header.h */,
 				EE83DC0322CB5D1700F77B9E /* AppDelegate.h */,
 				EE83DC0422CB5D1700F77B9E /* AppDelegate.m */,
 				EE83DC0622CB5D1700F77B9E /* ViewController.h */,
-				EE83DC0722CB5D1700F77B9E /* ViewController.m */,
+				EE83DC0722CB5D1700F77B9E /* ViewController.mm */,
+				A53085DD22CB9A6200F73F24 /* FYPerson.h */,
+				A53085DE22CB9A6200F73F24 /* FYPerson.mm */,
 				EE83DC0922CB5D1700F77B9E /* Main.storyboard */,
 				EE83DC0C22CB5D1800F77B9E /* Assets.xcassets */,
 				EE83DC0E22CB5D1800F77B9E /* LaunchScreen.storyboard */,
@@ -69,6 +103,14 @@
 				EE83DC1222CB5D1800F77B9E /* main.m */,
 			);
 			path = "day03-KVO本质";
+			sourceTree = "<group>";
+		};
+		EE83DC2122CC547100F77B9E /* log */ = {
+			isa = PBXGroup;
+			children = (
+				EE83DC2222CC547100F77B9E /* main.m */,
+			);
+			path = log;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +133,23 @@
 			productReference = EE83DC0022CB5D1700F77B9E /* day03-KVO本质.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EE83DC1F22CC547100F77B9E /* log */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE83DC2622CC547100F77B9E /* Build configuration list for PBXNativeTarget "log" */;
+			buildPhases = (
+				EE83DC1C22CC547100F77B9E /* Sources */,
+				EE83DC1D22CC547100F77B9E /* Frameworks */,
+				EE83DC1E22CC547100F77B9E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = log;
+			productName = log;
+			productReference = EE83DC2022CC547100F77B9E /* log */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -101,6 +160,9 @@
 				ORGANIZATIONNAME = www.fgyong.cn;
 				TargetAttributes = {
 					EE83DBFF22CB5D1700F77B9E = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					EE83DC1F22CC547100F77B9E = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -119,6 +181,7 @@
 			projectRoot = "";
 			targets = (
 				EE83DBFF22CB5D1700F77B9E /* day03-KVO本质 */,
+				EE83DC1F22CC547100F77B9E /* log */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE83DC2822CC863200F77B9E /* msgSends-1823 in Resources */,
 				EE83DC1022CB5D1800F77B9E /* LaunchScreen.storyboard in Resources */,
 				EE83DC0D22CB5D1800F77B9E /* Assets.xcassets in Resources */,
 				EE83DC0B22CB5D1700F77B9E /* Main.storyboard in Resources */,
@@ -141,9 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE83DC0822CB5D1700F77B9E /* ViewController.m in Sources */,
+				EE83DC0822CB5D1700F77B9E /* ViewController.mm in Sources */,
 				EE83DC1322CB5D1800F77B9E /* main.m in Sources */,
 				EE83DC0522CB5D1700F77B9E /* AppDelegate.m in Sources */,
+				A53085DF22CB9A6200F73F24 /* FYPerson.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE83DC1C22CC547100F77B9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE83DC2322CC547100F77B9E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +388,30 @@
 			};
 			name = Release;
 		};
+		EE83DC2422CC547100F77B9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B4ENM74X68;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EE83DC2522CC547100F77B9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B4ENM74X68;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -332,6 +429,15 @@
 			buildConfigurations = (
 				EE83DC1722CB5D1800F77B9E /* Debug */,
 				EE83DC1822CB5D1800F77B9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE83DC2622CC547100F77B9E /* Build configuration list for PBXNativeTarget "log" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE83DC2422CC547100F77B9E /* Debug */,
+				EE83DC2522CC547100F77B9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
