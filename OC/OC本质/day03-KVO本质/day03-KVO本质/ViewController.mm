@@ -25,18 +25,20 @@
 	self.person=[FYPerson new];
 	self.person2 =[FYPerson new];
 	self.person.age = 10;
-	
 	[self.person addObserver:self
 					  forKeyPath:@"age"
 						 options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
 						 context:nil];
+	
 	
 //	[self printMethods:object_getClass(_person)];
 //	[self printMethods:object_getClass(_person2)];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 	int age = self.person.age + 1;
+	
 	[self.person setAge:age];
+	
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
 	NSLog(@"监听到了age变化： %@",change);
