@@ -768,10 +768,13 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
     bool isMeta = cls->isMetaClass();
 
     // fixme rearrange to remove these intermediate allocations
+	//方法数组[[1,2,3],[4,5,6],[7,8,9]]
     method_list_t **mlists = (method_list_t **)
         malloc(cats->count * sizeof(*mlists));
+	//属性数组
     property_list_t **proplists = (property_list_t **)
         malloc(cats->count * sizeof(*proplists));
+	//协议数组
     protocol_list_t **protolists = (protocol_list_t **)
         malloc(cats->count * sizeof(*protolists));
 
@@ -782,38 +785,42 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
     int i = cats->count;
     bool fromBundle = NO;
     while (i--) {
+		//取出某个分类
         auto& entry = cats->list[i];
-
+//取出分类 的 instance方法或者class方法
         method_list_t *mlist = entry.cat->methodsForMeta(isMeta);
         if (mlist) {
-            mlists[mcount++] = mlist;
+            mlists[mcount++] = mlist; //mlists 接受所有分类方法
             fromBundle |= entry.hi->isBundle();
         }
-
+//proplist 接受所有分类属性
         property_list_t *proplist = 
             entry.cat->propertiesForMeta(isMeta, entry.hi);
         if (proplist) {
             proplists[propcount++] = proplist;
         }
-
+//proplist 接受所有协议方法
         protocol_list_t *protolist = entry.cat->protocols;
         if (protolist) {
             protolists[protocount++] = protolist;
         }
     }
-
+//收集了所有协议 分类方法
     auto rw = cls->data();
 
     prepareMethodLists(cls, mlists, mcount, NO, fromBundle);
+	//追加所有分类方法
     rw->methods.attachLists(mlists, mcount);
+	//释放数组
     free(mlists);
+	//刷新该类的缓存
     if (flush_caches  &&  mcount > 0) flushCaches(cls);
-
+//追加所有分类属性
     rw->properties.attachLists(proplists, propcount);
-    free(proplists);
-
+    free(proplists);//释放数组
+//追加所有分类协议
     rw->protocols.attachLists(protolists, protocount);
-    free(protolists);
+    free(protolists);//释放数组
 }
 
 
@@ -838,19 +845,23 @@ static void methodizeClass(Class cls)
     }
 
     // Install methods and properties that the class implements itself.
+	//方法列表
     method_list_t *list = ro->baseMethods();
     if (list) {
         prepareMethodLists(cls, &list, 1, YES, isBundleClass(cls));
+		//将分类对象的方法追加到cls后面
         rw->methods.attachLists(&list, 1);
     }
 
     property_list_t *proplist = ro->baseProperties;
     if (proplist) {
+		//将分类对象的属性追加到cls后面
         rw->properties.attachLists(&proplist, 1);
     }
 
     protocol_list_t *protolist = ro->baseProtocols;
     if (protolist) {
+		//将分类对象的协议追加到cls后面
         rw->protocols.attachLists(&protolist, 1);
     }
 

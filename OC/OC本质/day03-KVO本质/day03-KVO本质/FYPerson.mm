@@ -7,20 +7,19 @@
 //
 
 #import "FYPerson.h"
+@interface FYPerson(){
+	@public
+	NSInteger _age;
+	NSInteger _isAge;
+	NSInteger age;
+	NSInteger isAge;
 
+
+
+}
+@end
 @implementation FYPerson
--(void)willChangeValueForKey:(NSString *)key{
-	NSLog(@"%s",__func__);
-	[super willChangeValueForKey:key];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+	NSLog(@"%@",change);
 }
-- (void)didChangeValueForKey:(NSString *)key{
-	NSLog(@"%s 开始",__func__);
-	[super didChangeValueForKey:key];
-	NSLog(@"%s 结束",__func__);
-}
-- (void)setAge:(double)age{
-	_age = age;
-	NSLog(@"%s",__func__);
-}
-
 @end

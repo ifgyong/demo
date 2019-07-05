@@ -1,8 +1,8 @@
 //
 //  FYPerson.h
-//  day03-KVO本质
+//  day04-KVC
 //
-//  Created by fgy on 2019/7/2.
+//  Created by Charlie on 2019/7/5.
 //  Copyright © 2019 www.fgyong.cn. All rights reserved.
 //
 
@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FYPerson : NSObject
+{
+@public
+	NSInteger _age;
+	NSInteger _isAge;
+	NSInteger age;
+	NSInteger isAge;
+}
 @end
 
 NS_ASSUME_NONNULL_END

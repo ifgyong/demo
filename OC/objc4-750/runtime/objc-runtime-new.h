@@ -722,13 +722,27 @@ class list_array_tt {
         if (hasArray()) {
             // many lists -> many lists
             uint32_t oldCount = array()->count;
+			//一共需要的数量
             uint32_t newCount = oldCount + addedCount;
+			//分配内存 内存不够用了，需要扩容
             setArray((array_t *)realloc(array(), array_t::byteSize(newCount)));
+			//赋值count
             array()->count = newCount;
-            memmove(array()->lists + addedCount, array()->lists, 
-                    oldCount * sizeof(array()->lists[0]));
+			// array()->lists：原来的方法列表向后移动 oldCount * sizeof(array()->lists[0]个长度
+            memmove(array()->lists + addedCount/*数组末尾*/, array()->lists/*数组*/,
+                    oldCount * sizeof(array()->lists[0])/*移动的大小*/);
+			//空出来的 内存使用addedLists拷贝过去 大小是:addedCount * sizeof(array()->lists[0])
             memcpy(array()->lists, addedLists, 
                    addedCount * sizeof(array()->lists[0]));
+			/*
+			图示讲解：
+			array()->lists:A->B->C->D->E
+		addedCount:3
+		addedLists:P->L->V
+			memmove之后：nil->nil->nil->A->B->C->D->E
+			然后再讲addedLists插入到数组前边,最终array()->lists的值是：
+			P->L->V->A->B->C->D->E
+			 */
         }
         else if (!list  &&  addedCount == 1) {
             // 0 lists -> 1 list
