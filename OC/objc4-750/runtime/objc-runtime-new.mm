@@ -2194,10 +2194,12 @@ load_images(const char *path __unused, const struct mach_header *mh)
     // Discover load methods
     {
         mutex_locker_t lock2(runtimeLock);
+        //加载 class+load 和category+load方法
         prepare_load_methods((const headerType *)mh);
     }
 
     // Call +load methods (without runtimeLock - re-entrant)
+    //执行 class+load 和category+load方法
     call_load_methods();
 }
 
@@ -2855,7 +2857,7 @@ static void schedule_class_load(Class cls)
 {
     if (!cls) return;
     assert(cls->isRealized());  // _read_images should realize
-
+//RW_LOADED 已经被吊用过
     if (cls->data()->flags & RW_LOADED) return;
 
     // Ensure superclass-first ordering
