@@ -271,16 +271,21 @@ struct ReleaseValue {
 void _object_set_associative_reference(id object, void *key, id value, uintptr_t policy) {
     // retain the new value (if any) outside the lock.
     ObjcAssociation old_association(0, nil);
+	//根据key value 处理
     id new_value = value ? acquireValue(value, policy) : nil;
     {
         AssociationsManager manager;
+		//生成一个全局的 HashMap
         AssociationsHashMap &associations(manager.associations());
         disguised_ptr_t disguised_object = DISGUISE(object);
+		//有value 就处理
         if (new_value) {
             // break any existing association.
+//			遍历 hashMap是否有该obj
             AssociationsHashMap::iterator i = associations.find(disguised_object);
             if (i != associations.end()) {
                 // secondary table exists
+				//有的话 更新其 value
                 ObjectAssociationMap *refs = i->second;
                 ObjectAssociationMap::iterator j = refs->find(key);
                 if (j != refs->end()) {
@@ -291,6 +296,7 @@ void _object_set_associative_reference(id object, void *key, id value, uintptr_t
                 }
             } else {
                 // create the new association (first time).
+				//没有的话 赋值给 refs
                 ObjectAssociationMap *refs = new ObjectAssociationMap;
                 associations[disguised_object] = refs;
                 (*refs)[key] = ObjcAssociation(policy, new_value);

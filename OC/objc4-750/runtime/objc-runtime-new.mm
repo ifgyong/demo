@@ -2857,10 +2857,11 @@ static void schedule_class_load(Class cls)
 {
     if (!cls) return;
     assert(cls->isRealized());  // _read_images should realize
-//RW_LOADED 已经被吊用过
+//RW_LOADED 已经被调用过
     if (cls->data()->flags & RW_LOADED) return;
 
     // Ensure superclass-first ordering
+	//递归调用自己 直到调用到父类已经调用过为止。
     schedule_class_load(cls->superclass);
 
     add_class_to_loadable_list(cls);

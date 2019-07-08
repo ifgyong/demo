@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
 //        [p say];
 //        [p hello];
         
-        hookC();
+//        hookC();
     }
     return 0;
 }

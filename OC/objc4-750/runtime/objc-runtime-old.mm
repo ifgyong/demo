@@ -2175,9 +2175,11 @@ load_images(const char *path __unused, const struct mach_header *mh)
     recursive_mutex_locker_t lock(loadMethodLock);
 
     // Discover +load methods
+	//加载+load方法
     prepare_load_methods((const headerType *)mh);
 
     // Call +load methods (without classLock - re-entrant)
+	//调用+load方法
     call_load_methods();
 }
 #endif
