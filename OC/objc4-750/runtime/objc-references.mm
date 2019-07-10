@@ -224,6 +224,7 @@ id _object_get_associative_reference(id object, void *key) {
     uintptr_t policy = OBJC_ASSOCIATION_ASSIGN;
     {
         AssociationsManager manager;
+		//初始化 _map = AssociationsHashMap
         AssociationsHashMap &associations(manager.associations());
         disguised_ptr_t disguised_object = DISGUISE(object);
         AssociationsHashMap::iterator i = associations.find(disguised_object);
