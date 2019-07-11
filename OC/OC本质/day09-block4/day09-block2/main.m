@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
             
             NSLog(@"age is %d,obj is %p",age,&obj);
         };
-
+		NSLog(@"%@",[(^{ NSLog(@"age is") ; }) class]);
 	}
 	return 0;
 }
