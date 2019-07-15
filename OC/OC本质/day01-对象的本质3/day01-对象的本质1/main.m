@@ -49,13 +49,14 @@ int main(int argc, const char * argv[]) {
 	@autoreleasepool {
 	    // insert code here...
 		Person *obj=[[Person alloc]init];
+		Person *obj2=[[Person alloc]init];
 		obj->_age = 6;
 //		obj->_no = 7;
 //		obj->_name=@"12";
 		
 //		struct Student_IMPL *p = (__bridge struct Student_IMPL*)obj;
 //		NSLog(@"height:%d",p->Person_IVARS._age);
-		
+		//0x00007ffffffffff8ULL 0x0000000ffffffff8ULL
 		
 		//获得NSobject对象实例成员变量占用的大小 ->24
 		Class ocl = obj.class;
