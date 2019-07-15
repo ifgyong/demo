@@ -12,6 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Person : NSObject
 - (void)say;
 - (void)hello;
+-(void)test;
+-(void)test2;
+-(void)test3;
+-(void)test4;
+-(void)test5;
+-(void)test6;
+-(void)test7;
+-(void)test8;
+-(void)test9;
 @end
 
 NS_ASSUME_NONNULL_END

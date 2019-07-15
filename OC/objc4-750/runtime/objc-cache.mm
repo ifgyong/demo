@@ -416,7 +416,7 @@ bucket_t *allocateBuckets(mask_t newCapacity)
 
 #endif
 
-
+//capacity() _mask
 bucket_t *emptyBucketsForCapacity(mask_t capacity, bool allocate = true)
 {
     cacheUpdateLock.assertLocked();
@@ -431,7 +431,7 @@ bucket_t *emptyBucketsForCapacity(mask_t capacity, bool allocate = true)
     // Use shared empty buckets allocated on the heap.
     static bucket_t **emptyBucketsList = nil;
     static mask_t emptyBucketsListCount = 0;
-    
+    // log2u(x>>1)+1
     mask_t index = log2u(capacity);
 
     if (index >= emptyBucketsListCount) {
@@ -546,8 +546,8 @@ void cache_t::expand()
 {
     cacheUpdateLock.assertLocked();
     
-    uint32_t oldCapacity = capacity();
-    uint32_t newCapacity = oldCapacity ? oldCapacity*2 : INIT_CACHE_SIZE;
+    uint32_t oldCapacity = capacity();                  //mask()的值
+    uint32_t newCapacity = oldCapacity ? oldCapacity*2 : INIT_CACHE_SIZE;//INIT_CACHE_SIZE = 8
 
     if ((uint32_t)(mask_t)newCapacity != newCapacity) {
         // mask overflow - can't grow further
@@ -575,7 +575,7 @@ static void cache_fill_nolock(Class cls, SEL sel, IMP imp, id receiver)
 
     // Use the cache as-is if it is less than 3/4 full
     mask_t newOccupied = cache->occupied() + 1;
-    mask_t capacity = cache->capacity();
+    mask_t capacity = cache->capacity();//已经存在函数的个数
     if (cache->isConstantEmptyCache()) {
         // Cache is read-only. Replace it.
         cache->reallocate(capacity, capacity ?: INIT_CACHE_SIZE);
