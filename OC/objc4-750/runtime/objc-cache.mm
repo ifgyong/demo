@@ -527,6 +527,7 @@ bucket_t * cache_t::find(cache_key_t k, id receiver)
 
     bucket_t *b = buckets();
     mask_t m = mask();
+	//key&mask 得到索引
     mask_t begin = cache_hash(k, m);
     mask_t i = begin;
     do {
@@ -583,7 +584,7 @@ static void cache_fill_nolock(Class cls, SEL sel, IMP imp, id receiver)
         // Cache is less than 3/4 full. Use it as-is.
     }
     else {
-        // Cache is too full. Expand it.
+        // Cache is too full. Expand it. 扩容
         cache->expand();
     }
 

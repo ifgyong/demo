@@ -63,7 +63,7 @@ union isa_t {
     isa_t(uintptr_t value) : bits(value) { }
 
     Class cls;
-    uintptr_t bits;
+    uintptr_t bits;//8字节 64w位
 #if defined(ISA_BITFIELD)
     struct {
         ISA_BITFIELD;  // defined in isa.h

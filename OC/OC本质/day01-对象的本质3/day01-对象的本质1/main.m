@@ -63,7 +63,7 @@ int main(int argc, const char * argv[]) {
 		size_t size = class_getInstanceSize(ocl);
 		//获取NSObjet指针的指向的内存大小 ->32
 		size_t size2 = malloc_size((__bridge const void *)(obj));
-		printf("InstanceSize:%zu malloc_size:%zu  sizeof:%d\n",size,size2,sizeof(size_t));
+		printf("InstanceSize:%zu malloc_size:%zu  sizeof:%lu\n",size,size2,sizeof(size_t));
 		
 		
 	}
