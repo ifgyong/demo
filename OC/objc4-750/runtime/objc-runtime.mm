@@ -390,12 +390,14 @@ logReplacedMethod(const char *className, SEL s,
 _objc_pthread_data *_objc_fetch_pthread_data(bool create)
 {
     _objc_pthread_data *data;
-
+//获取数据
     data = (_objc_pthread_data *)tls_get(_objc_pthread_key);
     if (!data  &&  create) {
+		//第一次 初始化空间
         data = (_objc_pthread_data *)
             calloc(1, sizeof(_objc_pthread_data));
         tls_set(_objc_pthread_key, data);
+		//存储 _objc_pthread_key 和data
     }
 
     return data;

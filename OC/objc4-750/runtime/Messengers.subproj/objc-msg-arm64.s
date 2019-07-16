@@ -230,7 +230,7 @@ LExit$0:
 .endif
 .endmacro
 
-.macro CacheLookup
+.macro CacheLookup //.macro 是一个宏 使用 _cmd&mask 查找缓存中的方法
 	// p1 = SEL, p16 = isa
 	ldp	p10, p11, [x16, #CACHE]	// p10 = buckets, p11 = occupied|mask
 #if !__LP64__
@@ -243,9 +243,9 @@ LExit$0:
 	ldp	p17, p9, [x12]		// {imp, sel} = *bucket
 1:	cmp	p9, p1			// if (bucket->sel != _cmd)
 	b.ne	2f			//     scan more
-	CacheHit $0			// call or return imp
+	CacheHit $0			// call or return imp 命中 调用或者返回imp
 	
-2:	// not hit: p12 = not-hit bucket
+2:	// not hit: p12 = not-hit bucket 没有命中
 	CheckMiss $0			// miss if bucket->sel == 0
 	cmp	p12, p10		// wrap if bucket == buckets
 	b.eq	3f
@@ -299,14 +299,14 @@ _objc_debug_taggedpointer_ext_classes:
 	.fill 256, 8, 0
 #endif
 
-	ENTRY _objc_msgSend
+	ENTRY _objc_msgSend // _objc_msgSend 开始
 	UNWIND _objc_msgSend, NoFrame
 
-	cmp	p0, #0			// nil check and tagged pointer check
+	cmp	p0, #0			// 检查p0寄存器是否是0  _objc_msgSend()第一个参数:self
 #if SUPPORT_TAGGED_POINTERS
-	b.le	LNilOrTagged		//  (MSB tagged pointer looks negative)
+	b.le	LNilOrTagged		// if le < 0 ->  跳转到标签  LNilOrTagged
 #else
-	b.eq	LReturnZero
+	b.eq	LReturnZero // if le == 0 ->  跳转到标签  LReturnZero
 #endif
 	ldr	p13, [x0]		// p13 = isa
 	GetClassFromIsa_p16 p13		// p16 = class
@@ -315,7 +315,7 @@ LGetIsaDone:
 
 #if SUPPORT_TAGGED_POINTERS
 LNilOrTagged:
-	b.eq	LReturnZero		// nil check
+	b.eq	LReturnZero		// 如果==0 -> LReturnZero
 
 	// tagged
 	adrp	x10, _objc_debug_taggedpointer_classes@PAGE
@@ -343,9 +343,12 @@ LReturnZero:
 	movi	d1, #0
 	movi	d2, #0
 	movi	d3, #0
-	ret
+	ret //return 返回结束掉
 
-	END_ENTRY _objc_msgSend
+
+
+
+	END_ENTRY _objc_msgSend // _objc_msgSend 结束
 
 
 	ENTRY _objc_msgLookup
@@ -415,7 +418,7 @@ LLookup_Nil:
 
 	// no _objc_msgLookupSuper
 
-	ENTRY _objc_msgSendSuper2
+	ENTRY _objc_msgSendSuper2 //objc_msgLookupSuper2 开始
 	UNWIND _objc_msgSendSuper2, NoFrame
 
 	ldp	p0, p16, [x0]		// p0 = real receiver, p16 = class
@@ -432,7 +435,7 @@ LLookup_Nil:
 	ldr	p16, [x16, #SUPERCLASS]	// p16 = class->superclass
 	CacheLookup LOOKUP
 
-	END_ENTRY _objc_msgLookupSuper2
+	END_ENTRY _objc_msgLookupSuper2//objc_msgLookupSuper2 结束
 
 
 .macro MethodTableLookup
@@ -456,7 +459,7 @@ LLookup_Nil:
 
 	// receiver and selector already in x0 and x1
 	mov	x2, x16
-	bl	__class_lookupMethodAndLoadCache3
+	bl	__class_lookupMethodAndLoadCache3//跳转->__class_lookupMethodAndLoadCache3 在runtime-class-new.mm 4856行
 
 	// IMP in x0
 	mov	x17, x0
@@ -528,18 +531,18 @@ LGetImpMiss:
 	STATIC_ENTRY __objc_msgForward_impcache
 
 	// No stret specialization.
-	b	__objc_msgForward
+	b	__objc_msgForward//跳转->__objc_msgForward
 
 	END_ENTRY __objc_msgForward_impcache
 
 	
-	ENTRY __objc_msgForward
+	ENTRY __objc_msgForward // 开始 __objc_msgForward
 
 	adrp	x17, __objc_forward_handler@PAGE
-	ldr	p17, [x17, __objc_forward_handler@PAGEOFF]
-	TailCallFunctionPointer x17
-	
-	END_ENTRY __objc_msgForward
+	ldr	p17, [x17, __objc_forward_handler@PAGEOFF]//p17= x17 和 __objc_forward_handler@PAGEOFF的和
+	TailCallFunctionPointer x17 //跳转-> TailCallFunctionPointer
+
+	END_ENTRY __objc_msgForward//结束 __objc_msgForward
 	
 	
 	ENTRY _objc_msgSend_noarg

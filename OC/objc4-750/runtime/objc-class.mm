@@ -611,9 +611,9 @@ static void _class_resolveClassMethod(Class cls, SEL sel, id inst)
 
 /***********************************************************************
 * _class_resolveInstanceMethod
-* Call +resolveInstanceMethod, looking for a method to be added to class cls.
-* cls may be a metaclass or a non-meta class.
-* Does not check if the method already exists.
+* 调用 class添加的函数 +resolveInstanceMethod
+* 有可能是元类
+* 如果方法存在则不检查
 **********************************************************************/
 static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst)
 {
@@ -623,7 +623,7 @@ static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst)
         // Resolver not implemented.
         return;
     }
-
+//如果找到SEL_resolveInstanceMethod 则使用objc_msgSend函数
     BOOL (*msg)(Class, SEL, SEL) = (typeof(msg))objc_msgSend;
     bool resolved = msg(cls, SEL_resolveInstanceMethod, sel);
 
@@ -653,19 +653,19 @@ static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst)
 
 /***********************************************************************
 * _class_resolveMethod
-* Call +resolveClassMethod or +resolveInstanceMethod.
-* Returns nothing; any result would be potentially out-of-date already.
-* Does not check if the method already exists.
+* 调用 +resolveClassMethod 或者 +resolveInstanceMethod
+* 如果存在了则不检查
 **********************************************************************/
 void _class_resolveMethod(Class cls, SEL sel, id inst)
 {
-    if (! cls->isMetaClass()) {
-        // try [cls resolveInstanceMethod:sel]
-        _class_resolveInstanceMethod(cls, sel, inst);
+    if (! cls->isMetaClass()) {//不是元类则调用 实例的
+	//首先调用
+		_class_resolveInstanceMethod(cls, sel, inst);
     } 
     else {
         // try [nonMetaClass resolveClassMethod:sel]
         // and [cls resolveInstanceMethod:sel]
+		//寻找classMethod
         _class_resolveClassMethod(cls, sel, inst);
         if (!lookUpImpOrNil(cls, sel, inst, 
                             NO/*initialize*/, YES/*cache*/, NO/*resolver*/)) 

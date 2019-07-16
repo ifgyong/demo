@@ -111,8 +111,8 @@ monitor_t classInitLock;
 * the initialization state). 
 **********************************************************************/
 typedef struct _objc_initializing_classes {
-    int classesAllocated;
-    Class *metaclasses;
+    int classesAllocated; //总的数组长度
+    Class *metaclasses;//初始化的类
 } _objc_initializing_classes;
 
 
@@ -127,15 +127,15 @@ static _objc_initializing_classes *_fetchInitializingClassList(bool create)
     _objc_pthread_data *data;
     _objc_initializing_classes *list;
     Class *classes;
-
+//获取 _objc_pthread_data，第一次会初始化，以后直接获取。
     data = _objc_fetch_pthread_data(create);
-    if (data == nil) return nil;
+    if (data == nil) return nil;//一般不会执行此操作
 
-    list = data->initializingClasses;
+    list = data->initializingClasses;//获取正在初始化的类数组
     if (list == nil) {
         if (!create) {
             return nil;
-        } else {
+        } else {//初始化
             list = (_objc_initializing_classes *)
                 calloc(1, sizeof(_objc_initializing_classes));
             data->initializingClasses = list;
@@ -147,7 +147,7 @@ static _objc_initializing_classes *_fetchInitializingClassList(bool create)
         // If _objc_initializing_classes exists, allocate metaclass array, 
         // even if create == NO.
         // Allow 4 simultaneous class inits on this thread before realloc.
-        list->classesAllocated = 4;
+		list->classesAllocated = 4;//初始化 大小为4 扩容规则是 n*2+1;
         classes = (Class *)
             calloc(list->classesAllocated, sizeof(Class));
         list->metaclasses = classes;
@@ -196,14 +196,12 @@ bool _thisThreadIsInitializingClass(Class cls)
 
 
 /***********************************************************************
-* _setThisThreadIsInitializingClass
-* Record that this thread is currently initializing the given class. 
-* This thread will be allowed to send messages to the class, but 
-*   other threads will have to wait.
+* 线程阻塞其他线程，发送消息都将来到这个线程，这个线程执行完毕之后，其他线程才会执行。
 **********************************************************************/
 static void _setThisThreadIsInitializingClass(Class cls)
 {
     int i;
+	//获取正在初始化的该线程的的数组，保存在全局的，没有的话会初始化，最小为4，扩容规则是X2+1；
     _objc_initializing_classes *list = _fetchInitializingClassList(YES);
     cls = cls->getMeta();
   
@@ -211,23 +209,23 @@ static void _setThisThreadIsInitializingClass(Class cls)
     for (i = 0; i < list->classesAllocated; i++) {
         if (cls == list->metaclasses[i]) {
             _objc_fatal("thread is already initializing this class!");
-            return; // already the initializer
+            return; // 如果正在线程中排队则返回
         }
     }
   
     for (i = 0; i < list->classesAllocated; i++) {
-        if (! list->metaclasses[i]) {
+        if (! list->metaclasses[i]) {//如果第i个是空，则添加进去并返回
             list->metaclasses[i] = cls;
             return;
         }
     }
 
-    // class list is full - reallocate
+    // 当clas->list 满了，则重新申请内存空间
     list->classesAllocated = list->classesAllocated * 2 + 1;
     list->metaclasses = (Class *) 
         realloc(list->metaclasses,
                           list->classesAllocated * sizeof(Class));
-    // zero out the new entries
+	//赋值并清空刚申请的空间为nil。
     list->metaclasses[i++] = cls;
     for ( ; i < list->classesAllocated; i++) {
         list->metaclasses[i] = nil;
@@ -478,8 +476,7 @@ void performForkChildInitialize(Class cls, Class supercls)
 
 
 /***********************************************************************
-* class_initialize.  Send the '+initialize' message on demand to any
-* uninitialized class. Force initialization of superclasses first.
+* 递归调用未初始化的父类 进行初始化和调用 顺序：祖先->爷爷->爹->自己
 **********************************************************************/
 void _class_initialize(Class cls)
 {
@@ -488,8 +485,8 @@ void _class_initialize(Class cls)
     Class supercls;
     bool reallyInitialize = NO;
 
-    // Make sure super is done initializing BEFORE beginning to initialize cls.
-    // See note about deadlock above.
+	//递归调用自己进行父类初始化
+	//初始化顺序:爷爷->爹->自己 儿的话是等儿子调用的时候z才会初始化
     supercls = cls->superclass;
     if (supercls  &&  !supercls->isInitialized()) {
         _class_initialize(supercls);
@@ -499,15 +496,15 @@ void _class_initialize(Class cls)
     {
         monitor_locker_t lock(classInitLock);
         if (!cls->isInitialized() && !cls->isInitializing()) {
-            cls->setInitializing();
+			//isInitialized() YES  已经初始化 NO 未初始化
+			//cls->isInitializing() YES  正在初始化 NO 不在初始化
+            cls->setInitializing();//给cls 设置已经初始化过数值rw->data->flags 中
             reallyInitialize = YES;
         }
     }
     
     if (reallyInitialize) {
-        // We successfully set the CLS_INITIALIZING bit. Initialize the class.
-        
-        // Record that we're initializing this class so we can message it.
+        // 加入cls到已初始化的结构体中，key是线程，data是数据
         _setThisThreadIsInitializingClass(cls);
 
         if (MultithreadedForkChild) {
@@ -519,7 +516,7 @@ void _class_initialize(Class cls)
         // Send the +initialize message.
         // Note that +initialize is sent to the superclass (again) if 
         // this class doesn't implement +initialize. 2157218
-        if (PrintInitializing) {
+        if (PrintInitializing) {//打印日志
             _objc_inform("INITIALIZE: thread %p: calling +[%s initialize]",
                          pthread_self(), cls->nameForLogging());
         }

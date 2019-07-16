@@ -1136,7 +1136,7 @@ struct objc_class : objc_object {
 
     void setInfo(uint32_t set) {
         assert(isFuture()  ||  isRealized());
-        data()->setFlags(set);
+        data()->setFlags(set);//原子操作进行赋值 使用位运算 联合体 技术
     }
 
     void clearInfo(uint32_t clear) {
@@ -1264,7 +1264,7 @@ struct objc_class : objc_object {
         ISA()->setInfo(RW_INITIALIZING);
     }
 
-    bool isInitialized() {
+    bool isInitialized() {//class is initialized
         return getMeta()->data()->flags & RW_INITIALIZED;
     }
 

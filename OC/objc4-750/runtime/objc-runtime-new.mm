@@ -4862,15 +4862,13 @@ IMP _class_lookupMethodAndLoadCache3(id obj, SEL sel, Class cls)
 
 /***********************************************************************
 * lookUpImpOrForward.
-* The standard IMP lookup. 
-* initialize==NO tries to avoid +initialize (but sometimes fails)
-* cache==NO skips optimistic unlocked lookup (but uses cache elsewhere)
-* Most callers should use initialize==YES and cache==YES.
-* inst is an instance of cls or a subclass thereof, or nil if none is known. 
-*   If cls is an un-initialized metaclass then a non-nil inst is faster.
+* initialize==NO 尽量避免调用，有时可能也会调用。
+* cache==NO 跳过缓存查找，其他地方可能会不调过
+* 大多数人会传值 initialize==YES and cache==YES
+*   如果cls是非初始化的元类，则非Non-nil会快点
 * May return _objc_msgForward_impcache. IMPs destined for external use 
 *   must be converted to _objc_msgForward or _objc_msgForward_stret.
-*   If you don't want forwarding at all, use lookUpImpOrNil() instead.
+* 如果你不想用forwarding，则调用lookUpImpOrNil()代替
 **********************************************************************/
 IMP lookUpImpOrForward(Class cls, SEL sel, id inst, 
                        bool initialize, bool cache, bool resolver)
@@ -4881,7 +4879,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     runtimeLock.assertUnlocked();
 
     // Optimistic cache lookup
-    if (cache) {
+    if (cache) { //从汇编过来是NO
         imp = cache_getImp(cls, sel);
         if (imp) return imp;
     }
@@ -4903,29 +4901,27 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     }
 
     if (initialize  &&  !cls->isInitialized()) {
+		//当cls需要初始化和没有初始化的时候 进行cls初始化，
+		//初始化会加入到一个线程，同步执行，先初始化父类，再初始化子类
+		//数据的大小最小是4，扩容规则是：n*2+1;
         runtimeLock.unlock();
         _class_initialize (_class_getNonMetaClass(cls, inst));
         runtimeLock.lock();
-        // If sel == initialize, _class_initialize will send +initialize and 
-        // then the messenger will send +initialize again after this 
-        // procedure finishes. Of course, if this is not being called 
-        // from the messenger then it won't happen. 2778172
     }
 
     
  retry:    
     runtimeLock.assertLocked();
 
-    // Try this class's cache.
-
+//再次获取imp
     imp = cache_getImp(cls, sel);
     if (imp) goto done;
 
     // Try this class's method lists.
     //在本类中查找method
-    {
+    {//从cls->data()->methods查找method
         Method meth = getMethodNoSuper_nolock(cls, sel);
-        if (meth) {
+        if (meth) {//找到添加到cache中
             log_and_fill_cache(cls, meth->imp, sel, inst, cls);
             imp = meth->imp;
             goto done;
@@ -4933,6 +4929,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     }
 
     // Try superclass caches and method lists.
+	//从cls->superclass->data()->methods查找methd，supercls没有查找出来，再查找父类的父类。
     {
         unsigned attempts = unreasonableClassCount();
         for (Class curClass = cls->superclass;
@@ -4949,6 +4946,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
             if (imp) {
                 if (imp != (IMP)_objc_msgForward_impcache) {
                     // Found the method in a superclass. Cache it in this class.
+					//将父类添加到 子类的缓存中
                     log_and_fill_cache(cls, imp, sel, inst, curClass);
                     goto done;
                 }
@@ -4971,6 +4969,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     }
 
     // No implementation found. Try method resolver once.
+	//如果都没找到 动态方法解析阶段
 
     if (resolver  &&  !triedResolver) {
         runtimeLock.unlock();
@@ -4982,10 +4981,10 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
         goto retry;
     }
 
-    // No implementation found, and method resolver didn't help. 
-    // Use forwarding.
-
+    //如果没找到resolveInstanceMethod 和resolveClassMethod，
+//	进行消息转发 阶段
     imp = (IMP)_objc_msgForward_impcache;
+	//填充 cache
     cache_fill(cls, sel, imp, inst);
 
  done:
