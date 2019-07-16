@@ -420,7 +420,7 @@ struct locstamped_category_list_t {
 // Values for class_rw_t->flags
 // These are not emitted by the compiler and are never used in class_ro_t. 
 // Their presence should be considered in future ABI versions.
-// class_t->data is class_rw_t, not class_ro_t
+// class_t->data is class_rw_t, not class_ro_t realized
 #define RW_REALIZED           (1<<31)
 // class is unresolved future class
 #define RW_FUTURE             (1<<30)
