@@ -744,16 +744,16 @@ LNilReceiver:
 	MI_EXTERN(__objc_forward_handler)
 	MI_EXTERN(__objc_forward_stret_handler)
 	
-	STATIC_ENTRY __objc_msgForward_impcache
+	STATIC_ENTRY __objc_msgForward_impcache //进入 _objc_msgForward_impcache
 	// Method cache version
 
-	// THIS IS NOT A CALLABLE C FUNCTION
+	// 这是一个不能调用的c函数
 	// Out-of-band Z is 0 (EQ) for normal, 1 (NE) for stret
 
-	beq	__objc_msgForward
-	b	__objc_msgForward_stret
+	beq	__objc_msgForward // 标志寄存器中Z标志位等于零时, 跳转到BEQ后标签__objc_msgForward处
+	b	__objc_msgForward_stret //否则跳转  __objc_msgForward_stret
 	
-	END_ENTRY __objc_msgForward_impcache
+	END_ENTRY __objc_msgForward_impcache //结束 _objc_msgForward_impcache
 	
 
 	ENTRY __objc_msgForward

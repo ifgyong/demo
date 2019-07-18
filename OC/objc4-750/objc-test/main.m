@@ -32,15 +32,12 @@ int main(int argc, const char * argv[]) {
 //        [p hello];
         
 //        hookC();
-        Person *p = [[Person alloc]init];
-//        Method test1Method = class_getInstanceMethod(p.class, @selector(test));
-//        Method test2Method = class_getInstanceMethod(p.class, @selector(test2));
-//        IMP imp1= method_getImplementation(test1Method);
-//        IMP imp2= method_getImplementation(test2Method);
-        
-//        mj_objc_class *cls = (__bridge mj_objc_class *)p.class;
+		Person *p = [[Person alloc]init];
+		[Person test];
+
         NSLog(@"-----");
-        [Person test];
+//		instrumentObjcMessageSends(YES);
+		
     }
     return 0;
 }

@@ -33,10 +33,10 @@
 //methodSignature 函数签名
 //NSInvocation  封装数据的对象
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
-	anInvocation.selector = @selector(test2);
-	anInvocation.target = (id)[[Student alloc]init];
-	NSMethodSignature *sign = anInvocation.methodSignature;
-	[anInvocation invoke];
+//	anInvocation.selector = @selector(test2);
+//	anInvocation.target = (id)[[Student alloc]init];
+//	[anInvocation invoke];
+	NSLog(@"%s",__func__);
 }
 @end
 

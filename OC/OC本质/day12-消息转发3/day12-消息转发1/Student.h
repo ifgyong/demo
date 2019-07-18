@@ -1,8 +1,8 @@
 //
-//  Person.h
+//  Student.h
 //  day12-消息转发1
 //
-//  Created by fgy on 2019/7/17.
+//  Created by Charlie on 2019/7/18.
 //  Copyright © 2019 test. All rights reserved.
 //
 
@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Person : NSObject
+@interface Student : NSObject
 - (void)test;
+- (void)test2;
++ (void)test3;
 @end
 
 NS_ASSUME_NONNULL_END

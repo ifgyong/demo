@@ -528,12 +528,10 @@ LGetImpMiss:
 *
 ********************************************************************/
 
-	STATIC_ENTRY __objc_msgForward_impcache
-
+	STATIC_ENTRY __objc_msgForward_impcache //开始__objc_msgForward_impcache
 	// No stret specialization.
 	b	__objc_msgForward//跳转->__objc_msgForward
-
-	END_ENTRY __objc_msgForward_impcache
+	END_ENTRY __objc_msgForward_impcache // 结束__objc_msgForward_impcache
 
 	
 	ENTRY __objc_msgForward // 开始 __objc_msgForward

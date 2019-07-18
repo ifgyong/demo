@@ -6,6 +6,8 @@
 //
 
 #import "Person.h"
+#import "Student.h"
+#import <Foundation/Foundation.h>
 
 @implementation Person
 void testlog(id self,SEL _cmd);
@@ -20,25 +22,32 @@ void testlog(id self,SEL _cmd);
 //	}
 //	return [super resolveInstanceMethod:sel];
 //}
--(void)test2{
-	NSLog(@"来了，老弟");
-}
-+ (void)test3{
-	NSLog(@"来了，老弟");
-}
-+ (BOOL)resolveClassMethod:(SEL)sel{
-	NSLog(@"%s",__func__);
-	if (sel == @selector(test)) {
-		Method me = class_getClassMethod(self, @selector(test3));
-		class_addMethod(object_getClass(self), sel,
-						method_getImplementation(me),
-						method_getTypeEncoding(me));
-		return YES;
++ (id)forwardingTargetForSelector:(SEL)aSelector{
+	if (aSelector == @selector(test)) {
+		return [Student class];
 	}
-	return [super resolveInstanceMethod:sel];
+	return [super forwardingTargetForSelector:aSelector];
 }
-void testlog(id self,SEL _cmd){
-	NSLog(@"我是%@,%@ 来了，老弟,",self,_cmd);
-}
+//+ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+//{
+//	if (aSelector == @selector(test)) {
+//		NSMethodSignature *sign = [NSMethodSignature signatureWithObjCTypes:"v@:"];
+//		return sign;
+//	}
+//	return [super methodSignatureForSelector:aSelector];
+//}
+//// 函数签名已返回，到了函数调用的地方
+////selector 函数的sel
+////target   函数调用者
+////methodSignature 函数签名
+////NSInvocation  封装数据的对象
+//+ (void)forwardInvocation:(NSInvocation *)anInvocation{
+//
+//	anInvocation.selector = @selector(test3);
+//	anInvocation.target = (id)[Student class];
+//
+//	[anInvocation invoke];
+//	NSLog(@"%s",__func__);
+//}
 
 @end

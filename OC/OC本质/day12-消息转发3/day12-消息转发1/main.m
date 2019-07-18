@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Person.h"
+#import "Student.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+//		NSLog(@"s:%p p:%p",Student.class,Person.class);
 		Person *p = [[Person alloc]init];
-		[p test];
+		[Person test3];
+//		objc_msgSend(Person.class,@selector(test3));
     }
     return 0;
 }
