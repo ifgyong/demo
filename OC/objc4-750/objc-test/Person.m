@@ -8,37 +8,37 @@
 #import "Person.h"
 
 @implementation Person
-- (void)say{
-    NSLog(@"===== %s ",__func__);
-}
-- (void)hello{
-    NSLog(@"%s",__func__);
-}
--(void)test{
-    NSLog(@"%s",__func__);
-}
+void testlog(id self,SEL _cmd);
+//+(BOOL)resolveInstanceMethod:(SEL)sel{
+//	NSLog(@"%s",__func__);
+//	if (sel == @selector(test)) {
+//		Method me = class_getInstanceMethod(self, @selector(test2));
+//		class_addMethod(self, sel,
+//						method_getImplementation(me),
+//						method_getTypeEncoding(me));
+//		return YES;
+//	}
+//	return [super resolveInstanceMethod:sel];
+//}
 -(void)test2{
-    NSLog(@"%s",__func__);
+	NSLog(@"来了，老弟");
 }
--(void)test3{
-    NSLog(@"%s",__func__);
++ (void)test3{
+	NSLog(@"来了，老弟");
 }
--(void)test4{
-    NSLog(@"%s",__func__);
++ (BOOL)resolveClassMethod:(SEL)sel{
+	NSLog(@"%s",__func__);
+	if (sel == @selector(test)) {
+		Method me = class_getClassMethod(self, @selector(test3));
+		class_addMethod(object_getClass(self), sel,
+						method_getImplementation(me),
+						method_getTypeEncoding(me));
+		return YES;
+	}
+	return [super resolveInstanceMethod:sel];
 }
--(void)test5{
-    NSLog(@"%s",__func__);
+void testlog(id self,SEL _cmd){
+	NSLog(@"我是%@,%@ 来了，老弟,",self,_cmd);
 }
--(void)test6{
-    NSLog(@"%s",__func__);
-}
--(void)test7{
-    NSLog(@"%s",__func__);
-}
--(void)test8{
-    NSLog(@"%s",__func__);
-}
--(void)test9{
-    NSLog(@"%s",__func__);
-}
+
 @end

@@ -826,9 +826,8 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
 
 /***********************************************************************
 * methodizeClass
-* Fixes up cls's method list, protocol list, and property list.
-* Attaches any outstanding categories.
-* Locking: runtimeLock must be held by the caller
+ 修复cls方法列表想，协议列表和属性列表
+* 加锁
 **********************************************************************/
 static void methodizeClass(Class cls)
 {
@@ -844,24 +843,23 @@ static void methodizeClass(Class cls)
                      cls->nameForLogging(), isMeta ? "(meta)" : "");
     }
 
-    // Install methods and properties that the class implements itself.
 	//方法列表
     method_list_t *list = ro->baseMethods();
     if (list) {
         prepareMethodLists(cls, &list, 1, YES, isBundleClass(cls));
-		//将分类对象的方法追加到cls后面
+		//将对象的方法追加到cls->rw->methods后面
         rw->methods.attachLists(&list, 1);
     }
 
     property_list_t *proplist = ro->baseProperties;
     if (proplist) {
-		//将分类对象的属性追加到cls后面
+		//将对象的属性追加到rw->properties后面
         rw->properties.attachLists(&proplist, 1);
     }
 
     protocol_list_t *protolist = ro->baseProtocols;
     if (protolist) {
-		//将分类对象的协议追加到cls后面
+		//将对象的协议追加到rw->protocols后面
         rw->protocols.attachLists(&protolist, 1);
     }
 
@@ -873,7 +871,9 @@ static void methodizeClass(Class cls)
     }
 
     // Attach categories.
+	//类别 从全局NXMapTable *category_map 已经加载过了。
     category_list *cats = unattachedCategoriesForClass(cls, true /*realizing*/);
+	//收集所有的cats到cls -> rw中
     attachCategories(cls, cats, false /*don't flush caches*/);
 
     if (PrintConnecting) {
@@ -886,7 +886,7 @@ static void methodizeClass(Class cls)
         }
     }
     
-    if (cats) free(cats);
+    if (cats) free(cats);//释放cats
 
 #if DEBUG
     // Debug: sanity-check all SELs; log method list contents
@@ -1861,10 +1861,8 @@ static void reconcileInstanceVariables(Class cls, Class supercls, const class_ro
 
 /***********************************************************************
 * realizeClass
-* Performs first-time initialization on class cls, 
-* including allocating its read-write data.
-* Returns the real class structure for the class. 
-* Locking: runtimeLock must be write-locked by the caller
+ cls第一次初始化会执行，包括cls->rw->data(),返回真实的cls 结构体
+ runtimelock 必须有调用者把写入锁锁起来
 **********************************************************************/
 static Class realizeClass(Class cls)
 {
@@ -1881,29 +1879,29 @@ static Class realizeClass(Class cls)
     assert(cls == remapClass(cls));
 
     // fixme verify class is not in an un-dlopened part of the shared cache?
-
+//首先将tw赋值给to，因为数据结构一样可以直接强制转化
     ro = (const class_ro_t *)cls->data();
-    if (ro->flags & RO_FUTURE) {
-        // This was a future class. rw data is already allocated.
+    if (ro->flags & RO_FUTURE) {//是否已经初始化过，初始化过的哈 则 cls->rw 已经初始化过
         rw = cls->data();
         ro = cls->data()->ro;
         cls->changeInfo(RW_REALIZED|RW_REALIZING, RW_FUTURE);
     } else {
-        // Normal class. Allocate writeable class data.
+        // 正常情况下 申请class_rw_t空间
         rw = (class_rw_t *)calloc(sizeof(class_rw_t), 1);
-        rw->ro = ro;
-        rw->flags = RW_REALIZED|RW_REALIZING;
-        cls->setData(rw);
+        rw->ro = ro;//cls->rw->ro 指向现在的ro
+        rw->flags = RW_REALIZED|RW_REALIZING;//realized = 1 and  realizing = 1
+        cls->setData(rw);//赋值
     }
 
-    isMeta = ro->flags & RO_META;
+    isMeta = ro->flags & RO_META;//是否是元类
+	
 
-    rw->version = isMeta ? 7 : 0;  // old runtime went up to 6
+    rw->version = isMeta ? 7 : 0;  // 元类版本是7，旧版的6，否就是0
 
 
     // Choose an index for this class.
-    // Sets cls->instancesRequireRawIsa if indexes no more indexes are available
-    cls->chooseClassArrayIndex();
+//设置cls的索引
+	cls->chooseClassArrayIndex();
 
     if (PrintConnecting) {
         _objc_inform("CLASS: realizing class '%s'%s %p %p #%u", 
@@ -1911,12 +1909,14 @@ static Class realizeClass(Class cls)
                      (void*)cls, ro, cls->classArrayIndex());
     }
 
-    // Realize superclass and metaclass, if they aren't already.
-    // This needs to be done after RW_REALIZED is set above, for root classes.
-    // This needs to be done after class index is chosen, for root metaclasses.
+    // 如果父类没有初始化则进行初始化
+    // root_class 做完需要设置RW_REALIZED=1，
+    // root metaclasses 需要执行完.
+	//从NXMapTable 获取cls ，然后进行初始化
+	//从NXMapTable 获取cls->isa ，然后进行初始化
     supercls = realizeClass(remapClass(cls->superclass));
     metacls = realizeClass(remapClass(cls->ISA()));
-
+//没有经过优化的isa执行的，现在已经是version=7，在arm64上是优化过的，这个先不看了。
 #if SUPPORT_NONPOINTER_ISA
     // Disable non-pointer isa for some classes and/or platforms.
     // Set instancesRequireRawIsa.
@@ -1956,22 +1956,21 @@ static Class realizeClass(Class cls)
     cls->superclass = supercls;
     cls->initClassIsa(metacls);
 
-    // Reconcile instance variable offsets / layout.
-    // This may reallocate class_ro_t, updating our ro variable.
+	// 协调实例变量偏移/布局
+	//可能重新申请空间 class_ro_t,更新我们的class_ro_t
     if (supercls  &&  !isMeta) reconcileInstanceVariables(cls, supercls, ro);
 
-    // Set fastInstanceSize if it wasn't set already.
+    // 设置setInstanceSize 从ro->instanceSize
     cls->setInstanceSize(ro->instanceSize);
 
-    // Copy some flags from ro to rw
+	//拷贝flags 从ro到rw中
     if (ro->flags & RO_HAS_CXX_STRUCTORS) {
         cls->setHasCxxDtor();
         if (! (ro->flags & RO_HAS_CXX_DTOR_ONLY)) {
             cls->setHasCxxCtor();
         }
     }
-
-    // Connect this class to its superclass's subclass lists
+//添加superclass指针
     if (supercls) {
         addSubclass(supercls, cls);
     } else {
@@ -1979,6 +1978,7 @@ static Class realizeClass(Class cls)
     }
 
     // Attach categories
+	//类别的方法 在编译的时候没有添加到二进制文件中，在运行的时候添加进去的
     methodizeClass(cls);
 
     return cls;
@@ -4894,6 +4894,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     // behalf of the category.
 
     runtimeLock.lock();
+	//检查是否是已知的
     checkIsKnownClass(cls);
 
     if (!cls->isRealized()) {

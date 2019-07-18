@@ -6,21 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
+#import <objc/message.h>
+#import <dlfcn.h>
+#import <mach-o/ldsyms.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
-- (void)say;
-- (void)hello;
--(void)test;
--(void)test2;
--(void)test3;
--(void)test4;
--(void)test5;
--(void)test6;
--(void)test7;
--(void)test8;
--(void)test9;
++ (void)test;
 @end
 
 NS_ASSUME_NONNULL_END

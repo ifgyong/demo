@@ -410,7 +410,9 @@ objc_retainBlock(id _Nullable)
 // (Class)(isa & (uintptr_t)&objc_absolute_packed_isa_class_mask) == class ptr
 OBJC_EXPORT const struct { char c; } objc_absolute_packed_isa_class_mask
     OBJC_AVAILABLE(10.12, 10.0, 10.0, 3.0, 2.0);
-
+// __ARM_ARCH_7K__ 处理器架构指令集版本
+//__arm64__ 架构
+//__LP64__ uinx 和uinx  mac os
 #elif (__ARM_ARCH_7K__ >= 2  ||  (__arm64__ && !__LP64__))
 #   define OBJC_HAVE_NONPOINTER_ISA 1
 #   define OBJC_HAVE_INDEXED_NONPOINTER_ISA 1

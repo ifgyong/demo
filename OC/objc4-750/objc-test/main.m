@@ -33,23 +33,14 @@ int main(int argc, const char * argv[]) {
         
 //        hookC();
         Person *p = [[Person alloc]init];
-        Method test1Method = class_getInstanceMethod(p.class, @selector(test));
-        Method test2Method = class_getInstanceMethod(p.class, @selector(test2));
-        IMP imp1= method_getImplementation(test1Method);
-        IMP imp2= method_getImplementation(test2Method);
+//        Method test1Method = class_getInstanceMethod(p.class, @selector(test));
+//        Method test2Method = class_getInstanceMethod(p.class, @selector(test2));
+//        IMP imp1= method_getImplementation(test1Method);
+//        IMP imp2= method_getImplementation(test2Method);
         
 //        mj_objc_class *cls = (__bridge mj_objc_class *)p.class;
         NSLog(@"-----");
-        [p test];
-        [p test2];
-        [p test3];
-        [p test4];
-        [p test5];
-        [p test6];
-        
-        [p test7];
-        [p test8];
-        [p test9];
+        [Person test];
     }
     return 0;
 }

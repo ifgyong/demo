@@ -92,6 +92,9 @@
 // field as an index into a class table.
 // Note, keep this in sync with any .s files which also define it.
 // Be sure to edit objc-abi.h as well.
+// __ARM_ARCH_7K__ 处理器架构指令集版本
+//__arm64__ 架构
+//__LP64__ uinx 和uinx  mac os
 #if __ARM_ARCH_7K__ >= 2  ||  (__arm64__ && !__LP64__)
 #   define SUPPORT_INDEXED_ISA 1
 #else
