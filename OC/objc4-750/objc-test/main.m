@@ -32,12 +32,20 @@ int main(int argc, const char * argv[]) {
 //        [p hello];
         
 //        hookC();
-		Person *p = [[Person alloc]init];
-		[Person test];
+//        Person *p = [[Person alloc]init];
+//        [Person test];
 
-        NSLog(@"-----");
-//		instrumentObjcMessageSends(YES);
-		
+        Class cls = NSObject.class;
+        Class pcls = Person.class;
+        //isKindOfClass cls->isa 和cls/cls->superclass相等吗
+        //元类对象和类对象不相等，但是最后一个元类的isa->superclass是指向
+        BOOL res1 =[cls isKindOfClass:cls];
+        //cls->isa 和cls相等吗？ 不相等 cls->isa是元类对象,cls是类对象，不可能相等。
+        BOOL res2 =[cls isMemberOfClass:cls];
+        
+        BOOL res3 =[pcls isKindOfClass:pcls];
+        BOOL res4 =[pcls isMemberOfClass:pcls];
+        NSLog(@"%d %d %d %d",res1,res2,res3,res4);
     }
     return 0;
 }

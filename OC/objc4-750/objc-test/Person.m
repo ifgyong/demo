@@ -6,7 +6,6 @@
 //
 
 #import "Person.h"
-#import "Student.h"
 #import <Foundation/Foundation.h>
 
 @implementation Person
@@ -24,7 +23,7 @@ void testlog(id self,SEL _cmd);
 //}
 + (id)forwardingTargetForSelector:(SEL)aSelector{
 	if (aSelector == @selector(test)) {
-		return [Student class];
+		return [NSArray class];
 	}
 	return [super forwardingTargetForSelector:aSelector];
 }
