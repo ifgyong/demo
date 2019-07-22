@@ -1,6 +1,6 @@
 //
 //  FYPerson.h
-//  day13-super
+//  day13-class
 //
 //  Created by fgy on 2019/7/21.
 //  Copyright © 2019 test. All rights reserved.
@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FYPerson : NSObject
--(void)test;
+
 @end
 
 NS_ASSUME_NONNULL_END
