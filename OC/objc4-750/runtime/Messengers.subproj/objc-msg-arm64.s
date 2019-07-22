@@ -410,8 +410,9 @@ LLookup_Nil:
 
 	ENTRY _objc_msgSendSuper
 	UNWIND _objc_msgSendSuper, NoFrame
+//x0偏移16字节，就是两个指针的空间，赋值给p0 和p16
+	ldp	p0, p16, [x0]		// p0 = self , p16 = superclass
 
-	ldp	p0, p16, [x0]		// p0 = real receiver, p16 = class
 	CacheLookup NORMAL		// calls imp or objc_msgSend_uncached
 
 	END_ENTRY _objc_msgSendSuper
