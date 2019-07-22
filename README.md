@@ -28,3 +28,5 @@
 17. [runtime-消息转发1](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%911)
 18. [runtime-消息转发2](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%912)
 19. [runtime-消息转发3](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%913)
+20. [runtime-isKindOfClass&isMemberOfClass](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-class)
+21. [runtime-super 探究](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-super)

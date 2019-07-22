@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FYPerson : NSObject
 @property (nonatomic,copy) NSString *name1;
 @property (nonatomic,copy) NSString *name2;
-@property (nonatomic,copy) NSString *name3;
 - (void)print;
 @end
 

@@ -10,6 +10,6 @@
 
 @implementation FYPerson
 - (void)print{
-    NSLog(@"name1:%@ name2:%@ name3:%@",self.name1,self.name2,self.name3);
+    NSLog(@"name1:%@ name2:%@",self.name1,self.name2);
 }
 @end

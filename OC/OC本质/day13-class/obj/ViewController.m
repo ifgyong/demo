@@ -23,13 +23,15 @@ void test(){//栈空间连续内存是从高到低
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+	/*
+	 objc_msgSuperSend(self,ViewController,sel)
+	 */
 //    test();
-    
-    
-    NSObject *fix =[NSObject new];
-    // 0x7ff 开头的都是在堆上
-    FYPerson *fix2 =[FYPerson new];
-    
+	NSLog(@"self:%p ViewController.class:%p SEL:%p",self,(ViewController.class),@selector(viewDidLoad));
+//    NSObject *fix =[NSObject new];
+//    // 0x7ff 开头的都是在堆上
+//    FYPerson *fix2 =[FYPerson new];
+	
     id cls  = [FYPerson class];//cls 是类指针
     void * obj = &cls; //obj 指针指向cls的内存地址，访问obj相当于直接访问
 //    cls内存存储的值，cls存储的是Person.class
@@ -40,7 +42,7 @@ void test(){//栈空间连续内存是从高到低
 //fix2:0x7ffeec3d f920
 //cls: 0x7ffeec3d f918
 //obj: 0x7ffeec3d f910
-    NSLog(@"fix:%p fix2:%p cls:%p obj:%p",&fix,&fix2,&cls,&obj);
+    NSLog(@"cls:%p obj:%p",&cls,&obj);
 }
 
 
