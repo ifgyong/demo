@@ -11,6 +11,13 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+//        int ret = 0;
+//        do {
+//            //睡眠中等待消息
+//            int messgae = sleep_and_wait();
+//            //处理消息
+//            ret = process_message(messgae);
+//        } while (ret == 0);
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

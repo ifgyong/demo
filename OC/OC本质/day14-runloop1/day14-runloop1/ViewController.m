@@ -16,7 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSRunLoop * runloop1 = [NSRunLoop currentRunLoop];
+    NSRunLoop *mainloop1 = [NSRunLoop mainRunLoop];
+
+    CFRunLoopRef runloop2= CFRunLoopGetCurrent();
+    CFRunLoopRef mainloop2 = CFRunLoopGetMain();
+    NSLog(@"%p %p %p %p",runloop1,mainloop1,runloop2,mainloop2);
+    NSLog(@"%@",runloop1);
+    
 }
 
 
