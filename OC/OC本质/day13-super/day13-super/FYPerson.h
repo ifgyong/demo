@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FYPerson : NSObject
+@property (nonatomic,copy) NSString *name;
+- (int)age;
 -(void)test;
 @end
 
