@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A582FB1522E5D928006FEE56 /* NSMutableDictionary+add.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FB1422E5D928006FEE56 /* NSMutableDictionary+add.m */; };
 		EEB2597622E5B86F0094559D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB2597522E5B86F0094559D /* AppDelegate.m */; };
 		EEB2597922E5B86F0094559D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB2597822E5B86F0094559D /* ViewController.m */; };
 		EEB2597C22E5B86F0094559D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2597A22E5B86F0094559D /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A582FB1322E5D928006FEE56 /* NSMutableDictionary+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+add.h"; sourceTree = "<group>"; };
+		A582FB1422E5D928006FEE56 /* NSMutableDictionary+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+add.m"; sourceTree = "<group>"; };
 		EEB2597122E5B86F0094559D /* day14-方法交换.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day14-方法交换.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2597422E5B86F0094559D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EEB2597522E5B86F0094559D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				EEB2598B22E5B88C0094559D /* UIButton+add.m */,
 				EEB2598D22E5BFC50094559D /* NSMutableArray+add.h */,
 				EEB2598E22E5BFC50094559D /* NSMutableArray+add.m */,
+				A582FB1322E5D928006FEE56 /* NSMutableDictionary+add.h */,
+				A582FB1422E5D928006FEE56 /* NSMutableDictionary+add.m */,
 				EEB2597A22E5B86F0094559D /* Main.storyboard */,
 				EEB2597D22E5B8700094559D /* Assets.xcassets */,
 				EEB2597F22E5B8700094559D /* LaunchScreen.storyboard */,
@@ -155,6 +160,7 @@
 				EEB2598422E5B8700094559D /* main.m in Sources */,
 				EEB2597622E5B86F0094559D /* AppDelegate.m in Sources */,
 				EEB2598C22E5B88C0094559D /* UIButton+add.m in Sources */,
+				A582FB1522E5D928006FEE56 /* NSMutableDictionary+add.m in Sources */,
 				EEB2598F22E5BFC50094559D /* NSMutableArray+add.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

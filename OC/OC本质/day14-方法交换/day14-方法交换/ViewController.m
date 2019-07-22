@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "objc/runtime.h"
 
 @interface ViewController ()
 
@@ -20,6 +21,12 @@
 	id obj = nil;
 	[array addObject:obj];
 	array[1];
+    
+    NSMutableDictionary *dic=[@{} mutableCopy];
+    dic [@"1"];
+    [dic setObject:nil forKey:@"2"];
+//    [dic setValue:nil forKey:@"12"];
+    dic[nil];
 }
 
 - (IBAction)click:(id)sender {

@@ -14,10 +14,10 @@
 	Class cls= NSClassFromString(@"__NSArrayM");
 	Method m1= class_getInstanceMethod(cls, @selector(insertObject:atIndex:));
 	SEL sel = @selector(fy_insertObject:atIndex:);
-	Method m2= class_getInstanceMethod(cls, sel);
+	Method m2= class_getInstanceMethod(self, sel);
 	
 	Method m3= class_getInstanceMethod(cls, @selector(objectAtIndexedSubscript:));
-	Method m4= class_getInstanceMethod(cls, @selector(fy_objectAtIndexedSubscript:));
+	Method m4= class_getInstanceMethod(self, @selector(fy_objectAtIndexedSubscript:));
 
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
