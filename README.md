@@ -30,3 +30,6 @@
 19. [runtime-消息转发3](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%913)
 20. [runtime-isKindOfClass&isMemberOfClass](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-class)
 21. [runtime-super 探究](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-super)
+22. [runtime-JsonToModel](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-super2)
+23. [runitme-数组字典nil处理和btn日志记录](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-%E6%96%B9%E6%B3%95%E4%BA%A4%E6%8D%A2)
+
