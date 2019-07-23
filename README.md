@@ -33,4 +33,10 @@
 29. [runtime-JsonToModel](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day13-super2)
 30. [runitme-数组字典nil处理和btn日志记录](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-%E6%96%B9%E6%B3%95%E4%BA%A4%E6%8D%A2)
 31. [设计模式demo](https://github.com/ifgyong/demo/tree/master/OC/test/test/aof)
+32. [CF源码](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-runloop%E6%BA%90%E7%A0%81)
+33. [thread保活c语言版本](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-CFRunloop%E7%BA%BF%E7%A8%8B%E4%BF%9D%E6%B4%BB%E5%B0%81%E8%A3%85%E7%9A%84c%E8%AF%AD%E8%A8%80)
+34. [thread 保活](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-CFRunloop%E7%BA%BF%E7%A8%8B%E4%BF%9D%E6%B4%BB%E5%B0%81%E8%A3%85)
+35. [runloop 多中模式切换和状态监听](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-CFRunloop1)
+36. [runloop 保活](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day14-CFRunloop1)
+37. 
 
