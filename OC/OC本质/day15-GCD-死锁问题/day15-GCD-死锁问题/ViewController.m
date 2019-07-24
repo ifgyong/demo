@@ -32,17 +32,20 @@
      新建并发队列 异步添加会产生新线程并发执行任务，唯一一个并发，同时执行
      新建串行队列 有产生新线程能力，串行执行任务
      */
-    dispatch_queue_t qt = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
-//    qt = dispatch_get_main_queue();
-    NSLog(@"1");
-    dispatch_async(qt, ^{
-        NSLog(@"2--");
-    });
-    dispatch_sync(qt, ^{
-        NSLog(@"2");
-    });
-    NSLog(@"3");
-    
+//    dispatch_queue_t qt = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
+////    qt = dispatch_get_main_queue();
+//    NSLog(@"1");
+//    dispatch_async(qt, ^{
+//        NSLog(@"2--");
+//    });
+//    dispatch_sync(qt, ^{
+//        NSLog(@"2");
+//    });
+//    NSLog(@"3");
+	dispatch_queue_t main_queue= dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	dispatch_sync(main_queue, ^{
+		NSLog(@"3");
+	});
 }
 
 @end
