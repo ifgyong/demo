@@ -16,8 +16,26 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.count = 10;
-	[self muchQueueBuyTick];
+//	self.count = 10;
+	[self asyn_semaphore];
+}
+- (void)apply{
+	dispatch_apply(1, dispatch_get_global_queue(0, 0), ^(size_t idx) {
+//		printf("\n %s %s ",[self dateUTF8],[self threadInfo]);
+		[self sync_buy_tick];
+	});
+}
+- (void)print{
+	printf("\n %s %s ",[self dateUTF8],[self threadInfo]);
+}
+//延迟执行 在子线程
+-(void)dispatch_after{
+	printf("\n %s %s begin",[self dateUTF8],[self threadInfo]);
+	dispatch_queue_t queue= dispatch_queue_create("com.sub.thread", DISPATCH_QUEUE_CONCURRENT);
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), queue, ^{
+		printf("\n %s %s",[self dateUTF8],[self threadInfo]);
+	});
+	printf("\n %s %s end",[self dateUTF8],[self threadInfo]);
 }
 -(void)muchQueueBuyTick{
 	dispatch_queue_t queue= dispatch_queue_create("com.buy.tick", DISPATCH_QUEUE_CONCURRENT);
@@ -33,6 +51,40 @@
 		}
 	});
 }
+//使用串行队列卖票队列卖票
+- (void)sync_buy_tick{
+	
+	static	dispatch_group_t group ;
+	if (group == nil) {
+		group = dispatch_group_create();
+	}
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//	dispatch_group_enter(group);
+	dispatch_group_async(group, queue, ^{
+		[self print];
+		[NSThread sleepForTimeInterval:2];
+//		dispatch_group_leave(group);//当注释掉  阻塞在wait不继续向下执行
+	});
+	dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	
+	dispatch_group_enter(group);
+	dispatch_group_async(group, queue, ^{
+		[self print];
+		[NSThread sleepForTimeInterval:2];
+		dispatch_group_leave(group);
+	});
+	
+	
+	
+//	dispatch_async(dispatch_get_main_queue(), ^{
+//		self.count--;
+//		if (self.count > 0) {
+//			printf("\n %s %s 第%ld个人买到票了",[self currentDateString].UTF8String,[NSThread currentThread].description.UTF8String,(long)self.count);
+//			[NSThread sleepForTimeInterval:0.2];
+//		}
+//	});
+}
+//信号量为1 作为线程锁
 - (void)semaphore_buy_ticks:(NSInteger)windowsCount{
 	static dispatch_semaphore_t sem;
 	if (sem == NULL) {
@@ -66,8 +118,8 @@
 
 
 -(void)asyn_semaphore{
-	dispatch_apply(3, dispatch_get_global_queue(0, 0), ^(size_t idx) {
-		[self semaphore];
+	dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t idx) {
+		[self exc_once];
 	});
 }
 //延迟执行
@@ -84,6 +136,7 @@
 	static NSObject *obj;
 	dispatch_once(&onceToken, ^{
 		obj=[NSObject new];
+		printf("\n just once %s %s",[self dateUTF8],obj.description.UTF8String);
 	});
 	printf("\n %s %s",[self dateUTF8],obj.description.UTF8String);
 }
