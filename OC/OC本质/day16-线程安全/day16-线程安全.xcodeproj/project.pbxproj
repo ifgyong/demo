@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A582FBA122E9EA7D006FEE56 /* FYBaseDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FB9D22E9EA7D006FEE56 /* FYBaseDemo.m */; };
+		A582FBA422E9EA97006FEE56 /* OSSPinLockDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FBA322E9EA97006FEE56 /* OSSPinLockDemo2.m */; };
 		EE6D797522E9B5ED00A5C577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6D797422E9B5ED00A5C577 /* AppDelegate.m */; };
 		EE6D797822E9B5ED00A5C577 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6D797722E9B5ED00A5C577 /* ViewController.m */; };
 		EE6D797B22E9B5ED00A5C577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6D797922E9B5ED00A5C577 /* Main.storyboard */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A582FB9D22E9EA7D006FEE56 /* FYBaseDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYBaseDemo.m; sourceTree = "<group>"; };
+		A582FB9F22E9EA7D006FEE56 /* FYBaseDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYBaseDemo.h; sourceTree = "<group>"; };
+		A582FBA222E9EA97006FEE56 /* OSSPinLockDemo2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSPinLockDemo2.h; sourceTree = "<group>"; };
+		A582FBA322E9EA97006FEE56 /* OSSPinLockDemo2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSPinLockDemo2.m; sourceTree = "<group>"; };
 		EE6D797022E9B5ED00A5C577 /* day16-线程安全.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day16-线程安全.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6D797322E9B5ED00A5C577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE6D797422E9B5ED00A5C577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A582FBA522E9EB0D006FEE56 /* lock */ = {
+			isa = PBXGroup;
+			children = (
+				A582FB9F22E9EA7D006FEE56 /* FYBaseDemo.h */,
+				A582FB9D22E9EA7D006FEE56 /* FYBaseDemo.m */,
+				A582FBA222E9EA97006FEE56 /* OSSPinLockDemo2.h */,
+				A582FBA322E9EA97006FEE56 /* OSSPinLockDemo2.m */,
+			);
+			path = lock;
+			sourceTree = "<group>";
+		};
 		EE6D796722E9B5ED00A5C577 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +75,7 @@
 		EE6D797222E9B5ED00A5C577 /* day16-线程安全 */ = {
 			isa = PBXGroup;
 			children = (
+				A582FBA522E9EB0D006FEE56 /* lock */,
 				EE6D797322E9B5ED00A5C577 /* AppDelegate.h */,
 				EE6D797422E9B5ED00A5C577 /* AppDelegate.m */,
 				EE6D797622E9B5ED00A5C577 /* ViewController.h */,
@@ -141,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A582FBA422E9EA97006FEE56 /* OSSPinLockDemo2.m in Sources */,
 				EE6D797822E9B5ED00A5C577 /* ViewController.m in Sources */,
 				EE6D798322E9B5EF00A5C577 /* main.m in Sources */,
 				EE6D797522E9B5ED00A5C577 /* AppDelegate.m in Sources */,
+				A582FBA122E9EA7D006FEE56 /* FYBaseDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
+				DEVELOPMENT_TEAM = LQ6TGUUK2V;
 				INFOPLIST_FILE = "day16-线程安全/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,8 +324,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
+				DEVELOPMENT_TEAM = LQ6TGUUK2V;
 				INFOPLIST_FILE = "day16-线程安全/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
