@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <pthread.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)ticketTest;
 - (void)moneyTest;
+- (void)otherTest;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,8 +11,16 @@
 @implementation OSSPinLockDemo2
 - (instancetype)init{
     if (self =[super init]) {
-        self.moneyLock = 0;
+        self.moneyLock = OS_SPINLOCK_INIT;
         self.ticketLock = OS_SPINLOCK_INIT;
+//		//锁的初始化
+//		OSSpinLock lock = OS_SPINLOCK_INIT;
+//		//尝试加锁 加锁失败会直接向下执行
+//		bool ret = OSSpinLockTry(&lock);
+//		//加锁
+//		OSSpinLockLock(&lock);
+//		//解锁
+//		OSSpinLockUnlock(&lock);
     }
     return self;
 }
