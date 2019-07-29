@@ -299,7 +299,6 @@ int objc_sync_enter(id obj)
         }
         objc_sync_nil();
     }
-
     return result;
 }
 
