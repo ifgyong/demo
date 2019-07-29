@@ -13,8 +13,14 @@
 #import "lock/FYPthread_mutex.h"
 #import "lock/FYPthread_mutex2.h"
 #import "lock/FYPthread_Mutex3.h"
+#import "lock/FYRecursiveLockDemo.h"
 
-
+#import "lock/FYNSLock.h"
+#import "lock/FYCondLockDemo.h"
+#import "lock/FYCondLockDemo2.h"
+#import "lock/FYSerialQueueDemo.h"
+#import "lock/FYSemaphoreDemo.h"
+#import "lock/FYSynchronizedDemo.h"
 
 @interface ViewController ()
 
@@ -26,13 +32,20 @@
 	[super viewDidLoad];
 	//FYPthread_mutex
 	//
-	FYBaseDemo *base = [[FYPthread_Mutex3 alloc]init];
-	[base otherTest];
+	FYBaseDemo *base = [[OSSPinLockDemo2 alloc]init];
+	[base ticketTest];
+	tickets = 1000000;
+	[base ticketTest];
+	tickets = 10000000;
+	[base ticketTest];
 }
 //执行次数
-NSInteger tickets = 10;
-bool isLog = true;
-float sleepTime = .2f;
+NSInteger tickets = 10000;
+//NSInteger tickets = 1000000;
+//NSInteger tickets = 10000000;
+
+bool isLog = false;
+float sleepTime = .0f;
 - (void)pthread{
 	FYPthread_mutex *thr=[[FYPthread_mutex alloc]init];
 	[thr ticketTest];

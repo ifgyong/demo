@@ -30,9 +30,9 @@
     OSSpinLockUnlock(&_moneyLock);
 }
 - (void)__saleTicket{
-    OSSpinLockLock(&_moneyLock);
+    OSSpinLockLock(&_ticketLock);
     [super __saleTicket];
-    OSSpinLockUnlock(&_moneyLock);
+    OSSpinLockUnlock(&_ticketLock);
 }
 - (void)__saveMonery{
     OSSpinLockLock(&_moneyLock);

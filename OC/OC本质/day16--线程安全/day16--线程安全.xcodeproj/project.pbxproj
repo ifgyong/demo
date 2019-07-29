@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0F0B0522EEE52200001978 /* FYSynchronizedDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F0B0422EEE52200001978 /* FYSynchronizedDemo.m */; };
+		EE1B66BE22EE7D8C0034C5C7 /* FYNSLock.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B66BD22EE7D8C0034C5C7 /* FYNSLock.m */; };
+		EE1B66C122EE85160034C5C7 /* FYRecursiveLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B66C022EE85160034C5C7 /* FYRecursiveLockDemo.m */; };
+		EE1B66C422EE89700034C5C7 /* FYCondLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B66C322EE89700034C5C7 /* FYCondLockDemo.m */; };
 		EE5FD1FD22EADC65002C4A07 /* FYOSUnfairLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5FD1FC22EADC65002C4A07 /* FYOSUnfairLockDemo.m */; };
 		EE5FD20022EADE13002C4A07 /* FYPthread_mutex.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5FD1FF22EADE13002C4A07 /* FYPthread_mutex.m */; };
 		EE5FD20322EAF767002C4A07 /* FYPthread_mutex2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5FD20222EAF767002C4A07 /* FYPthread_mutex2.m */; };
@@ -19,9 +23,20 @@
 		EE7F3F6622EA86AD00D16BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7F3F6522EA86AD00D16BA6 /* main.m */; };
 		EE7F3F7822EA86DA00D16BA6 /* OSSPinLockDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7F3F7622EA86DA00D16BA6 /* OSSPinLockDemo2.m */; };
 		EE7F3F7922EA86DA00D16BA6 /* FYBaseDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7F3F7722EA86DA00D16BA6 /* FYBaseDemo.m */; };
+		EEDC48D022EE92C700BD4D21 /* FYCondLockDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC48CF22EE92C700BD4D21 /* FYCondLockDemo2.m */; };
+		EEE9E9BB22EE99EB00B6A1F3 /* FYSerialQueueDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE9E9BA22EE99EB00B6A1F3 /* FYSerialQueueDemo.m */; };
+		EEE9E9BE22EE9B5E00B6A1F3 /* FYSemaphoreDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE9E9BD22EE9B5E00B6A1F3 /* FYSemaphoreDemo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE0F0B0322EEE52200001978 /* FYSynchronizedDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYSynchronizedDemo.h; sourceTree = "<group>"; };
+		EE0F0B0422EEE52200001978 /* FYSynchronizedDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYSynchronizedDemo.m; sourceTree = "<group>"; };
+		EE1B66BC22EE7D8C0034C5C7 /* FYNSLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYNSLock.h; sourceTree = "<group>"; };
+		EE1B66BD22EE7D8C0034C5C7 /* FYNSLock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYNSLock.m; sourceTree = "<group>"; };
+		EE1B66BF22EE85160034C5C7 /* FYRecursiveLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYRecursiveLockDemo.h; sourceTree = "<group>"; };
+		EE1B66C022EE85160034C5C7 /* FYRecursiveLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYRecursiveLockDemo.m; sourceTree = "<group>"; };
+		EE1B66C222EE89700034C5C7 /* FYCondLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYCondLockDemo.h; sourceTree = "<group>"; };
+		EE1B66C322EE89700034C5C7 /* FYCondLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYCondLockDemo.m; sourceTree = "<group>"; };
 		EE5FD1FB22EADC65002C4A07 /* FYOSUnfairLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYOSUnfairLockDemo.h; sourceTree = "<group>"; };
 		EE5FD1FC22EADC65002C4A07 /* FYOSUnfairLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYOSUnfairLockDemo.m; sourceTree = "<group>"; };
 		EE5FD1FE22EADE13002C4A07 /* FYPthread_mutex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYPthread_mutex.h; sourceTree = "<group>"; };
@@ -44,6 +59,12 @@
 		EE7F3F7522EA86DA00D16BA6 /* OSSPinLockDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSPinLockDemo2.h; sourceTree = "<group>"; };
 		EE7F3F7622EA86DA00D16BA6 /* OSSPinLockDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSPinLockDemo2.m; sourceTree = "<group>"; };
 		EE7F3F7722EA86DA00D16BA6 /* FYBaseDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYBaseDemo.m; sourceTree = "<group>"; };
+		EEDC48CE22EE92C700BD4D21 /* FYCondLockDemo2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYCondLockDemo2.h; sourceTree = "<group>"; };
+		EEDC48CF22EE92C700BD4D21 /* FYCondLockDemo2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYCondLockDemo2.m; sourceTree = "<group>"; };
+		EEE9E9B922EE99EB00B6A1F3 /* FYSerialQueueDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYSerialQueueDemo.h; sourceTree = "<group>"; };
+		EEE9E9BA22EE99EB00B6A1F3 /* FYSerialQueueDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYSerialQueueDemo.m; sourceTree = "<group>"; };
+		EEE9E9BC22EE9B5E00B6A1F3 /* FYSemaphoreDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYSemaphoreDemo.h; sourceTree = "<group>"; };
+		EEE9E9BD22EE9B5E00B6A1F3 /* FYSemaphoreDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYSemaphoreDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +126,20 @@
 				EE5FD20222EAF767002C4A07 /* FYPthread_mutex2.m */,
 				EE5FD20422EB031E002C4A07 /* FYPthread_Mutex3.h */,
 				EE5FD20522EB031E002C4A07 /* FYPthread_Mutex3.m */,
+				EE1B66BC22EE7D8C0034C5C7 /* FYNSLock.h */,
+				EE1B66BD22EE7D8C0034C5C7 /* FYNSLock.m */,
+				EE1B66BF22EE85160034C5C7 /* FYRecursiveLockDemo.h */,
+				EE1B66C022EE85160034C5C7 /* FYRecursiveLockDemo.m */,
+				EE1B66C222EE89700034C5C7 /* FYCondLockDemo.h */,
+				EE1B66C322EE89700034C5C7 /* FYCondLockDemo.m */,
+				EEDC48CE22EE92C700BD4D21 /* FYCondLockDemo2.h */,
+				EEDC48CF22EE92C700BD4D21 /* FYCondLockDemo2.m */,
+				EEE9E9B922EE99EB00B6A1F3 /* FYSerialQueueDemo.h */,
+				EEE9E9BA22EE99EB00B6A1F3 /* FYSerialQueueDemo.m */,
+				EEE9E9BC22EE9B5E00B6A1F3 /* FYSemaphoreDemo.h */,
+				EEE9E9BD22EE9B5E00B6A1F3 /* FYSemaphoreDemo.m */,
+				EE0F0B0322EEE52200001978 /* FYSynchronizedDemo.h */,
+				EE0F0B0422EEE52200001978 /* FYSynchronizedDemo.m */,
 			);
 			path = lock;
 			sourceTree = "<group>";
@@ -182,13 +217,20 @@
 			files = (
 				EE5FD20322EAF767002C4A07 /* FYPthread_mutex2.m in Sources */,
 				EE7F3F7822EA86DA00D16BA6 /* OSSPinLockDemo2.m in Sources */,
+				EEE9E9BE22EE9B5E00B6A1F3 /* FYSemaphoreDemo.m in Sources */,
+				EE0F0B0522EEE52200001978 /* FYSynchronizedDemo.m in Sources */,
 				EE5FD20022EADE13002C4A07 /* FYPthread_mutex.m in Sources */,
 				EE7F3F5B22EA86AC00D16BA6 /* ViewController.m in Sources */,
+				EE1B66BE22EE7D8C0034C5C7 /* FYNSLock.m in Sources */,
 				EE5FD20622EB031E002C4A07 /* FYPthread_Mutex3.m in Sources */,
 				EE7F3F6622EA86AD00D16BA6 /* main.m in Sources */,
 				EE5FD1FD22EADC65002C4A07 /* FYOSUnfairLockDemo.m in Sources */,
+				EE1B66C422EE89700034C5C7 /* FYCondLockDemo.m in Sources */,
+				EE1B66C122EE85160034C5C7 /* FYRecursiveLockDemo.m in Sources */,
+				EEDC48D022EE92C700BD4D21 /* FYCondLockDemo2.m in Sources */,
 				EE7F3F5822EA86AC00D16BA6 /* AppDelegate.m in Sources */,
 				EE7F3F7922EA86DA00D16BA6 /* FYBaseDemo.m in Sources */,
+				EEE9E9BB22EE99EB00B6A1F3 /* FYSerialQueueDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

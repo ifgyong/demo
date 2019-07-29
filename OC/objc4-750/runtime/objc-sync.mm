@@ -34,7 +34,7 @@ typedef struct alignas(CacheLineSize) SyncData {
     struct SyncData* nextData;
     DisguisedPtr<objc_object> object;
     int32_t threadCount;  // number of THREADS using this block
-    recursive_mutex_t mutex;
+    recursive_mutex_t mutex; //递归锁
 } SyncData;
 
 typedef struct {
@@ -286,10 +286,13 @@ int objc_sync_enter(id obj)
     int result = OBJC_SYNC_SUCCESS;
 
     if (obj) {
+		//根据obj获取对应的一把锁
         SyncData* data = id2data(obj, ACQUIRE);
         assert(data);
+		//加锁
         data->mutex.lock();
     } else {
+		//nil 什么都不做
         // @synchronized(nil) does nothing
         if (DebugNilSync) {
             _objc_inform("NIL SYNC DEBUG: @synchronized(nil); set a breakpoint on objc_sync_nil to debug");

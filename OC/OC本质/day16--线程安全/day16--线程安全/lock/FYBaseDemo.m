@@ -64,7 +64,7 @@ extern NSInteger tickets;
     });
 	dispatch_barrier_async(queue, ^{
 		CFAbsoluteTime time = CFAbsoluteTimeGetCurrent() - time1;
-		printf("tick cost time:%f",time);
+		printf("tick cost time:%f \n",time);
 	});
 }
 -(void)printStackSize{
