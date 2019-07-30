@@ -41,4 +41,5 @@
 37. [GCD死锁问题](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day15-GCD-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98)
 38. [GCD各种函数使用例子](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day15-GCD%E5%90%84%E7%A7%8D%E6%83%85%E5%86%B5Demo)
 39. [runloop面试题分析](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day15-%E9%9D%A2%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90)
-
+40. [读写锁的实现](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/write-lock)
+41. [线程安全锁优点和缺点demo](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day16--%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
