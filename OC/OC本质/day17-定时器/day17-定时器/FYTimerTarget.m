@@ -9,6 +9,11 @@
 #import "FYTimerTarget.h"
 
 @implementation FYTimerTarget
++ (instancetype)proxyWithTarget:(id)obj{
+    FYTimerTarget *target =[[FYTimerTarget alloc]init];
+    target.target = obj;
+    return target;
+}
 -(id)forwardingTargetForSelector:(SEL)aSelector{
 	return self.target;
 }

@@ -13,6 +13,7 @@
 	NSLog(@"%s",__func__);
 }
 + (instancetype)proxyWithTarget:(id)target{
+    //不需要init初始化 
 	FYProxy *obj=[FYProxy alloc];
 	obj.target = target;
 	return obj;

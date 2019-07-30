@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FYTimerTarget : NSObject
++ (instancetype)proxyWithTarget:(id)obj;
 @property (nonatomic,weak) id target;
 @end
 
