@@ -52,13 +52,14 @@ id objc_getProperty(id self, SEL _cmd, ptrdiff_t offset, BOOL atomic) {
 
     // Retain release world
     id *slot = (id*) ((char*)self + offset);
-    if (!atomic) return *slot;
+    if (!atomic) return *slot;//非原子操作 直接返回值
         
     // Atomic retain release world
+	//原子操作 加锁 ->自旋锁
     spinlock_t& slotlock = PropertyLocks[slot];
-    slotlock.lock();
+    slotlock.lock();//加锁
     id value = objc_retain(*slot);
-    slotlock.unlock();
+    slotlock.unlock();//解锁
     
     // for performance, we (safely) issue the autorelease OUTSIDE of the spinlock.
     return objc_autoreleaseReturnValue(value);
@@ -82,19 +83,20 @@ static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t o
     } else if (mutableCopy) {
         newValue = [newValue mutableCopyWithZone:nil];
     } else {
+		//如果赋值和原来的相等 则不操作
         if (*slot == newValue) return;
         newValue = objc_retain(newValue);
     }
 
-    if (!atomic) {
+    if (!atomic) {//非原子操作 直接赋值
         oldValue = *slot;
         *slot = newValue;
-    } else {
+    } else {//原子操作 加锁
         spinlock_t& slotlock = PropertyLocks[slot];
         slotlock.lock();
         oldValue = *slot;
-        *slot = newValue;        
-        slotlock.unlock();
+        *slot = newValue;//赋值
+        slotlock.unlock();//解锁
     }
 
     objc_release(oldValue);
