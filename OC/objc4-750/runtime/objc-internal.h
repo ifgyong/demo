@@ -322,13 +322,14 @@ _objc_getTaggedPointerSignedValue(const void * _Nullable ptr);
 
 // Don't use the values below. Use the declarations above.
 
-#if (TARGET_OS_OSX || TARGET_OS_IOSMAC) && __x86_64__
+#if (TARGET_OS_OSX || TARGET_OS_IOSMAC) && __x86_64__ //mac开发
     // 64-bit Mac - tag bit is LSB
 #   define OBJC_MSB_TAGGED_POINTERS 0
 #else
     // Everything else - tag bit is MSB
-#   define OBJC_MSB_TAGGED_POINTERS 1
+#   define OBJC_MSB_TAGGED_POINTERS 1//iOS开发
 #endif
+
 
 #define _OBJC_TAG_INDEX_MASK 0x7
 // array slot includes the tag bit itself
