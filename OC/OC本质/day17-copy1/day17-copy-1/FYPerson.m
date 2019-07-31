@@ -9,28 +9,32 @@
 #import "FYPerson.h"
 #import <objc/runtime.h>
 
-@interface FYPerson()<NSCopying>
+@interface FYPerson()
 @end
 
 @implementation FYPerson
--(instancetype)copyWithZone:(NSZone *)zone{
-	FYPerson *p=[[FYPerson alloc]init];
-//	p.age = self.age;
-//	p.level = self.level;
-	
-	unsigned int count;
-	Ivar *ivars = class_copyIvarList(self.class, &count);
-	for (int i = 0; i < count; i ++) {
-		Ivar var = ivars[i];
-		const char * name = ivar_getName(var);
-		if (name != nil) {
-			NSString *v = [NSString stringWithUTF8String:name];
-			id value = [self valueForKey:v];
-			[p setValue:value forKey:v];
-		}
-	}
-	free(ivars);
-	return p;
-}
+//-(instancetype)copyWithZone:(NSZone *)zone{
+//    FYPerson *p=[[FYPerson alloc]init];
+//    //成员变量个数
+//    unsigned int count;
+//    //赋值成员变量数组
+//    Ivar *ivars = class_copyIvarList(self.class, &count);
+//    //遍历数组
+//    for (int i = 0; i < count; i ++) {
+//        Ivar var = ivars[i];
+//        //获取成员变量名字
+//        const char * name = ivar_getName(var);
+//        if (name != nil) {
+//            NSString *v = [NSString stringWithUTF8String:name];
+//            id value = [self valueForKey:v];
+//            //给新的对象赋值
+//            if (value != NULL) {
+//                [p setValue:value forKey:v];
+//            }
+//        }
+//    }
+//    free(ivars);
+//    return p;
+//}
 
 @end

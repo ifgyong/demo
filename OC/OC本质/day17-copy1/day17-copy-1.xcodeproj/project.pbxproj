@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A582FBEF22F1B541006FEE56 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FBEE22F1B541006FEE56 /* NSObject+add.m */; };
 		EEE1307C22F1849E00D131BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE1307B22F1849E00D131BB /* main.m */; };
 		EEE1308422F19AC200D131BB /* FYPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE1308322F19AC200D131BB /* FYPerson.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A582FBED22F1B541006FEE56 /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
+		A582FBEE22F1B541006FEE56 /* NSObject+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+add.m"; sourceTree = "<group>"; };
 		EEE1307822F1849E00D131BB /* day17-copy-1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "day17-copy-1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE1307B22F1849E00D131BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEE1308222F19AC200D131BB /* FYPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYPerson.h; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 				EEE1307B22F1849E00D131BB /* main.m */,
 				EEE1308222F19AC200D131BB /* FYPerson.h */,
 				EEE1308322F19AC200D131BB /* FYPerson.m */,
+				A582FBED22F1B541006FEE56 /* NSObject+add.h */,
+				A582FBEE22F1B541006FEE56 /* NSObject+add.m */,
 			);
 			path = "day17-copy-1";
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE1307C22F1849E00D131BB /* main.m in Sources */,
+				A582FBEF22F1B541006FEE56 /* NSObject+add.m in Sources */,
 				EEE1308422F19AC200D131BB /* FYPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +252,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
+				DEVELOPMENT_TEAM = PU5CP57746;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -255,7 +262,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
+				DEVELOPMENT_TEAM = PU5CP57746;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
 		FYPerson *p =[[FYPerson alloc]init];
 		p.age = 10;
 		p.level = 11;
-		p.name = @"xiaowang";
+        p.name = @"xiaowang";
 		FYPerson *p2 =[p copy];
 		NSLog(@"%d %d %@",p2.age,p2.level,p2.name);
 	}
