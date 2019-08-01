@@ -76,7 +76,7 @@ namespace {
 #define SIDE_TABLE_WEAKLY_REFERENCED (1UL<<0)
 #define SIDE_TABLE_DEALLOCATING      (1UL<<1)  // MSB-ward of weak bit
 #define SIDE_TABLE_RC_ONE            (1UL<<2)  // MSB-ward of deallocating bit
-#define SIDE_TABLE_RC_PINNED         (1UL<<(WORD_BITS-1))
+#define SIDE_TABLE_RC_PINNED         (1UL<<(WORD_BITS-1))//isa->extr_rc是否移动到side table
 
 #define SIDE_TABLE_RC_SHIFT 2
 #define SIDE_TABLE_FLAG_MASK (SIDE_TABLE_RC_ONE-1)
@@ -655,14 +655,14 @@ class AutoreleasePoolPage
     magic_t const magic;
     id *next;
     pthread_t const thread;
-    AutoreleasePoolPage * const parent;
-    AutoreleasePoolPage *child;
-    uint32_t const depth;
+    AutoreleasePoolPage * const parent; //父节点
+    AutoreleasePoolPage *child;//子节点
+    uint32_t const depth;//深度
     uint32_t hiwat;
 
     // SIZE-sizeof(*this) bytes of contents follow
 
-    static void * operator new(size_t size) {
+    static void * operator new(size_t size) {//4096 字节
         return malloc_zone_memalign(malloc_default_zone(), SIZE, SIZE);
     }
     static void operator delete(void * p) {
@@ -1230,10 +1230,14 @@ objc_object::clearDeallocating_slow()
 
     SideTable& table = SideTables()[this];
     table.lock();
+	//清除weak
     if (isa.weakly_referenced) {
+		//table.weak_table 弱引用表
         weak_clear_no_lock(&table.weak_table, (id)this);
     }
+	//引用计数
     if (isa.has_sidetable_rc) {
+		//擦除 this
         table.refcnts.erase(this);
     }
     table.unlock();
@@ -1336,6 +1340,7 @@ objc_object::sidetable_moveExtraRC_nolock(size_t extra_rc,
 
 // Move some retain counts to the side table from the isa field.
 // Returns true if the object is now pinned.
+//将isa->extra_rc 移动到side table中
 bool 
 objc_object::sidetable_addExtraRC_nolock(size_t delta_rc)
 {
@@ -1367,8 +1372,8 @@ objc_object::sidetable_addExtraRC_nolock(size_t delta_rc)
 
 // Move some retain counts from the side table to the isa field.
 // Returns the actual count subtracted, which may be less than the request.
-size_t 
-objc_object::sidetable_subExtraRC_nolock(size_t delta_rc)
+//side table 引用计数-1
+size_t  objc_object::sidetable_subExtraRC_nolock(size_t delta_rc)
 {
     assert(isa.nonpointer);
     SideTable& table = SideTables()[this];
@@ -1394,8 +1399,11 @@ objc_object::sidetable_subExtraRC_nolock(size_t delta_rc)
 size_t 
 objc_object::sidetable_getExtraRC_nolock()
 {
+	//不是联合体技术 则报错
     assert(isa.nonpointer);
+	//key是 this，存储了每个对象的table
     SideTable& table = SideTables()[this];
+	//找到 it 否则返回0
     RefcountMap::iterator it = table.refcnts.find(this);
     if (it == table.refcnts.end()) return 0;
     else return it->second >> SIDE_TABLE_RC_SHIFT;
@@ -1405,13 +1413,14 @@ objc_object::sidetable_getExtraRC_nolock()
 // SUPPORT_NONPOINTER_ISA
 #endif
 
-
+//sidetable 引用计数+1
 id
 objc_object::sidetable_retain()
 {
 #if SUPPORT_NONPOINTER_ISA
     assert(!isa.nonpointer);
 #endif
+	//取出table key=this
     SideTable& table = SideTables()[this];
     
     table.lock();
@@ -1458,7 +1467,7 @@ objc_object::sidetable_tryRetain()
 
 uintptr_t
 objc_object::sidetable_retainCount()
-{
+{//没有联合体存储的计数器则直接在table中取出来
     SideTable& table = SideTables()[this];
 
     size_t refcnt_result = 1;
@@ -1529,6 +1538,7 @@ objc_object::sidetable_setWeaklyReferenced_nolock()
 // rdar://20206767
 // return uintptr_t instead of bool so that the various raw-isa 
 // -release paths all return zero in eax
+
 uintptr_t
 objc_object::sidetable_release(bool performDealloc)
 {
@@ -1542,7 +1552,7 @@ objc_object::sidetable_release(bool performDealloc)
     table.lock();
     RefcountMap::iterator it = table.refcnts.find(this);
     if (it == table.refcnts.end()) {
-        do_dealloc = true;
+        do_dealloc = true;//正在销毁
         table.refcnts[this] = SIDE_TABLE_DEALLOCATING;
     } else if (it->second < SIDE_TABLE_DEALLOCATING) {
         // SIDE_TABLE_WEAKLY_REFERENCED may be set. Don't change it.
@@ -1553,6 +1563,7 @@ objc_object::sidetable_release(bool performDealloc)
     }
     table.unlock();
     if (do_dealloc  &&  performDealloc) {
+		//执行销毁函数
         ((void(*)(objc_object *, SEL))objc_msgSend)(this, SEL_dealloc);
     }
     return do_dealloc;

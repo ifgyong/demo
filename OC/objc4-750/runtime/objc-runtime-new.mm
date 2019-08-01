@@ -6668,7 +6668,9 @@ void *objc_destructInstance(id obj)
 {
     if (obj) {
         // Read all of the flags at once for performance.
+		//c++析构函数
         bool cxx = obj->hasCxxDtor();
+		//关联函数
         bool assoc = obj->hasAssociatedObjects();
 
         // This order is important.
