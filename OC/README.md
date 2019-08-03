@@ -43,3 +43,9 @@
 39. [runloop面试题分析](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day15-%E9%9D%A2%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90)
 40. [读写锁的实现](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/write-lock)
 41. [线程安全锁优点和缺点demo](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day16--%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
+42. [对象copy如何一键完成](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-copy1)
+43. [CADisplayLink 和 timer 弱循环引用方案](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-%E5%AE%9A%E6%97%B6%E5%99%A8)
+44. [封装一个定时器](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-%E5%AE%9A%E6%97%B6%E5%99%A82)
+45. [__strong、__weak 和__unsafe_unretained](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-weak%E5%8E%9F%E7%90%86)
+
+
