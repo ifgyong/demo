@@ -1,5 +1,5 @@
-# demo
-包括oc、Python、php,react-native的一些练习
+## demo
+包括OC基本原理的一些例子。
 
 ### OC源码探究的例子
 1. [可以直接运行的runtime源码objc4-750](https://github.com/ifgyong/demo/tree/master/OC/objc4-750)
