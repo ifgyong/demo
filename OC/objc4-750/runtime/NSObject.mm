@@ -922,11 +922,14 @@ class AutoreleasePoolPage
     static inline id *autoreleaseFast(id obj)
     {
         AutoreleasePoolPage *page = hotPage();
+        //当有分页而且分页没有满就添加
         if (page && !page->full()) {
             return page->add(obj);
         } else if (page) {
+            //满则新建一个page进行添加obj和设置hotpage
             return autoreleaseFullPage(obj, page);
         } else {
+            //没有page则新建page进行添加
             return autoreleaseNoPage(obj);
         }
     }
