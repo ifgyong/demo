@@ -23,11 +23,18 @@
     //__unsafe_unretained 超出有效范围 不会重置为nil
 	__unsafe_unretained FYPerson * p3;
 	NSLog(@"start");
-	{
+//    {
 		FYPerson *p =[[FYPerson alloc]init];
-		p2 = p;
-	}
+//        p2 = p;
+//    }
 	NSLog(@"end -- %@",p3);
+}
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"%s",__func__);
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"%s",__func__);
 }
 -(void)dealloc{
 	NSLog(@"%s",__func__);
