@@ -56,4 +56,8 @@
 		[self.delegate FYAppleViewDidClick:self];
 	}
 }
+-(void)dealloc{
+    [_viewModel removeObserver:self
+                    forKeyPath:@"name"];
+}
 @end

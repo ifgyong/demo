@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIColor *bgColor;
 
 @property (nonatomic,weak) UIViewController *vc;
-//初始化
-- (void)setup;
 
 - (instancetype)initWithController:(UIViewController *)vc;
 @end

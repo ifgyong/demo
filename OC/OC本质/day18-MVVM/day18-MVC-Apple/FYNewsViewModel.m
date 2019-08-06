@@ -35,9 +35,6 @@
     }
     return self;
 }
-- (void)setup{
-
-}
 - (void)FYAppleViewDidClick:(FYAppleView *)view{
 	NSLog(@"点击了我");
 }
