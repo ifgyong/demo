@@ -26,5 +26,14 @@
     _model = model;
     _nameLabel.textColor = model.bgColor;
     _nameLabel.text = model.name;
+	
+	__weak typeof(self) weakself = self;
+	self.
+}
+//添加点击事件
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+	if ([self.delegate respondsToSelector:@selector(FYAppleViewDidClick:)]) {
+		[self.delegate FYAppleViewDidClick:self];
+	}
 }
 @end

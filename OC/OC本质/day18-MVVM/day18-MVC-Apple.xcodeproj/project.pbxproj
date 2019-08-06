@@ -16,6 +16,7 @@
 		A582FC5E22F87354006FEE56 /* FYAppleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC5D22F87354006FEE56 /* FYAppleView.m */; };
 		A582FC6122F87493006FEE56 /* FYItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC6022F87493006FEE56 /* FYItemModel.m */; };
 		EE94809A22F96C200039D5BE /* FYNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94809922F96C200039D5BE /* FYNewsPresenter.m */; };
+		EE94809D22F9700B0039D5BE /* FYNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		A582FC6022F87493006FEE56 /* FYItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYItemModel.m; sourceTree = "<group>"; };
 		EE94809822F96C200039D5BE /* FYNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYNewsPresenter.h; sourceTree = "<group>"; };
 		EE94809922F96C200039D5BE /* FYNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYNewsPresenter.m; sourceTree = "<group>"; };
+		EE94809B22F9700B0039D5BE /* FYNewsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYNewsViewModel.h; sourceTree = "<group>"; };
+		EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYNewsViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				A582FC6022F87493006FEE56 /* FYItemModel.m */,
 				EE94809822F96C200039D5BE /* FYNewsPresenter.h */,
 				EE94809922F96C200039D5BE /* FYNewsPresenter.m */,
+				EE94809B22F9700B0039D5BE /* FYNewsViewModel.h */,
+				EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */,
 				A582FC4C22F87329006FEE56 /* Main.storyboard */,
 				A582FC4F22F8732C006FEE56 /* Assets.xcassets */,
 				A582FC5122F8732C006FEE56 /* LaunchScreen.storyboard */,
@@ -160,6 +165,7 @@
 				A582FC4B22F87329006FEE56 /* ViewController.m in Sources */,
 				EE94809A22F96C200039D5BE /* FYNewsPresenter.m in Sources */,
 				A582FC5622F8732C006FEE56 /* main.m in Sources */,
+				EE94809D22F9700B0039D5BE /* FYNewsViewModel.m in Sources */,
 				A582FC4822F87329006FEE56 /* AppDelegate.m in Sources */,
 				A582FC6122F87493006FEE56 /* FYItemModel.m in Sources */,
 			);
