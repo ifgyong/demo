@@ -15,6 +15,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FYNewsViewModel : NSObject
+
+@property (nonatomic,copy) NSString *name;
+@property (nonatomic,strong) UIColor *bgColor;
+
 @property (nonatomic,weak) UIViewController *vc;
 //初始化
 - (void)setup;

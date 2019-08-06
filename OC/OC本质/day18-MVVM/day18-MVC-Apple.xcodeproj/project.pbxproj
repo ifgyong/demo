@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5309C2722F9C33E0045378A /* NSObject+FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5309C2322F9C33E0045378A /* NSObject+FBKVOController.m */; };
+		A5309C2822F9C33E0045378A /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5309C2522F9C33E0045378A /* FBKVOController.m */; };
 		A582FC4822F87329006FEE56 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC4722F87329006FEE56 /* AppDelegate.m */; };
 		A582FC4B22F87329006FEE56 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC4A22F87329006FEE56 /* ViewController.m */; };
 		A582FC4E22F87329006FEE56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A582FC4C22F87329006FEE56 /* Main.storyboard */; };
@@ -15,11 +17,14 @@
 		A582FC5622F8732C006FEE56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC5522F8732C006FEE56 /* main.m */; };
 		A582FC5E22F87354006FEE56 /* FYAppleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC5D22F87354006FEE56 /* FYAppleView.m */; };
 		A582FC6122F87493006FEE56 /* FYItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A582FC6022F87493006FEE56 /* FYItemModel.m */; };
-		EE94809A22F96C200039D5BE /* FYNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94809922F96C200039D5BE /* FYNewsPresenter.m */; };
 		EE94809D22F9700B0039D5BE /* FYNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5309C2322F9C33E0045378A /* NSObject+FBKVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FBKVOController.m"; sourceTree = "<group>"; };
+		A5309C2422F9C33E0045378A /* FBKVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBKVOController.h; sourceTree = "<group>"; };
+		A5309C2522F9C33E0045378A /* FBKVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBKVOController.m; sourceTree = "<group>"; };
+		A5309C2622F9C33E0045378A /* NSObject+FBKVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FBKVOController.h"; sourceTree = "<group>"; };
 		A582FC4322F87329006FEE56 /* day18-MVC-Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "day18-MVC-Apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A582FC4622F87329006FEE56 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A582FC4722F87329006FEE56 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -34,8 +39,6 @@
 		A582FC5D22F87354006FEE56 /* FYAppleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYAppleView.m; sourceTree = "<group>"; };
 		A582FC5F22F87493006FEE56 /* FYItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYItemModel.h; sourceTree = "<group>"; };
 		A582FC6022F87493006FEE56 /* FYItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYItemModel.m; sourceTree = "<group>"; };
-		EE94809822F96C200039D5BE /* FYNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYNewsPresenter.h; sourceTree = "<group>"; };
-		EE94809922F96C200039D5BE /* FYNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYNewsPresenter.m; sourceTree = "<group>"; };
 		EE94809B22F9700B0039D5BE /* FYNewsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYNewsViewModel.h; sourceTree = "<group>"; };
 		EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYNewsViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +54,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5309C1C22F9C3090045378A /* kvo */ = {
+			isa = PBXGroup;
+			children = (
+				A5309C2422F9C33E0045378A /* FBKVOController.h */,
+				A5309C2522F9C33E0045378A /* FBKVOController.m */,
+				A5309C2622F9C33E0045378A /* NSObject+FBKVOController.h */,
+				A5309C2322F9C33E0045378A /* NSObject+FBKVOController.m */,
+			);
+			path = kvo;
+			sourceTree = "<group>";
+		};
 		A582FC3A22F87329006FEE56 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +84,7 @@
 		A582FC4522F87329006FEE56 /* day18-MVC-Apple */ = {
 			isa = PBXGroup;
 			children = (
+				A5309C1C22F9C3090045378A /* kvo */,
 				A582FC4622F87329006FEE56 /* AppDelegate.h */,
 				A582FC4722F87329006FEE56 /* AppDelegate.m */,
 				A582FC4922F87329006FEE56 /* ViewController.h */,
@@ -78,8 +93,6 @@
 				A582FC5D22F87354006FEE56 /* FYAppleView.m */,
 				A582FC5F22F87493006FEE56 /* FYItemModel.h */,
 				A582FC6022F87493006FEE56 /* FYItemModel.m */,
-				EE94809822F96C200039D5BE /* FYNewsPresenter.h */,
-				EE94809922F96C200039D5BE /* FYNewsPresenter.m */,
 				EE94809B22F9700B0039D5BE /* FYNewsViewModel.h */,
 				EE94809C22F9700B0039D5BE /* FYNewsViewModel.m */,
 				A582FC4C22F87329006FEE56 /* Main.storyboard */,
@@ -161,13 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5309C2822F9C33E0045378A /* FBKVOController.m in Sources */,
 				A582FC5E22F87354006FEE56 /* FYAppleView.m in Sources */,
 				A582FC4B22F87329006FEE56 /* ViewController.m in Sources */,
-				EE94809A22F96C200039D5BE /* FYNewsPresenter.m in Sources */,
 				A582FC5622F8732C006FEE56 /* main.m in Sources */,
 				EE94809D22F9700B0039D5BE /* FYNewsViewModel.m in Sources */,
 				A582FC4822F87329006FEE56 /* AppDelegate.m in Sources */,
 				A582FC6122F87493006FEE56 /* FYItemModel.m in Sources */,
+				A5309C2722F9C33E0045378A /* NSObject+FBKVOController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,13 +326,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU5CP57746;
 				INFOPLIST_FILE = "day18-MVC-Apple/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fgy.day18-MVC-Apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -329,13 +344,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU5CP57746;
 				INFOPLIST_FILE = "day18-MVC-Apple/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fgy.day18-MVC-Apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

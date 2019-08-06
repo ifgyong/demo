@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FYAppleView;
+@class FYAppleView,FYNewsViewModel;
 @protocol FYAppleViewProtocol <NSObject>
 
 - (void)FYAppleViewDidClick:(FYAppleView*)view;
@@ -18,9 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @class FYItemModel;
+
 @interface FYAppleView : UIView
 @property (nonatomic,strong,readonly) UILabel *nameLabel;
+
 @property (nonatomic,weak) id<FYAppleViewProtocol> delegate;
+@property (nonatomic,weak) FYNewsViewModel *viewModel;
+
 @property (nonatomic,strong) FYItemModel *model;
 @end
 

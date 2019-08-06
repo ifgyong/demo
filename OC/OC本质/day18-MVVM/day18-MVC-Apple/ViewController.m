@@ -9,28 +9,23 @@
 #import "ViewController.h"
 #import "FYAppleView.h"
 #import "FYItemModel.h"
-#import "FYNewsPresenter.h"
+#import "FYNewsViewModel.h"
 
 @interface ViewController ()
-@property (nonatomic,strong) FYNewsPresenter *presenter;
+@property (nonatomic,strong) FYNewsViewModel *viewmodel;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //apple版本的MVC
-//    FYAppleView *view=[[FYAppleView alloc]initWithFrame:CGRectMake(100, 100, 100, 30)];
-//    view.nameLabel.text = @"我是名字";
-//    view.nameLabel.textColor =[UIColor blueColor];
-//    [self.view addSubview:view];
-//
-//    [self loadViewOtherMVC];
 	
 	//MVP
-	_presenter=[FYNewsPresenter new];
-	_presenter.vc = self;
-	[_presenter setup];
+	self.viewmodel = [[FYNewsViewModel alloc]initWithController:self];
+//    [self.viewmodel setup];
+    
+    
 }
 //变种MVC 把View和Model建立起连接
 //等以后更新view数据只需要 view.model = item;Controllr少了许多代码
