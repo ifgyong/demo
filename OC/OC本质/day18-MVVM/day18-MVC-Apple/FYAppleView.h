@@ -25,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) id<FYAppleViewProtocol> delegate;
 @property (nonatomic,weak) FYNewsViewModel *viewModel;
 
-@property (nonatomic,strong) FYItemModel *model;
+//MVVM已经去掉了model
+//@property (nonatomic,strong) FYItemModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

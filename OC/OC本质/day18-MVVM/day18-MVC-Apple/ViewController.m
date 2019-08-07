@@ -23,19 +23,6 @@
 	
 	//MVP
 	self.viewmodel = [[FYNewsViewModel alloc]initWithController:self];
-//    [self.viewmodel setup];
-    
-    
-}
-//变种MVC 把View和Model建立起连接
-//等以后更新view数据只需要 view.model = item;Controllr少了许多代码
-- (void)loadViewOtherMVC{
-    FYAppleView * view =[[FYAppleView alloc]initWithFrame:CGRectMake(200, 200, 100, 30)];
-    FYItemModel *item=[[FYItemModel alloc]init];
-    item.name = @"校长来了";
-    item.bgColor = [UIColor redColor];
-    view.model = item;
-    [self.view addSubview:view];
 }
 
 @end

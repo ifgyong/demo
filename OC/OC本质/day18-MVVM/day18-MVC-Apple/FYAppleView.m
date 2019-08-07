@@ -23,16 +23,16 @@
     }
     return self;
 }
-/*
-  mvc的变种
- */
-- (void)setModel:(FYItemModel *)model{
-    _model = model;
-    _nameLabel.textColor = model.bgColor;
-    _nameLabel.text = model.name;
-	
- 
-}
+///*
+//  mvc的变种
+// */
+//- (void)setModel:(FYItemModel *)model{
+//    _model = model;
+//    _nameLabel.textColor = model.bgColor;
+//    _nameLabel.text = model.name;
+//	
+// 
+//}
 
 - (void)setViewModel:(FYNewsViewModel *)viewModel{
     _viewModel = viewModel;
