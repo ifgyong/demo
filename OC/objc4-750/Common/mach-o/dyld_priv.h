@@ -78,7 +78,14 @@ typedef void (*_dyld_objc_notify_unmapped)(const char* path, const struct mach_h
 // dyld will call the "mapped" function with already loaded objc images.  During any later dlopen() call,
 // dyld will also call the "mapped" function.  Dyld will call the "init" function when dyld would be called
 // initializers in that image.  This is when objc calls any +load methods in that image.
-//
+/*
+ 仅供objc运行时使用，注册在映射、取消映射和初始化objc映像调用的处理程序。dyld将使用包含objc-image-info回调给`mapped`.
+ 这些dylibs j将自动引用计数，因此objc将不再需要调用dlopen()防止未加载。
+ 在调用_dyld_objc_notify_register()期间，dyld将调用 `mapped` 在已经加载好 images，稍后dlopen()。
+ 在调动init的时候也会调用`mapped`,在dyld调用的时候，也会调用init函数
+ 
+ 在调用任何images +load方法时候
+ */
 void _dyld_objc_notify_register(_dyld_objc_notify_mapped    mapped,
                                 _dyld_objc_notify_init      init,
                                 _dyld_objc_notify_unmapped  unmapped);

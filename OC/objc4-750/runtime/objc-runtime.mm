@@ -261,6 +261,7 @@ void removeHeader(header_info *hi)
 * environ_init
 * Read environment variables that affect the runtime.
 * Also print environment variable help, if requested.
+* 读取runtime的环境变量，如果需要则打印出来
 **********************************************************************/
 void environ_init(void) 
 {

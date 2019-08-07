@@ -25,7 +25,7 @@
 	
 	
 	//当有业务层
-	[[FYNewsService new] loadNewsWithInfo:nil success:^(NSArray * _Nonnull) {
+	[[FYNewsService new] loadNewsWithInfo:nil success:^(NSArray * _Nonnull ret) {
 		
 	} fail:^{
 		

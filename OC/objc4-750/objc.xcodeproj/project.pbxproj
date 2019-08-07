@@ -145,6 +145,7 @@
 		EE6ADCDD22A11A4B00AAE5B6 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6ADC8822A1080800AAE5B6 /* libffi.a */; };
 		EE95792F22C35C0E0069AAFD /* UIViewController+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE95792E22C35C0E0069AAFD /* UIViewController+add.m */; };
 		EEB257C222E06F6A0094559D /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB257C122E06F6A0094559D /* Student.m */; };
+		EEF1C57822FAC8680067573F /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF1C57722FAC8680067573F /* NSObject+add.m */; };
 		F9BCC71B205C68E800DD9AFC /* objc-blocktramps-arm64.s in Sources */ = {isa = PBXBuildFile; fileRef = 8379996D13CBAF6F007C2B5F /* objc-blocktramps-arm64.s */; };
 /* End PBXBuildFile section */
 
@@ -327,6 +328,8 @@
 		EE95792E22C35C0E0069AAFD /* UIViewController+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+add.m"; sourceTree = "<group>"; };
 		EEB257C022E06F6A0094559D /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		EEB257C122E06F6A0094559D /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		EEF1C57622FAC8680067573F /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
+		EEF1C57722FAC8680067573F /* NSObject+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+add.m"; sourceTree = "<group>"; };
 		F9BCC727205C68E800DD9AFC /* libobjc-trampolines.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libobjc-trampolines.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -453,6 +456,8 @@
 				5255259A21C68E3C00072CE6 /* main.m */,
 				EE56BAC1229B777D00F7F005 /* Person.h */,
 				EE56BAC2229B777D00F7F005 /* Person.m */,
+				EEF1C57622FAC8680067573F /* NSObject+add.h */,
+				EEF1C57722FAC8680067573F /* NSObject+add.m */,
 				EEB257C022E06F6A0094559D /* Student.h */,
 				EEB257C122E06F6A0094559D /* Student.m */,
 			);
@@ -944,6 +949,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE56BAC3229B777D00F7F005 /* Person.m in Sources */,
+				EEF1C57822FAC8680067573F /* NSObject+add.m in Sources */,
 				5255259B21C68E3C00072CE6 /* main.m in Sources */,
 				EEB257C222E06F6A0094559D /* Student.m in Sources */,
 			);

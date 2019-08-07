@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @implementation Person
+//+(void)load{
+//	NSLog(@"%s",__func__);
+//}
+
 void testlog(id self,SEL _cmd);
 //+(BOOL)resolveInstanceMethod:(SEL)sel{
 //	NSLog(@"%s",__func__);
