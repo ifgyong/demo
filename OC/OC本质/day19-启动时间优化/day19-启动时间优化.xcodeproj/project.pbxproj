@@ -13,6 +13,7 @@
 		A5309C3F22FB07F80045378A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5309C3E22FB07F80045378A /* Assets.xcassets */; };
 		A5309C4222FB07F80045378A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5309C4022FB07F80045378A /* LaunchScreen.storyboard */; };
 		A5309C4522FB07F80045378A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5309C4422FB07F80045378A /* main.m */; };
+		EEF1C57B22FBA9B90067573F /* FYStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF1C57A22FBA9B90067573F /* FYStudent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A5309C4122FB07F80045378A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5309C4322FB07F80045378A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5309C4422FB07F80045378A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEF1C57922FBA9B90067573F /* FYStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYStudent.h; sourceTree = "<group>"; };
+		EEF1C57A22FBA9B90067573F /* FYStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FYStudent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				A5309C3622FB07F50045378A /* AppDelegate.m */,
 				A5309C3822FB07F50045378A /* ViewController.h */,
 				A5309C3922FB07F50045378A /* ViewController.m */,
+				EEF1C57922FBA9B90067573F /* FYStudent.h */,
+				EEF1C57A22FBA9B90067573F /* FYStudent.m */,
 				A5309C3B22FB07F50045378A /* Main.storyboard */,
 				A5309C3E22FB07F80045378A /* Assets.xcassets */,
 				A5309C4022FB07F80045378A /* LaunchScreen.storyboard */,
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF1C57B22FBA9B90067573F /* FYStudent.m in Sources */,
 				A5309C3A22FB07F50045378A /* ViewController.m in Sources */,
 				A5309C4522FB07F80045378A /* main.m in Sources */,
 				A5309C3722FB07F50045378A /* AppDelegate.m in Sources */,
