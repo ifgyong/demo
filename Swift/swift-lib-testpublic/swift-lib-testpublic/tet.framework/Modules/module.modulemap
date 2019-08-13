@@ -1,4 +1,0 @@
-framework module tet {
-  header "tet-Swift.h"
-  requires objc
-}
