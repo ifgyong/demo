@@ -47,5 +47,9 @@
 43. [CADisplayLink 和 timer 弱循环引用方案](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-%E5%AE%9A%E6%97%B6%E5%99%A8)
 44. [封装一个定时器](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-%E5%AE%9A%E6%97%B6%E5%99%A82)
 45. [__strong、__weak 和__unsafe_unretained](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day17-weak%E5%8E%9F%E7%90%86)
+46. [MVC](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day18-MVC-Apple)
+47. [MVC2](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day18-MVC%E8%8B%B9%E6%9E%9C%E7%89%88)
+48. [分层设计](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day18-%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1)
+49. [启动优化](https://github.com/ifgyong/demo/tree/master/OC/OC%E6%9C%AC%E8%B4%A8/day19-%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4%E4%BC%98%E5%8C%96)
 
 
