@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE8223E2230399130082D66D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8223E1230399130082D66D /* AppDelegate.m */; };
-		EE8223E5230399130082D66D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8223E4230399130082D66D /* ViewController.m */; };
-		EE8223E8230399130082D66D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE8223E6230399130082D66D /* Main.storyboard */; };
-		EE8223EA230399130082D66D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE8223E9230399130082D66D /* Assets.xcassets */; };
-		EE8223ED230399130082D66D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE8223EB230399130082D66D /* LaunchScreen.storyboard */; };
-		EE8223F0230399130082D66D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8223EF230399130082D66D /* main.m */; };
-		EE82241D23054E2C0082D66D /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = EE82241C23054E2C0082D66D /* Builder.m */; };
+		EE82240423054C6E0082D66D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE82240323054C6E0082D66D /* AppDelegate.m */; };
+		EE82240723054C6E0082D66D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE82240623054C6E0082D66D /* ViewController.m */; };
+		EE82240A23054C6E0082D66D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE82240823054C6E0082D66D /* Main.storyboard */; };
+		EE82240C23054C700082D66D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE82240B23054C700082D66D /* Assets.xcassets */; };
+		EE82240F23054C700082D66D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE82240D23054C700082D66D /* LaunchScreen.storyboard */; };
+		EE82241223054C700082D66D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE82241123054C700082D66D /* main.m */; };
+		EE82241A23054C8A0082D66D /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE82241923054C8A0082D66D /* Singleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EE8223DD230399130082D66D /* 04建造者模式.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "04建造者模式.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE8223E0230399130082D66D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EE8223E1230399130082D66D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EE8223E3230399130082D66D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EE8223E4230399130082D66D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EE8223E7230399130082D66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EE8223E9230399130082D66D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE8223EC230399130082D66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EE8223EE230399130082D66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE8223EF230399130082D66D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EE82241B23054E2C0082D66D /* Builder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Builder.h; sourceTree = "<group>"; };
-		EE82241C23054E2C0082D66D /* Builder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
+		EE8223FF23054C6E0082D66D /* 05单例模式.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "05单例模式.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE82240223054C6E0082D66D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE82240323054C6E0082D66D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE82240523054C6E0082D66D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EE82240623054C6E0082D66D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE82240923054C6E0082D66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE82240B23054C700082D66D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE82240E23054C700082D66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE82241023054C700082D66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE82241123054C700082D66D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE82241823054C8A0082D66D /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		EE82241923054C8A0082D66D /* Singleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EE8223DA230399130082D66D /* Frameworks */ = {
+		EE8223FC23054C6E0082D66D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,75 +42,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EE8223D4230399130082D66D = {
+		EE8223F623054C6E0082D66D = {
 			isa = PBXGroup;
 			children = (
-				EE8223DF230399130082D66D /* 04建造者模式 */,
-				EE8223DE230399130082D66D /* Products */,
+				EE82240123054C6E0082D66D /* 05单例模式 */,
+				EE82240023054C6E0082D66D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EE8223DE230399130082D66D /* Products */ = {
+		EE82240023054C6E0082D66D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE8223DD230399130082D66D /* 04建造者模式.app */,
+				EE8223FF23054C6E0082D66D /* 05单例模式.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE8223DF230399130082D66D /* 04建造者模式 */ = {
+		EE82240123054C6E0082D66D /* 05单例模式 */ = {
 			isa = PBXGroup;
 			children = (
-				EE8223E0230399130082D66D /* AppDelegate.h */,
-				EE8223E1230399130082D66D /* AppDelegate.m */,
-				EE8223E3230399130082D66D /* ViewController.h */,
-				EE8223E4230399130082D66D /* ViewController.m */,
-				EE82241B23054E2C0082D66D /* Builder.h */,
-				EE82241C23054E2C0082D66D /* Builder.m */,
-				EE8223E6230399130082D66D /* Main.storyboard */,
-				EE8223E9230399130082D66D /* Assets.xcassets */,
-				EE8223EB230399130082D66D /* LaunchScreen.storyboard */,
-				EE8223EE230399130082D66D /* Info.plist */,
-				EE8223EF230399130082D66D /* main.m */,
+				EE82240223054C6E0082D66D /* AppDelegate.h */,
+				EE82240323054C6E0082D66D /* AppDelegate.m */,
+				EE82240523054C6E0082D66D /* ViewController.h */,
+				EE82240623054C6E0082D66D /* ViewController.m */,
+				EE82241823054C8A0082D66D /* Singleton.h */,
+				EE82241923054C8A0082D66D /* Singleton.m */,
+				EE82240823054C6E0082D66D /* Main.storyboard */,
+				EE82240B23054C700082D66D /* Assets.xcassets */,
+				EE82240D23054C700082D66D /* LaunchScreen.storyboard */,
+				EE82241023054C700082D66D /* Info.plist */,
+				EE82241123054C700082D66D /* main.m */,
 			);
-			path = "04建造者模式";
+			path = "05单例模式";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EE8223DC230399130082D66D /* 04建造者模式 */ = {
+		EE8223FE23054C6E0082D66D /* 05单例模式 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE8223F3230399130082D66D /* Build configuration list for PBXNativeTarget "04建造者模式" */;
+			buildConfigurationList = EE82241523054C700082D66D /* Build configuration list for PBXNativeTarget "05单例模式" */;
 			buildPhases = (
-				EE8223D9230399130082D66D /* Sources */,
-				EE8223DA230399130082D66D /* Frameworks */,
-				EE8223DB230399130082D66D /* Resources */,
+				EE8223FB23054C6E0082D66D /* Sources */,
+				EE8223FC23054C6E0082D66D /* Frameworks */,
+				EE8223FD23054C6E0082D66D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "04建造者模式";
-			productName = "04建造者模式";
-			productReference = EE8223DD230399130082D66D /* 04建造者模式.app */;
+			name = "05单例模式";
+			productName = "05单例模式";
+			productReference = EE8223FF23054C6E0082D66D /* 05单例模式.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EE8223D5230399130082D66D /* Project object */ = {
+		EE8223F723054C6E0082D66D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = www.fgyong.cn;
 				TargetAttributes = {
-					EE8223DC230399130082D66D = {
+					EE8223FE23054C6E0082D66D = {
 						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
-			buildConfigurationList = EE8223D8230399130082D66D /* Build configuration list for PBXProject "04建造者模式" */;
+			buildConfigurationList = EE8223FA23054C6E0082D66D /* Build configuration list for PBXProject "05单例模式" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,56 +118,56 @@
 				en,
 				Base,
 			);
-			mainGroup = EE8223D4230399130082D66D;
-			productRefGroup = EE8223DE230399130082D66D /* Products */;
+			mainGroup = EE8223F623054C6E0082D66D;
+			productRefGroup = EE82240023054C6E0082D66D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EE8223DC230399130082D66D /* 04建造者模式 */,
+				EE8223FE23054C6E0082D66D /* 05单例模式 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EE8223DB230399130082D66D /* Resources */ = {
+		EE8223FD23054C6E0082D66D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8223ED230399130082D66D /* LaunchScreen.storyboard in Resources */,
-				EE8223EA230399130082D66D /* Assets.xcassets in Resources */,
-				EE8223E8230399130082D66D /* Main.storyboard in Resources */,
+				EE82240F23054C700082D66D /* LaunchScreen.storyboard in Resources */,
+				EE82240C23054C700082D66D /* Assets.xcassets in Resources */,
+				EE82240A23054C6E0082D66D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EE8223D9230399130082D66D /* Sources */ = {
+		EE8223FB23054C6E0082D66D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8223E5230399130082D66D /* ViewController.m in Sources */,
-				EE8223F0230399130082D66D /* main.m in Sources */,
-				EE8223E2230399130082D66D /* AppDelegate.m in Sources */,
-				EE82241D23054E2C0082D66D /* Builder.m in Sources */,
+				EE82240723054C6E0082D66D /* ViewController.m in Sources */,
+				EE82241A23054C8A0082D66D /* Singleton.m in Sources */,
+				EE82241223054C700082D66D /* main.m in Sources */,
+				EE82240423054C6E0082D66D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EE8223E6230399130082D66D /* Main.storyboard */ = {
+		EE82240823054C6E0082D66D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EE8223E7230399130082D66D /* Base */,
+				EE82240923054C6E0082D66D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EE8223EB230399130082D66D /* LaunchScreen.storyboard */ = {
+		EE82240D23054C700082D66D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EE8223EC230399130082D66D /* Base */,
+				EE82240E23054C700082D66D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EE8223F1230399130082D66D /* Debug */ = {
+		EE82241323054C700082D66D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		EE8223F2230399130082D66D /* Release */ = {
+		EE82241423054C700082D66D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -287,35 +287,35 @@
 			};
 			name = Release;
 		};
-		EE8223F4230399130082D66D /* Debug */ = {
+		EE82241623054C700082D66D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4ENM74X68;
-				INFOPLIST_FILE = "04建造者模式/Info.plist";
+				INFOPLIST_FILE = "05单例模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "FY.-4-----";
+				PRODUCT_BUNDLE_IDENTIFIER = "FY.-5----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		EE8223F5230399130082D66D /* Release */ = {
+		EE82241723054C700082D66D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4ENM74X68;
-				INFOPLIST_FILE = "04建造者模式/Info.plist";
+				INFOPLIST_FILE = "05单例模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "FY.-4-----";
+				PRODUCT_BUNDLE_IDENTIFIER = "FY.-5----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,25 +324,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EE8223D8230399130082D66D /* Build configuration list for PBXProject "04建造者模式" */ = {
+		EE8223FA23054C6E0082D66D /* Build configuration list for PBXProject "05单例模式" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE8223F1230399130082D66D /* Debug */,
-				EE8223F2230399130082D66D /* Release */,
+				EE82241323054C700082D66D /* Debug */,
+				EE82241423054C700082D66D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE8223F3230399130082D66D /* Build configuration list for PBXNativeTarget "04建造者模式" */ = {
+		EE82241523054C700082D66D /* Build configuration list for PBXNativeTarget "05单例模式" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE8223F4230399130082D66D /* Debug */,
-				EE8223F5230399130082D66D /* Release */,
+				EE82241623054C700082D66D /* Debug */,
+				EE82241723054C700082D66D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EE8223D5230399130082D66D /* Project object */;
+	rootObject = EE8223F723054C6E0082D66D /* Project object */;
 }
