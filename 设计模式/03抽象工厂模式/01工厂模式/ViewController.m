@@ -24,14 +24,16 @@
  
  */
 - (void)test{
-    //创建工厂
-    id<Factory> fa =[FactoryProduct createFactory:@"FactoryA"];
-     //创建产品A
-    ProductA *a = [fa performSelector:@selector(createProduct:) withObject:@"ProductA"];
-    [a productMethod];
-    //创建产品B
-    ProductB *b = [fa performSelector:@selector(createProduct:) withObject:@"ProductB"];
-    [b productMethod];
+    //A工厂生产产品
+    ProductA1 *a1 =[Factory1 createProductA:NSStringFromClass(ProductA1.class)];
+	ProductA1 *a2 =[Factory1 createProductA:NSStringFromClass(ProductA2.class)];
+	[a1 productMethod];
+	[a2 productMethod];
+	
+	//B工厂生产产品B
+	//此处 省略代码
+	
+	
 }
 
 

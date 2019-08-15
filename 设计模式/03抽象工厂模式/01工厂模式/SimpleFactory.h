@@ -10,34 +10,36 @@
 
 NS_ASSUME_NONNULL_BEGIN
 // productMethod 产品的方法
-@protocol Product <NSObject>
+@protocol ProductA <NSObject>
+-(void)productMethod;
+@end
+@protocol ProductB <NSObject>
 -(void)productMethod;
 @end
 //工厂抽象方法
 @protocol Factory <NSObject>
-+ (void)createProduct:(NSString *)FactoryName;
++ (id<ProductA>)createProductA:(NSString *)FactoryName;
++ (id<ProductB>)createProductB:(NSString *)FactoryName;
+
 @end
 
-//抽象工厂创建工厂
-@interface FactoryProduct : NSObject
-+(id<Factory>)createFactory:(NSString *)productName;
-@end
 //工厂类A
-@interface FactoryA : NSObject<Factory>
-+(id<Product>)createProduct:(NSString *)productName;
+@interface Factory1 : NSObject<Factory>
+
 @end
 //工厂类B
-@interface FactoryB : NSObject<Factory>
-+(id<Product>)createProduct:(NSString *)productName;
+@interface Factory2 : NSObject<Factory>
+
 @end
 
 //产品A 实现协议代替 抽象方法
-@interface ProductA : NSObject<Product>
-
+@interface ProductA1 : NSObject<ProductA>
+@end
+@interface ProductA2 : NSObject<ProductA>
 @end
 //产品B 实现协议代替 抽象方法
-@interface ProductB : NSObject<Product>
-
+@interface ProductB1 : NSObject<ProductB>
 @end
-
+@interface ProductB2 : NSObject<ProductB>
+@end
 NS_ASSUME_NONNULL_END

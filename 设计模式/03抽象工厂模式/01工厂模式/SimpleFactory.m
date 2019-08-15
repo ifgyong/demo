@@ -7,48 +7,73 @@
 //
 
 #import "SimpleFactory.h"
-@class ProductA,ProductB,FactoryA,FactoryB;
+@class ProductA1,ProductA2,ProductB1,ProductB2,Factory1,Factory2;
 
-@implementation FactoryProduct
-+ (id<Factory>)createFactory:(NSString *)productName{
-    if ([productName isEqualToString:NSStringFromClass(FactoryA.class)]) {
-        return [[FactoryA alloc]init];
-    }else if ([productName isEqualToString:NSStringFromClass(FactoryB.class)]) {
-        return [[FactoryB alloc]init];
-    }else{
-        return nil;
-    }
+@implementation Factory1
+
++ (nonnull id<ProductA>)createProductA:(nonnull NSString *)FactoryName {
+	if ([FactoryName isEqualToString:NSStringFromClass(ProductA1.class)]) {
+		return [[ProductA1 alloc]init];
+	}else if ([FactoryName isEqualToString:NSStringFromClass(ProductA2.class)]) {
+		return [[ProductA2 alloc]init];
+	}else{
+		return nil;
+	}
+}
+
++ (nonnull id<ProductB>)createProductB:(nonnull NSString *)FactoryName {
+	if ([FactoryName isEqualToString:NSStringFromClass(ProductB1.class)]) {
+		return [[ProductB1 alloc]init];
+	}else if ([FactoryName isEqualToString:NSStringFromClass(ProductB2.class)]) {
+		return [[ProductB2 alloc]init];
+	}else{
+		return nil;
+	}
+}
+
+@end
+@implementation Factory2
+
++ (nonnull id<ProductA>)createProductA:(nonnull NSString *)FactoryName {
+	if ([FactoryName isEqualToString:NSStringFromClass(ProductA1.class)]) {
+		return [[ProductA1 alloc]init];
+	}else if ([FactoryName isEqualToString:NSStringFromClass(ProductA2.class)]) {
+		return [[ProductA2 alloc]init];
+	}else{
+		return nil;
+	}
+}
+
++ (nonnull id<ProductB>)createProductB:(nonnull NSString *)FactoryName {
+	if ([FactoryName isEqualToString:NSStringFromClass(ProductB1.class)]) {
+		return [[ProductB1 alloc]init];
+	}else if ([FactoryName isEqualToString:NSStringFromClass(ProductB2.class)]) {
+		return [[ProductB2 alloc]init];
+	}else{
+		return nil;
+	}
+}
+
+@end
+
+
+
+
+@implementation ProductA1
+- (void)productMethod {
 }
 @end
-@implementation FactoryA
-+ (id<Product>)createProduct:(NSString *)productName{
-    if ([productName isEqualToString:NSStringFromClass(ProductA.class)]) {
-        return [[ProductA alloc]init];
-    }else{
-        return nil;
-    }
+@implementation ProductA2
+- (void)productMethod {
 }
 @end
-@implementation FactoryB
-+ (id<Product>)createProduct:(NSString *)productName{
-    if ([productName isEqualToString:NSStringFromClass(ProductB.class)]){
-        return [[ProductB alloc]init];
-    }else{
-        return nil;
-    }
-}
-@end
-
-
-
-
-@implementation ProductA
+@implementation ProductB1
 - (void)productMethod {
     
 }
 @end
-@implementation ProductB
+@implementation ProductB2
 - (void)productMethod {
-    
+	
 }
 @end
