@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 //继承ComponentA的子类
-@interface Component : ComponentA
+@interface ComponentA (add)
 - (void)addMethod;
 @end
 

@@ -23,7 +23,7 @@
 
 
 
-@implementation Component
+@implementation ComponentA (add)
 - (void)addMethod{
     NSLog(@"addMethod");
 }
