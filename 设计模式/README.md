@@ -7,7 +7,7 @@
 
 设计模式分为创建型、结构型模式、行为型模式，通过[借来](https://www.runoob.com/design-pattern/design-pattern-intro.html)一张图来表示一下
 
-![](https://user-gold-cdn.xitu.io/2019/8/13/16c8b0e67d4340dd?w=744&h=820&f=png&s=282685)
+![](./设计模式图/预览图.png)
 
 ### 创建型模式
 这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。
@@ -16,7 +16,7 @@
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/15/16c9410c4e49b383?w=772&h=378&f=png&s=36766)
+![](./设计模式图/01简单工厂模式.png)
 
 在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。
 ```
@@ -78,6 +78,7 @@ ProductB *b =[SimpleFactory createProduct:NSStringFromClass(ProductB.class)];
 优点是通过一个参数确定想要的哪个类的实例，而不用关心内部如何实现，缺点是新增加一个产品需要更改`createProduct:(NSString *)productName`的实现。
 
 #### 2.工厂模式
+
 工厂方法模式(Factory Method Pattern)又称为工厂模式，也叫虚拟构造器(Virtual Constructor)模式或者多态工厂(Polymorphic Factory)模式，它属于类创建型模式。在工厂方法模式中，工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实例化操作延迟到工厂子类中完成，即通过工厂子类来确定究竟应该实例化哪一个具体产品类。
 
 工厂方法模式包含如下角色：
@@ -87,8 +88,10 @@ ProductB *b =[SimpleFactory createProduct:NSStringFromClass(ProductB.class)];
 - Factory：抽象工厂
 - FactoryA：具体工厂
 
-![](https://user-gold-cdn.xitu.io/2019/8/15/16c940f13eb80ccd?w=704&h=398&f=png&s=26568)
+![](./设计模式图/02工厂模式.png)
+
 相比于简单工厂模式，只需要将工厂抽象出来，在OC中可以使用协议分离出去,将上面代码做少许改动
+
 ```
 //工厂抽象方法
 @protocol Factory <NSObject>
@@ -125,6 +128,7 @@ ProductB *b =[SimpleFactory createProduct:NSStringFromClass(ProductB.class)];
 @end
 ```
 使用起来很简单
+
 ```
 //创建产品A
 ProductA *a =[FactoryA createProduct:NSStringFromClass(ProductA.class)];
@@ -148,7 +152,7 @@ ProductB *b =[FactoryB createProduct:NSStringFromClass(ProductB.class)];
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/15/16c942fd3e4a1666?w=959&h=314&f=png&s=34714)
+![](./设计模式图/03抽象工厂模式.png)
 
 ```
 // productMethod 产品的方法
@@ -216,7 +220,7 @@ ProductA1 *a2 =[Factory1 createProductA:NSStringFromClass(ProductA2.class)];
 - Director：指挥者
 - Product：产品角色
 
-![](https://user-gold-cdn.xitu.io/2019/8/15/16c9470d31682405?w=1104&h=590&f=png&s=51341)
+![](./设计模式图/04建造者模式.png)
 
 代码
 ```
@@ -297,7 +301,7 @@ ProductA1 *a2 =[Factory1 createProductA:NSStringFromClass(ProductA2.class)];
 
 - Singleton：单例
 
-![](https://user-gold-cdn.xitu.io/2019/8/15/16c94573d1789511?w=538&h=392&f=png&s=12230)
+![](./设计模式图/05单例模式.png)
 
 代码
 ```
@@ -401,7 +405,7 @@ Singleton  *ton=[Singleton getInstace];
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/17/16c9dc3800fed221?w=1478&h=482&f=png&s=55331)
+![](./设计模式图/07桥接模式.png)
 
 优点是抽象`Implementor`，具体实现在`Implementor`子类实现，降低耦合。缺点是桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。
 
@@ -464,7 +468,7 @@ Singleton  *ton=[Singleton getInstace];
 - SubSystem:子系统角色
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/17/16c9dd0dc157e47f?w=934&h=704&f=png&s=36325)
+![](./设计模式图/09外观模式.png)
 代码
 ```
 //子系统角色
@@ -500,7 +504,7 @@ Singleton  *ton=[Singleton getInstace];
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca8b6288dcdab3?w=1424&h=688&f=png&s=52403)
+![](./设计模式图/10享元模式.png)
 代码
 
 ```
@@ -587,9 +591,10 @@ Singleton  *ton=[Singleton getInstace];
 - Client:客户类
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca8d6e006df5e5?w=1466&h=546&f=png&s=39182)
+![](./设计模式图/12命令模式.png)
 
 代码
+
 ```
 @interface Order : NSObject
 - (void)exe;
@@ -655,7 +660,7 @@ Singleton  *ton=[Singleton getInstace];
 
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca8e9856bbae35?w=1474&h=564&f=png&s=46391)
+![](./设计模式图/13中介者模式.png)
 代码
 
 ```
@@ -732,8 +737,9 @@ Singleton  *ton=[Singleton getInstace];
 - ConcreteObserver: 具体观察者
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca8fc6788fb974?w=1110&h=556&f=png&s=41119)
+![](./设计模式图/14观察者模式.png)
 代码
+
 ```
 @interface ViewController ()
 @property (nonnull,nonatomic,assign) int age;
@@ -754,6 +760,7 @@ Singleton  *ton=[Singleton getInstace];
 
 @end
 ```
+
 优点可以实时监测到对象的变化，缺点是订阅者过多会造成性能低下，观察者只知道变化的结果，不了解变化的是如何变化的。
 #### 15状态模式
 状态模式(State Pattern) ：允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类。其别名为状态对象(Objects for States)，状态模式是一种对象行为型模式。
@@ -765,8 +772,9 @@ Singleton  *ton=[Singleton getInstace];
 - ConcreteState: 具体状态类
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca9042dbee10a4?w=1178&h=570&f=png&s=35979)
+![](./设计模式图/15状态模式.png)
 代码
+
 ```
 typedef enum : NSUInteger {
 	StateClose = 0,
@@ -796,6 +804,7 @@ typedef enum : NSUInteger {
 }
 @end
 ```
+
 优点是使用状态控制类的行为，缺点是新增状态需要修改状态类对应的源码。
 
 #### 16策略模式
@@ -809,8 +818,9 @@ typedef enum : NSUInteger {
 - ConcreteStrategy: 具体策略类
 
 
-![](https://user-gold-cdn.xitu.io/2019/8/19/16ca90f6662300ef?w=1016&h=612&f=png&s=35103)
+![](./设计模式图/16策略模式.png)
 代码
+
 ```
 @interface Strategy : NSObject
 - (void)handle;
