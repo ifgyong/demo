@@ -56,7 +56,7 @@ import Foundation
 //var pwd = Password.number(1, 2, 9, 0)//字节 8*4 =32
 //pwd = .other//同样的变量还是32字节
 //let p1 = MemoryLayout.stride(ofValue: pwd)// 40
-//let p2 = MemoryLayout.size(ofValue: pwd)//33
+//let p2 = MemoryLayout.size(ofValue: pwd)//33 1个字节分别是哪个类型，剩余32字节区分具体值
 //let p3 = MemoryLayout.alignment(ofValue: pwd)//8
 //print("\(p1) \(p2) \(p3)")
 
