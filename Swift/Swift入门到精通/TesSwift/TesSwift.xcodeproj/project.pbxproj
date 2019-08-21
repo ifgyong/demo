@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE6CEFCC230B8F6900D3768C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6CEFCB230B8F6900D3768C /* main.swift */; };
+		EEED7DCE230CD29800AB973F /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED7DCD230CD29800AB973F /* Mems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		EE6CEFC8230B8F6900D3768C /* TesSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TesSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6CEFCB230B8F6900D3768C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EEED7DCD230CD29800AB973F /* Mems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		EE6CEFCA230B8F6900D3768C /* TesSwift */ = {
 			isa = PBXGroup;
 			children = (
+				EEED7DCD230CD29800AB973F /* Mems.swift */,
 				EE6CEFCB230B8F6900D3768C /* main.swift */,
 			);
 			path = TesSwift;
@@ -120,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6CEFCC230B8F6900D3768C /* main.swift in Sources */,
+				EEED7DCE230CD29800AB973F /* Mems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
