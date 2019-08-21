@@ -155,15 +155,12 @@ func testeStruct(){
 	struct Point {
 		var x:Int = 0
 		var y:Int = 0
-//		var b = true
-		
-		//	init(x:Int) {
-		//		self.x = x
-		//	}
-		func copy(with zone: NSZone? = nil) -> Any {
-			return self
+		var test = true
+		func show() -> Void  {
+			var aa = 0
+			
+			print(x,y,test)
 		}
-		
 	}
 //	var point1 = Point()
 //	print(MemoryLayout<Point>.size(ofValue: point1))
@@ -171,11 +168,24 @@ func testeStruct(){
 	
 	
 	class PointClass {
-		var x:Int = 0
-		var y:Int = 0
-		
+		/*
+		16 指针 + 引用计数
+		*/
+		var x:Int = 0 // 8
+		var y:Int = 0 //8
+		var test = true //1
+		//实际占用33 ，分配48字节
+
 		
 	}
+	
+	var p = Point()
+	p.show()
+//	var cls = type(of: p)
+	
+//	let x = class_getInstanceSize((Point.self as! AnyClass))
+	print(Mems.size(ofRef: p))
+	print("---")
 //	var p11 = Point(x: 6, y: 7)
 //	p11 = Point(x: 8, y: 9)
 //	var p22 = p11
@@ -189,23 +199,33 @@ func testeStruct(){
 
 	
 	
-	var s :String = "haha"
-	var s2 = s
-	print(Mems.ptr(ofVal: &s2),Mems.ptr(ofVal: &s))
-	s2.append("来了")
-	print(Mems.ptr(ofVal: &s2),Mems.ptr(ofVal: &s))
+//	var s :String = "haha"
+//	var s2 = s
+//	print(Mems.ptr(ofVal: &s2),Mems.ptr(ofVal: &s))
+//	s2.append("来了")
+//	print(Mems.ptr(ofVal: &s2),Mems.ptr(ofVal: &s))
+//
+//	var set1 = Set(arrayLiteral: 1)
+//	var set2 = set1
+//
+//	print(Mems.ptr(ofVal: &set2),Mems.ptr(ofVal: &set1))
+//
+//
+//	var dic1 = Dictionary(dictionaryLiteral: ("key","value"))
+//	var dic2 = dic1
+//
+//	print(Mems.ptr(ofVal: &dic2),Mems.ptr(ofVal: &dic1))
 
-	var set1 = Set(arrayLiteral: 1)
-	var set2 = set1
 	
-	print(Mems.ptr(ofVal: &set2),Mems.ptr(ofVal: &set1))
-
-	
-	var dic1 = Dictionary(dictionaryLiteral: ("key","value"))
-	var dic2 = dic1
-	
-	print(Mems.ptr(ofVal: &dic2),Mems.ptr(ofVal: &dic1))
-
+//	let s2 = Point(x: 10, y: 12)
+//	s2 = Point(x: 10, y: 10)//报错原因是let修饰的结构体 内存区域（栈） 所以值和属性都不能改
+//	s2.x = 11
+//	s2.y = 12
+//
+//	let ret = PointClass()
+//	ret.x = 0
+//	ret.y = 0
+//	ret = PointClass()//报错原因是let修饰的类 指针（栈） 所以指针不能改，但是指针指向的属性能改
 	
 	
 	
