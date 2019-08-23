@@ -8,11 +8,25 @@
 
 import Foundation
 
-class Car {
-    static var name = "法拉利"
+struct Point {
+	var x = 0.0,y = 0.0
+	//discardableResult 消除警告
+	@discardableResult mutating func moveBy(_ v:Double) -> Double {
+		x += v
+		return x
+	}
 }
-print(Car.name)
 
+
+class Pointcls {
+	var x = 0.0,y = 0.0
+	func move(_ v:Double)  {
+		x += v
+	}
+}
+
+var p = Point(x: 1, y: 1.0)
+p.moveBy(2.0)
 
 
 //
