@@ -9,6 +9,36 @@
 import Foundation
 
 
+//协议可以添加约束的
+//T:Stack&Stack2 必须遵守Stack和Stack2协议。
+@inlinable public func === (lhs: AnyObject?, rhs: AnyObject?) -> Bool{
+    if lhs is rhs.Self {
+        if lhs == rhs{
+            return true
+        }
+    }
+    return false
+}
+print(1===2)
+
+//协议实现泛型
+protocol Stackable {
+    associatedtype T :Equatable
+    mutating func push(_ element:T)
+    mutating func pop() -> T
+}
+class Stackable2: Stackable {
+    func push(_ element: Int) {
+        print("push")
+    }
+    
+    func pop() -> Int {
+        return 1
+    }
+    
+    //给关联type 设置类型 当然     associatedtype T也是可以省略的
+    typealias T = Int
+}
 
 class Stack<T> {
     var size = 0
