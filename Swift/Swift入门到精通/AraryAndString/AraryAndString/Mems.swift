@@ -132,7 +132,7 @@ public enum StringMemType : UInt8 {
 }
 
 extension String {
-    mutating public func memType() -> StringMemType {
+    mutating internal func memType() -> StringMemType {
         let ptr = Mems.ptr(ofVal: &self)
         return StringMemType(rawValue: (ptr + 15).load(as: UInt8.self) & 0xf0)
             ?? StringMemType(rawValue: (ptr + 7).load(as: UInt8.self) & 0xf0)
