@@ -16,11 +16,15 @@ class ViewController: UIViewController {
         let v2 = UIView.init()
         v2.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         v2.backgroundColor = UIColor.red
-        view .addSubview(v2)
+        view.addSubview(v2)
         v2==|view--<10
         v2|==view>--10
-//        v2|==view
-        
+		v2-->10
+		v2<--10
+		v2.offset(.top, -20)
+		
+		let v3 = UIView()
+		_ = v3.equal(v2, .bottom)
     }
 }
 
