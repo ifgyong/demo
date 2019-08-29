@@ -18,7 +18,9 @@ static NSMutableSet *set;
 	if (set== nil) {
 		set = [[NSMutableSet alloc]init];
 	}
-	if ([self isSubclassOfClass:UIViewController.class] && self != UIViewController.class) {
+    //UIViewcontroller的子类统计
+	if ([self isSubclassOfClass:UIViewController.class] &&
+        self != UIViewController.class) {
 		if ([set containsObject:self]) {
 			return;
 		}else{
@@ -28,7 +30,7 @@ static NSMutableSet *set;
 		Method m1 = class_getInstanceMethod(self, @selector(viewDidLoad));
 		IMP imp1 = method_getImplementation(m1);
 // id,SEL 必须传，否则到了执行imp1Func(i,s);内部的id是nil，导致函数无法执行。
-		void(*imp1Func)(id,SEL) = (void*)imp1;
+		void(*imp1Func)(id,SEL) = (void*)imp1;//imp1原始方法地址
 		void (^block)(id,SEL)  = ^(id i,SEL s){
 			printf("开始\n");
 			NSDate *date =[NSDate new];
