@@ -7,32 +7,77 @@
 //
 
 import Foundation
-struct FY<Base:Sequence> {
-	var str:Base?
+//protocol arrayType {
+//
+//}
+//extension Array:arrayType{}
+//extension NSArray:arrayType{}
+////extension NSMutableArray:arrayType{}
+//
+//
+//func isArrayType(_ type: Any.Type) -> Bool {
+//    print(type)
+//    return type is [Any].Type
+//}
+//print(isArrayType([Int].self))
+//print(isArrayType([Double].self))
+//print(isArrayType([CGFont].self))
+
+
+
+
+
+//func isArray(_ value:Any) -> Bool {
+//    return value is [Any]
+//}
+//print(isArray( NSArray()))//trye
+//print(isArray( NSMutableArray()))//true
+//print(isArray([1]))//true
+//print(isArray(NSSet()))//false
+
+
+
+
+struct FY<Base> {
+	var base:Base
 	
-	init(_ str:Base) {
-		self.str = str
+	init(_ base:Base) {
+		self.base = base
 	}
-	var numberCount:Int
-	{
-		var count = 0
-		if let ss = str {
-			for c in ss  where ("0"..."9").contains(String(c)){
-				count += 1
-			}
-			return count
-		}
-		return 0
-		
-	}
-	
 }
+protocol FYCompatiabale {
+    
+}
+extension FYCompatiabale{
+    var fy :FY<Self>{
+        set{
+            
+        }
+        get{
+              return  FY(self)
+        }
+    }
+}
+extension FY where Base:ExpressibleByStringLiteral{
+    func number() -> Int {
+        let s = base as! String
+        var count = 0
+        
+        for i in s where ("0"..."9").contains(i){
+            count += 1
+        }
+        return count
+    }
+}
+
 
 extension String{
 	var fy:FY<String>{return FY<String>(self)}
 }
+//var ss = "111"
+//ss.fy.number()
 
-print("12".fy.numberCount)
+print("1234".fy.number())
 
 var num = 1
 func add(_ v1:Int,_ v2:Int)->Int{
@@ -86,6 +131,7 @@ let ar = arr.map2 { (i) -> Int in
 	return i*2
 }
 print(ar)
+
 
 
 
