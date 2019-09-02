@@ -15,6 +15,10 @@
 		EE0814432317B3F500DA3300 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0814422317B3F500DA3300 /* main.m */; };
 		EE08144B2317B41400DA3300 /* UIViewController+add.m in Sources */ = {isa = PBXBuildFile; fileRef = EE08144A2317B41400DA3300 /* UIViewController+add.m */; };
 		EE08144E2317CD1D00DA3300 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = EE08144D2317CD1D00DA3300 /* ViewController2.m */; };
+		EE085BC7231CFE4300DA3300 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE085BC6231CFE4300DA3300 /* BaseViewController.m */; };
+		EE085BD2231D103500DA3300 /* UIViewController+interactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EE085BCA231D0AAF00DA3300 /* UIViewController+interactive.m */; };
+		EE085BD3231D11BF00DA3300 /* YQKVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EE085BC8231D0AAF00DA3300 /* YQKVOObserver.m */; };
+		EE085BD4231D11C400DA3300 /* YQKVORemover.m in Sources */ = {isa = PBXBuildFile; fileRef = EE085BCD231D0AAF00DA3300 /* YQKVORemover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,14 @@
 		EE08144A2317B41400DA3300 /* UIViewController+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+add.m"; sourceTree = "<group>"; };
 		EE08144C2317CD1D00DA3300 /* ViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		EE08144D2317CD1D00DA3300 /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		EE085BC5231CFE4300DA3300 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		EE085BC6231CFE4300DA3300 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		EE085BC8231D0AAF00DA3300 /* YQKVOObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQKVOObserver.m; sourceTree = "<group>"; };
+		EE085BC9231D0AAF00DA3300 /* YQKVOObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQKVOObserver.h; sourceTree = "<group>"; };
+		EE085BCA231D0AAF00DA3300 /* UIViewController+interactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+interactive.m"; sourceTree = "<group>"; };
+		EE085BCB231D0AAF00DA3300 /* UIViewController+interactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+interactive.h"; sourceTree = "<group>"; };
+		EE085BCC231D0AAF00DA3300 /* YQKVORemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQKVORemover.h; sourceTree = "<group>"; };
+		EE085BCD231D0AAF00DA3300 /* YQKVORemover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQKVORemover.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,12 @@
 		EE0814322317B3F400DA3300 /* OC-runtime */ = {
 			isa = PBXGroup;
 			children = (
+				EE085BCB231D0AAF00DA3300 /* UIViewController+interactive.h */,
+				EE085BCA231D0AAF00DA3300 /* UIViewController+interactive.m */,
+				EE085BC9231D0AAF00DA3300 /* YQKVOObserver.h */,
+				EE085BC8231D0AAF00DA3300 /* YQKVOObserver.m */,
+				EE085BCC231D0AAF00DA3300 /* YQKVORemover.h */,
+				EE085BCD231D0AAF00DA3300 /* YQKVORemover.m */,
 				EE0814332317B3F400DA3300 /* AppDelegate.h */,
 				EE0814342317B3F400DA3300 /* AppDelegate.m */,
 				EE0814362317B3F400DA3300 /* ViewController.h */,
@@ -72,6 +90,8 @@
 				EE08144D2317CD1D00DA3300 /* ViewController2.m */,
 				EE0814492317B41400DA3300 /* UIViewController+add.h */,
 				EE08144A2317B41400DA3300 /* UIViewController+add.m */,
+				EE085BC5231CFE4300DA3300 /* BaseViewController.h */,
+				EE085BC6231CFE4300DA3300 /* BaseViewController.m */,
 				EE0814392317B3F400DA3300 /* Main.storyboard */,
 				EE08143C2317B3F500DA3300 /* Assets.xcassets */,
 				EE08143E2317B3F500DA3300 /* LaunchScreen.storyboard */,
@@ -151,7 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE085BD4231D11C400DA3300 /* YQKVORemover.m in Sources */,
+				EE085BD3231D11BF00DA3300 /* YQKVOObserver.m in Sources */,
+				EE085BD2231D103500DA3300 /* UIViewController+interactive.m in Sources */,
 				EE0814382317B3F400DA3300 /* ViewController.m in Sources */,
+				EE085BC7231CFE4300DA3300 /* BaseViewController.m in Sources */,
 				EE0814432317B3F500DA3300 /* main.m in Sources */,
 				EE08144E2317CD1D00DA3300 /* ViewController2.m in Sources */,
 				EE08144B2317B41400DA3300 /* UIViewController+add.m in Sources */,

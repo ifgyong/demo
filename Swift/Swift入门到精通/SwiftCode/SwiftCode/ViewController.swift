@@ -8,12 +8,21 @@
 
 import UIKit
 
+class Person{
+	var age = 10
+	var name = ""
+}
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+		
+		let pp = Mirror.init(reflecting: Person.init())
+		for i in pp.children{
+			print(i)
+		}
+
+	}
 
 
 }

@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (add)
-- (void)fy_viewDidLoad;
 @end
 
 NS_ASSUME_NONNULL_END
