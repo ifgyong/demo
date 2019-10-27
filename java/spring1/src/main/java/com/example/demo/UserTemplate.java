@@ -30,15 +30,22 @@ public class UserTemplate {
         int ret = this.UserTemplate.update(sql,new Object[]{name,age,sex});
         return ret>0 ? true:false;
     }
-    public ArrayList<User> userList(int page){
+    public HashMap userList(long page){
+        HashMap map = new HashMap();
         ArrayList<User> arr= new ArrayList<>();
-        int start=0,end=0;
+        long start=0,end=0;
         if (page<=1){
             start=0;
             end = 5;
         }else {
-            start = (page-1)*5;
-            end = page *5;
+
+            if (Long.MAX_VALUE /5 < page){
+                end = Long.MAX_VALUE;
+                start = end -5;
+            }else {
+                start = (page-1)*5;
+                end = page *5;
+            }
         }
         String sql = "select * from user limit "+start+","+end;
         this.UserTemplate.query(sql, new RowCallbackHandler() {
@@ -53,6 +60,13 @@ public class UserTemplate {
                 arr.add(student);
             }
         });
-        return arr;
+        if (arr.size()>0){
+            map.put("state","success");
+            map.put("data",arr);
+        }else {
+            map.put("state","faild");
+            map.put("msg","报错了");
+        }
+        return map;
     }
 }

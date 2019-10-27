@@ -46,14 +46,11 @@ static  DataSource dataSource =
         return map;
     }
     @RequestMapping(value="/userlist", produces={"application/json; charset=UTF-8"})
-    public ArrayList<User> userList(HttpServletRequest request, HttpServletResponse response){
+    public HashMap userList(HttpServletRequest request, HttpServletResponse response){
         int page = Integer.parseInt(request.getParameter("page").toString());
-        if (userTemplate == null){
-            setUp();
-            System.out.println("初始化beans");
-        }
-        ArrayList<User> arr= this.userTemplate.userList(page);
-        return  arr;
+        System.out.println("111111");
+        HashMap map= this.userTemplate.userList(page);
+        return  map;
     }
     public void setUp(){
         context = new ClassPathXmlApplicationContext("application-beans.xml");
