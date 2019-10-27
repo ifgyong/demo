@@ -1,7 +1,5 @@
 Page({
-    data: {
-
-    },
+    data: {},
     onHide: function () {
         wx.hideNavigationBarLoading()
     },
@@ -56,7 +54,7 @@ Page({
                 console.log(res.language)
                 console.log(res.version)
             },
-            fail:function(){
+            fail: function () {
                 console.log(获取失败);
             }
         })

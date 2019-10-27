@@ -1,4 +1,3 @@
-
 //svar util = require("../../uril/util.js")
 var app = getApp();
 Page({

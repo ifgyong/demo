@@ -18,70 +18,74 @@
 </head>
 
 <body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+<!--[if IE]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
-  <!-- Add your site or application content here -->
+<!-- Add your site or application content here -->
 <div id="body"></div>
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="js/jquery-1.11.1.min.js"></script>
-  <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
-  <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>-->
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/vendor/modernizr-3.7.1.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
+<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>-->
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script type="text/javascript">
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script type="text/javascript">
 
-$(document).ready(function() {
+  $(document).ready(function () {
     var id = 'idname';
-    function append(emid,obj){
-        var buildVersion = obj['buildVersion'];
-        var build = obj['buildVersionNo'];
-        var time = obj['buildCreated'];
-        var txt = "版本号:" + buildVersion + ' build:' + build+'  '+time;
-        var url = "itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/"+obj["buildKey"];
-        $("#"+emid).append("<p class='item' ><a href="+url+">"+txt+"</a></p>")
+
+    function append(emid, obj) {
+      var buildVersion = obj['buildVersion'];
+      var build = obj['buildVersionNo'];
+      var time = obj['buildCreated'];
+      var txt = "版本号:" + buildVersion + ' build:' + build + '  ' + time;
+      var url = "itms-services://?action=download-manifest&url=https://www.pgyer.com/app/plist/" + obj["buildKey"];
+      $("#" + emid).append("<p class='item' ><a href=" + url + ">" + txt + "</a></p>")
     };
+
     function getData(appkey) {
-        $.ajax({
-            url: "https://www.pgyer.com/apiv2/app/builds",
-            type: "post",
-            data: {
-                _api_key: pgyer_api_key,
-                appKey: appkey
-            },
-            success: function (data) {
-                var list = data['data']["list"];
-                var count = list.length;
-                if (count>0){
-                    id += id;
-                    var name = list[0]['buildName'];
-                    $("#body").append("<div class='item-super'><p class='title'>"+name+"</p> <p id="+id+"></p></div>")
-                }
-                console.log(list[0]);
+      $.ajax({
+        url: "https://www.pgyer.com/apiv2/app/builds",
+        type: "post",
+        data: {
+          _api_key: pgyer_api_key,
+          appKey: appkey
+        },
+        success: function (data) {
+          var list = data['data']["list"];
+          var count = list.length;
+          if (count > 0) {
+            id += id;
+            var name = list[0]['buildName'];
+            $("#body").append("<div class='item-super'><p class='title'>" + name + "</p> <p id=" + id + "></p></div>")
+          }
+          console.log(list[0]);
 
-                for (var i = 0; i < count; i++) {
-                    if (i < 5){
-                        append(id,list[i]);
-                    }else {break;}
-
-                }
-            },
-            error: function () {
-                alert("请求失败啦！");
+          for (var i = 0; i < count; i++) {
+            if (i < 5) {
+              append(id, list[i]);
+            } else {
+              break;
             }
-        })
+
+          }
+        },
+        error: function () {
+          alert("请求失败啦！");
+        }
+      })
     };
     var count = app_keys.length;
-    for (var i = 0; i < count;i++){
-        getData(app_keys[i]);
+    for (var i = 0; i < count; i++) {
+      getData(app_keys[i]);
     }
-});
+  });
 
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>

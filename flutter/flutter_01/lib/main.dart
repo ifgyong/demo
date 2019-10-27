@@ -93,11 +93,17 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               '老弟来了:',
-              style: Theme.of(context).textTheme.display2,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display2,
             ),
             Text(
-              '$_counter'+'次',
-              style: Theme.of(context).textTheme.display1,
+              '$_counter' + '次',
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
             ),
           ],
         ),

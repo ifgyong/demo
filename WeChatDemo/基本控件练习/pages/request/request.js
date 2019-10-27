@@ -15,25 +15,25 @@ Page({
         // 页面显示
         var urlData = {
             xiaoqu_id: 3,
-            channel:1,
-            request_time:(new Date()).valueOf(),
-            platform:'iphone',
-            network_type:'WIFI',
+            channel: 1,
+            request_time: (new Date()).valueOf(),
+            platform: 'iphone',
+            network_type: 'WIFI',
 
         };
-        var url= util.fullUrl('1.0/other/banner/list', urlData);
+        var url = util.fullUrl('1.0/other/banner/list', urlData);
         wx.request({
             url: url,//'https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html?t=20161107',
             data: urlData,
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             // header: {}, // 设置请求的 header
-              header: {
-            //     'Content-Type': 'application/json'
-            //     // apikey:'cdf1c81047d6d85bfb6581314aec3233'
-            cookie:{
-                ganbadie_xiaoqu:1
-            }
-              },
+            header: {
+                //     'Content-Type': 'application/json'
+                //     // apikey:'cdf1c81047d6d85bfb6581314aec3233'
+                cookie: {
+                    ganbadie_xiaoqu: 1
+                }
+            },
             success: function (res) {
                 // success
                 console.log(res);
