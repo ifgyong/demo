@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我是第一个页面</title>
+    <style type="text/css">
+        div
+        {
+            margin-top: 5px;
+            margin-bottom:5px;
+            line-height: 30px;
+            width: 100%;
+            background-color: aliceblue;
+            display: flow;
+            text-align: center;
+        }</style>
+
+</head>
+<body>
+<div >
+
+    <label th:text="'手机号:'+${mobile}">手机号：</label>
+</div>
+<div>
+    <label th:text="'名字:'+${name}"> 密码：</label>
+
+</div>
+<div>
+    <input th:type="button">
+
+</div>
+</body>
+</html>
