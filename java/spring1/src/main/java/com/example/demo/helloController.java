@@ -22,14 +22,12 @@ import java.util.Map;
 @RestController
 public class helloController {
    static ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-beans.xml");
-//    DataSource studentJDBCTemplate =
-//            (UserTemplate) context.getBean("UserTemplate");
 static  DataSource dataSource =
             (DataSource) context.getBean("dataSource");
     static UserTemplate userTemplate = new UserTemplate(dataSource);
-    @RequestMapping(value="/hi", produces={"application/json; charset=UTF-8"})
-    public String hello(){
-        return "123";
+    @RequestMapping(value="/login2")
+    public String login(){
+        return "login";
     }
     @RequestMapping(value="/add", produces={"application/json; charset=UTF-8"})
     public HashMap insertUser(HttpServletRequest request, HttpServletResponse response,String name,int age,int sex,String mobile){
