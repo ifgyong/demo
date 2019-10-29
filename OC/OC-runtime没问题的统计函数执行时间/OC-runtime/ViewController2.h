@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController2 : UIViewController
+@interface ViewController2 : ViewController
 
 @end
 

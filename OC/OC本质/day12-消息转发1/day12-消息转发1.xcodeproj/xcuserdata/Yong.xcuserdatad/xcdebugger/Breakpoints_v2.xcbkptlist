@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.AddressBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "*0x100000e21">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[Student test]"
+                  moduleName = "day12-&#x6d88;&#x606f;&#x8f6c;&#x53d1;1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jerry/Desktop/demo2/OC/OC%E6%9C%AC%E8%B4%A8/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%911/day12-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%911/Student.m"
+                  timestampString = "585118086.726341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

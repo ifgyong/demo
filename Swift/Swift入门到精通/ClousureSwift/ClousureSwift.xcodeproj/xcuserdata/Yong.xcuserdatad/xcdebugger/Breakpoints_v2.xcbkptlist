@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClousureSwift/main.swift"
+            timestampString = "588148302.310575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "cloTest1()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClousureSwift/main.swift"
+            timestampString = "588148302.311149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "cloTest1()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.AddressBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "*0x10000141b">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "getFns #1 () -&gt; ((Swift.Int) -&gt; (Swift.Int, Swift.Int), (Swift.Int) -&gt; (Swift.Int, Swift.Int)) in ClousureSwift.cloTest1() -&gt; ()"
+                  moduleName = "ClousureSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jerry/Desktop/demo2/Swift/Swift%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/ClousureSwift/%3Ccompiler-generated%3E"
+                  timestampString = "588148332.998028"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.AddressBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "*0x100001449">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "getFns #1 () -&gt; ((Swift.Int) -&gt; (Swift.Int, Swift.Int), (Swift.Int) -&gt; (Swift.Int, Swift.Int)) in ClousureSwift.cloTest1() -&gt; ()"
+                  moduleName = "ClousureSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jerry/Desktop/demo2/Swift/Swift%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/ClousureSwift/%3Ccompiler-generated%3E"
+                  timestampString = "588148336.806195"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -16,13 +16,14 @@
 @implementation ViewController
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
-	printf("%s",__func__);
+//	printf("%s",__func__);
 }
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	sleep(rand()%4);
+	sleep(2);
 	self.view.backgroundColor = [UIColor greenColor];
 //	printf("\n3");
+	printf("%s\n",__func__);
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 	ViewController2 *vc=[[ViewController2 alloc]init];

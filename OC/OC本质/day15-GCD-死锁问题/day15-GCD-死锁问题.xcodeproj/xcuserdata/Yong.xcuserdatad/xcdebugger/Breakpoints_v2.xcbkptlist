@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "day15-GCD-&#x6b7b;&#x9501;&#x95ee;&#x9898;/ViewController.m"
+            timestampString = "585643334.909947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-test"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "day15-GCD-&#x6b7b;&#x9501;&#x95ee;&#x9898;/ViewController.m"
+            timestampString = "585643334.910446"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-test"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController test]"
+                  moduleName = "day15-GCD-&#x6b7b;&#x9501;&#x95ee;&#x9898;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jerry/Desktop/demo2/OC/OC%E6%9C%AC%E8%B4%A8/day15-GCD-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/day15-GCD-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/ViewController.m"
+                  timestampString = "585643334.9527121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__22-[ViewController test]_block_invoke"
+                  moduleName = "day15-GCD-&#x6b7b;&#x9501;&#x95ee;&#x9898;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jerry/Desktop/demo2/OC/OC%E6%9C%AC%E8%B4%A8/day15-GCD-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/day15-GCD-%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/ViewController.m"
+                  timestampString = "585643334.954826"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

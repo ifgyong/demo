@@ -8,44 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		EE5313F4228141C5002F5E03 /* frame.h in Headers */ = {isa = PBXBuildFile; fileRef = EE5313F2228141C5002F5E03 /* frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE53141B228151FC002F5E03 /* Person.h in Headers */ = {isa = PBXBuildFile; fileRef = EE531419228151FC002F5E03 /* Person.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE53141C228151FC002F5E03 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53141A228151FC002F5E03 /* Person.m */; };
-		EE53141D22815267002F5E03 /* Person.m in Headers */ = {isa = PBXBuildFile; fileRef = EE53141A228151FC002F5E03 /* Person.m */; settings = {ATTRIBUTES = (Private, ); }; };
-		EE53143222815894002F5E03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53143122815894002F5E03 /* AppDelegate.m */; };
-		EE53143522815894002F5E03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53143422815894002F5E03 /* ViewController.m */; };
-		EE53143822815894002F5E03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE53143622815894002F5E03 /* Main.storyboard */; };
-		EE53143A22815895002F5E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE53143922815895002F5E03 /* Assets.xcassets */; };
-		EE53143D22815895002F5E03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE53143B22815895002F5E03 /* LaunchScreen.storyboard */; };
-		EE53144022815895002F5E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE53143F22815895002F5E03 /* main.m */; };
+		EEA73308232094ED0037D913 /* FYNodeAdpter.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732F2232094ED0037D913 /* FYNodeAdpter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA73309232094ED0037D913 /* FYNodeManger.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732F3232094ED0037D913 /* FYNodeManger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA7330A232094ED0037D913 /* FYKVORemover.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA732F4232094ED0037D913 /* FYKVORemover.m */; };
+		EEA7330C232094ED0037D913 /* FYNodeLinkObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732F6232094ED0037D913 /* FYNodeLinkObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA7330D232094ED0037D913 /* UIViewController+interactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA732F7232094ED0037D913 /* UIViewController+interactive.m */; };
+		EEA7330E232094ED0037D913 /* FYKVOObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732F8232094ED0037D913 /* FYKVOObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA7330F232094ED0037D913 /* FYNodeMap.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732F9232094ED0037D913 /* FYNodeMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA73310232094ED0037D913 /* FYVCcall.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732FA232094ED0037D913 /* FYVCcall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA73311232094ED0037D913 /* FYNodeAdpter.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA732FB232094ED0037D913 /* FYNodeAdpter.m */; };
+		EEA73313232094ED0037D913 /* FYNodeLinkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA732FD232094ED0037D913 /* FYNodeLinkObserver.m */; };
+		EEA73314232094ED0037D913 /* FYKVORemover.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA732FE232094ED0037D913 /* FYKVORemover.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA73315232094ED0037D913 /* FYNodeManger.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA732FF232094ED0037D913 /* FYNodeManger.m */; };
+		EEA73316232094ED0037D913 /* UIViewController+interactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA73300232094ED0037D913 /* UIViewController+interactive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA73317232094ED0037D913 /* FYKVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA73301232094ED0037D913 /* FYKVOObserver.m */; };
+		EEA73318232094ED0037D913 /* FYVCcall.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA73302232094ED0037D913 /* FYVCcall.m */; };
+		EEA73319232094ED0037D913 /* FYNodeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA73303232094ED0037D913 /* FYNodeMap.m */; };
+		EEA7331A232094ED0037D913 /* CaptainHook.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA73304232094ED0037D913 /* CaptainHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEA7331B232094ED0037D913 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = EEA73306232094ED0037D913 /* fishhook.c */; };
+		EEA7331C232094ED0037D913 /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA73307232094ED0037D913 /* fishhook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE5313EF228141C5002F5E03 /* frame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = frame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5313F2228141C5002F5E03 /* frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = frame.h; sourceTree = "<group>"; };
 		EE5313F3228141C5002F5E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE531419228151FC002F5E03 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../../SimpleUnitTests/SimpleUnitTests/Person.h; sourceTree = "<group>"; };
-		EE53141A228151FC002F5E03 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../../SimpleUnitTests/SimpleUnitTests/Person.m; sourceTree = "<group>"; };
-		EE53142E22815894002F5E03 /* testAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE53143022815894002F5E03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EE53143122815894002F5E03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EE53143322815894002F5E03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EE53143422815894002F5E03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EE53143722815894002F5E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EE53143922815895002F5E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE53143C22815895002F5E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EE53143E22815895002F5E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE53143F22815895002F5E03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEA732F2232094ED0037D913 /* FYNodeAdpter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYNodeAdpter.h; sourceTree = "<group>"; };
+		EEA732F3232094ED0037D913 /* FYNodeManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYNodeManger.h; sourceTree = "<group>"; };
+		EEA732F4232094ED0037D913 /* FYKVORemover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYKVORemover.m; sourceTree = "<group>"; };
+		EEA732F6232094ED0037D913 /* FYNodeLinkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYNodeLinkObserver.h; sourceTree = "<group>"; };
+		EEA732F7232094ED0037D913 /* UIViewController+interactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+interactive.m"; sourceTree = "<group>"; };
+		EEA732F8232094ED0037D913 /* FYKVOObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYKVOObserver.h; sourceTree = "<group>"; };
+		EEA732F9232094ED0037D913 /* FYNodeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYNodeMap.h; sourceTree = "<group>"; };
+		EEA732FA232094ED0037D913 /* FYVCcall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYVCcall.h; sourceTree = "<group>"; };
+		EEA732FB232094ED0037D913 /* FYNodeAdpter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYNodeAdpter.m; sourceTree = "<group>"; };
+		EEA732FD232094ED0037D913 /* FYNodeLinkObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYNodeLinkObserver.m; sourceTree = "<group>"; };
+		EEA732FE232094ED0037D913 /* FYKVORemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYKVORemover.h; sourceTree = "<group>"; };
+		EEA732FF232094ED0037D913 /* FYNodeManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYNodeManger.m; sourceTree = "<group>"; };
+		EEA73300232094ED0037D913 /* UIViewController+interactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+interactive.h"; sourceTree = "<group>"; };
+		EEA73301232094ED0037D913 /* FYKVOObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYKVOObserver.m; sourceTree = "<group>"; };
+		EEA73302232094ED0037D913 /* FYVCcall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYVCcall.m; sourceTree = "<group>"; };
+		EEA73303232094ED0037D913 /* FYNodeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYNodeMap.m; sourceTree = "<group>"; };
+		EEA73304232094ED0037D913 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		EEA73306232094ED0037D913 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		EEA73307232094ED0037D913 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE5313EC228141C5002F5E03 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE53142B22815894002F5E03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				EE5313F1228141C5002F5E03 /* frame */,
-				EE53142F22815894002F5E03 /* testAPP */,
 				EE5313F0228141C5002F5E03 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				EE5313EF228141C5002F5E03 /* frame.framework */,
-				EE53142E22815894002F5E03 /* testAPP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,28 +84,45 @@
 		EE5313F1228141C5002F5E03 /* frame */ = {
 			isa = PBXGroup;
 			children = (
+				EEA73304232094ED0037D913 /* CaptainHook.h */,
+				EEA73305232094ED0037D913 /* fishhook */,
+				EEA732F1232094ED0037D913 /* FYStatistics */,
 				EE5313F2228141C5002F5E03 /* frame.h */,
-				EE531419228151FC002F5E03 /* Person.h */,
-				EE53141A228151FC002F5E03 /* Person.m */,
 				EE5313F3228141C5002F5E03 /* Info.plist */,
 			);
 			path = frame;
 			sourceTree = "<group>";
 		};
-		EE53142F22815894002F5E03 /* testAPP */ = {
+		EEA732F1232094ED0037D913 /* FYStatistics */ = {
 			isa = PBXGroup;
 			children = (
-				EE53143022815894002F5E03 /* AppDelegate.h */,
-				EE53143122815894002F5E03 /* AppDelegate.m */,
-				EE53143322815894002F5E03 /* ViewController.h */,
-				EE53143422815894002F5E03 /* ViewController.m */,
-				EE53143622815894002F5E03 /* Main.storyboard */,
-				EE53143922815895002F5E03 /* Assets.xcassets */,
-				EE53143B22815895002F5E03 /* LaunchScreen.storyboard */,
-				EE53143E22815895002F5E03 /* Info.plist */,
-				EE53143F22815895002F5E03 /* main.m */,
+				EEA73300232094ED0037D913 /* UIViewController+interactive.h */,
+				EEA732F7232094ED0037D913 /* UIViewController+interactive.m */,
+				EEA732F9232094ED0037D913 /* FYNodeMap.h */,
+				EEA73303232094ED0037D913 /* FYNodeMap.m */,
+				EEA732F2232094ED0037D913 /* FYNodeAdpter.h */,
+				EEA732FB232094ED0037D913 /* FYNodeAdpter.m */,
+				EEA732F6232094ED0037D913 /* FYNodeLinkObserver.h */,
+				EEA732FD232094ED0037D913 /* FYNodeLinkObserver.m */,
+				EEA732FE232094ED0037D913 /* FYKVORemover.h */,
+				EEA732F4232094ED0037D913 /* FYKVORemover.m */,
+				EEA732F3232094ED0037D913 /* FYNodeManger.h */,
+				EEA732FF232094ED0037D913 /* FYNodeManger.m */,
+				EEA732F8232094ED0037D913 /* FYKVOObserver.h */,
+				EEA73301232094ED0037D913 /* FYKVOObserver.m */,
+				EEA732FA232094ED0037D913 /* FYVCcall.h */,
+				EEA73302232094ED0037D913 /* FYVCcall.m */,
 			);
-			path = testAPP;
+			path = FYStatistics;
+			sourceTree = "<group>";
+		};
+		EEA73305232094ED0037D913 /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				EEA73306232094ED0037D913 /* fishhook.c */,
+				EEA73307232094ED0037D913 /* fishhook.h */,
+			);
+			path = fishhook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,9 +132,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA73309232094ED0037D913 /* FYNodeManger.h in Headers */,
 				EE5313F4228141C5002F5E03 /* frame.h in Headers */,
-				EE53141B228151FC002F5E03 /* Person.h in Headers */,
-				EE53141D22815267002F5E03 /* Person.m in Headers */,
+				EEA73314232094ED0037D913 /* FYKVORemover.h in Headers */,
+				EEA73308232094ED0037D913 /* FYNodeAdpter.h in Headers */,
+				EEA7330C232094ED0037D913 /* FYNodeLinkObserver.h in Headers */,
+				EEA73310232094ED0037D913 /* FYVCcall.h in Headers */,
+				EEA73316232094ED0037D913 /* UIViewController+interactive.h in Headers */,
+				EEA7330E232094ED0037D913 /* FYKVOObserver.h in Headers */,
+				EEA7330F232094ED0037D913 /* FYNodeMap.h in Headers */,
+				EEA7331C232094ED0037D913 /* fishhook.h in Headers */,
+				EEA7331A232094ED0037D913 /* CaptainHook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,23 +167,6 @@
 			productReference = EE5313EF228141C5002F5E03 /* frame.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EE53142D22815894002F5E03 /* testAPP */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE53144122815895002F5E03 /* Build configuration list for PBXNativeTarget "testAPP" */;
-			buildPhases = (
-				EE53142A22815894002F5E03 /* Sources */,
-				EE53142B22815894002F5E03 /* Frameworks */,
-				EE53142C22815894002F5E03 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = testAPP;
-			productName = testAPP;
-			productReference = EE53142E22815894002F5E03 /* testAPP.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,9 +177,6 @@
 				ORGANIZATIONNAME = www.fgyong.cn;
 				TargetAttributes = {
 					EE5313EE228141C5002F5E03 = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					EE53142D22815894002F5E03 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -182,7 +195,6 @@
 			projectRoot = "";
 			targets = (
 				EE5313EE228141C5002F5E03 /* frame */,
-				EE53142D22815894002F5E03 /* testAPP */,
 			);
 		};
 /* End PBXProject section */
@@ -195,16 +207,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE53142C22815894002F5E03 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE53143D22815895002F5E03 /* LaunchScreen.storyboard in Resources */,
-				EE53143A22815895002F5E03 /* Assets.xcassets in Resources */,
-				EE53143822815894002F5E03 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,40 +214,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE53141C228151FC002F5E03 /* Person.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE53142A22815894002F5E03 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE53143522815894002F5E03 /* ViewController.m in Sources */,
-				EE53144022815895002F5E03 /* main.m in Sources */,
-				EE53143222815894002F5E03 /* AppDelegate.m in Sources */,
+				EEA7330A232094ED0037D913 /* FYKVORemover.m in Sources */,
+				EEA73317232094ED0037D913 /* FYKVOObserver.m in Sources */,
+				EEA73315232094ED0037D913 /* FYNodeManger.m in Sources */,
+				EEA7330D232094ED0037D913 /* UIViewController+interactive.m in Sources */,
+				EEA7331B232094ED0037D913 /* fishhook.c in Sources */,
+				EEA73319232094ED0037D913 /* FYNodeMap.m in Sources */,
+				EEA73311232094ED0037D913 /* FYNodeAdpter.m in Sources */,
+				EEA73318232094ED0037D913 /* FYVCcall.m in Sources */,
+				EEA73313232094ED0037D913 /* FYNodeLinkObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EE53143622815894002F5E03 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE53143722815894002F5E03 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EE53143B22815895002F5E03 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE53143C22815895002F5E03 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EE5313F5228141C5002F5E03 /* Debug */ = {
@@ -378,12 +359,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = frame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-fembed-bitcode",
@@ -408,12 +390,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = frame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-fembed-bitcode",
@@ -423,40 +406,6 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-fembed-bitcode";
-			};
-			name = Release;
-		};
-		EE53144222815895002F5E03 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
-				INFOPLIST_FILE = testAPP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = FY.testAPP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		EE53144322815895002F5E03 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4ENM74X68;
-				INFOPLIST_FILE = testAPP/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = FY.testAPP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -477,15 +426,6 @@
 			buildConfigurations = (
 				EE5313F8228141C5002F5E03 /* Debug */,
 				EE5313F9228141C5002F5E03 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE53144122815895002F5E03 /* Build configuration list for PBXNativeTarget "testAPP" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE53144222815895002F5E03 /* Debug */,
-				EE53144322815895002F5E03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

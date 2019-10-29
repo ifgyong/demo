@@ -18,7 +18,9 @@
     [super viewDidLoad];
 //	NSLog(@"%p",&self);
 	self.view.backgroundColor = [UIColor redColor];
-	sleep(rand()%4);
+	sleep(1);
+	printf("%s,cls:%s\n",__func__,NSStringFromClass(self.class).UTF8String);
+	printf("\n");
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 	[self dismissViewControllerAnimated:true completion:nil];

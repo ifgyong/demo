@@ -9,12 +9,12 @@
 #import "UIViewController+interactive.h"
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import "YQKVOObserver.h"
-#import "YQKVORemover.h"
+#import "FYKVOObserver.h"
+#import "FYKVORemover.h"
 
 static char const kAssociatedRemoverKey;
 
-static NSString *const kUniqueFakeKeyPath = @"yq_useless_key_path";
+static NSString *const kUniqueFakeKeyPath = @"fy_useless_key_path";
 
 @implementation UIViewController (interactive)
 
@@ -25,31 +25,31 @@ static NSString *const kUniqueFakeKeyPath = @"yq_useless_key_path";
         Class class = [UIViewController class];
         [self swizzleMethodInClass:class
 					originalMethod:@selector(initWithNibName:bundle:)
-				  swizzledSelector:@selector(pmy_initWithNibName:bundle:)];
+				  swizzledSelector:@selector(fy_initWithNibName:bundle:)];
         [self swizzleMethodInClass:class
 					originalMethod:@selector(initWithCoder:)
-				  swizzledSelector:@selector(pmy_initWithCoder:)];
+				  swizzledSelector:@selector(fy_initWithCoder:)];
     });
 }
 
-- (instancetype)pmy_initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
+- (instancetype)fy_initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
     [self createAndHookKVOClass];
-    [self pmy_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    [self fy_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     return self;
 }
 
-- (nullable instancetype)pmy_initWithCoder:(NSCoder *)aDecoder {
+- (nullable instancetype)fy_initWithCoder:(NSCoder *)aDecoder {
     [self createAndHookKVOClass];
-    [self pmy_initWithCoder:aDecoder];
+    [self fy_initWithCoder:aDecoder];
     return self;
 }
 
 - (void)createAndHookKVOClass {
     // Setup KVO, which trigger runtime to create the KVO subclass of VC.
-    [self addObserver:[YQKVOObserver shared] forKeyPath:kUniqueFakeKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:[FYKVOObserver shared] forKeyPath:kUniqueFakeKeyPath options:NSKeyValueObservingOptionNew context:nil];
     
     // Setup remover of KVO, automatically remove KVO when VC dealloc.
-    YQKVORemover *remover = [[YQKVORemover alloc] init];
+    FYKVORemover *remover = [[FYKVORemover alloc] init];
     remover.target = self;
     remover.keyPath = kUniqueFakeKeyPath;
     objc_setAssociatedObject(self, &kAssociatedRemoverKey, remover, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -59,7 +59,7 @@ static NSString *const kUniqueFakeKeyPath = @"yq_useless_key_path";
     
     // Compare current Imp with our Imp. Make sure we didn't hooked before.
     IMP currentViewDidLoadImp = class_getMethodImplementation(kvoCls, @selector(viewDidLoad));
-    if (currentViewDidLoadImp == (IMP)yq_viewDidLoad) {
+    if (currentViewDidLoadImp == (IMP)fy_viewDidLoad) {
         return;
     }
     
@@ -78,12 +78,12 @@ static NSString *const kUniqueFakeKeyPath = @"yq_useless_key_path";
     
     // 重点，添加方法。
 //    class_addMethod(kvoCls, @selector(loadView), (IMP)yq_loadView, originLoadViewEncoding);
-    class_addMethod(kvoCls, @selector(viewDidLoad), (IMP)yq_viewDidLoad, originViewDidLoadEncoding);
-    class_addMethod(kvoCls, @selector(viewWillAppear:), (IMP)yq_viewWillAppear, originViewWillAppearEncoding);
-    class_addMethod(kvoCls, @selector(viewDidAppear:), (IMP)yq_viewDidAppear, originViewDidAppearEncoding);
+    class_addMethod(kvoCls, @selector(viewDidLoad), (IMP)fy_viewDidLoad, originViewDidLoadEncoding);
+    class_addMethod(kvoCls, @selector(viewWillAppear:), (IMP)fy_viewWillAppear, originViewWillAppearEncoding);
+    class_addMethod(kvoCls, @selector(viewDidAppear:), (IMP)fy_viewDidAppear, originViewDidAppearEncoding);
     
-    class_addMethod(kvoCls, @selector(viewWillDisappear:), (IMP)yq_viewWillDisappear, originViewWillDisappearEncoding);
-    class_addMethod(kvoCls, @selector(viewDidDisappear:), (IMP)yq_viewDidDisappear, originViewDidDisappearEncoding);
+    class_addMethod(kvoCls, @selector(viewWillDisappear:), (IMP)fy_viewWillDisappear, originViewWillDisappearEncoding);
+    class_addMethod(kvoCls, @selector(viewDidDisappear:), (IMP)fy_viewDidDisappear, originViewDidDisappearEncoding);
 
     
     
@@ -112,7 +112,7 @@ static NSString *const kUniqueFakeKeyPath = @"yq_useless_key_path";
 
 
 #pragma mark - IMP of Key Method
-static void yq_viewDidLoad(UIViewController *kvo_self, SEL _sel) {
+static void fy_viewDidLoad(UIViewController *kvo_self, SEL _sel) {
     Class kvo_cls = object_getClass(kvo_self);
     Class origin_cls = class_getSuperclass(kvo_cls);
     IMP origin_imp = method_getImplementation(class_getInstanceMethod(origin_cls, _sel));
@@ -125,14 +125,10 @@ static void yq_viewDidLoad(UIViewController *kvo_self, SEL _sel) {
     func(kvo_self, _sel);
     
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    CFAbsoluteTime linkTime = (endTime - beginTime) * 1000;
-     printf("\nyq_viewDidLoad==%s :%f",__func__,beginTime - endTime);
-
-	
-
+ 	flush(beginTime, endTime,kvo_self, NSStringFromSelector(_sel));
 }
 
-static void yq_viewWillAppear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
+static void fy_viewWillAppear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
     Class kvo_cls = object_getClass(kvo_self);
     Class origin_cls = class_getSuperclass(kvo_cls);
     
@@ -146,11 +142,10 @@ static void yq_viewWillAppear(UIViewController *kvo_self, SEL _sel, BOOL animate
     func(kvo_self, _sel, animated);
     
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    CFAbsoluteTime linkTime = (endTime - beginTime) * 1000;
- 
+	flush(beginTime, endTime,kvo_self, NSStringFromSelector(_sel));
 }
 
-static void yq_viewDidAppear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
+static void fy_viewDidAppear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
     Class kvo_cls = object_getClass(kvo_self);
     Class origin_cls = class_getSuperclass(kvo_cls);
     IMP origin_imp = method_getImplementation(class_getInstanceMethod(origin_cls, _sel));
@@ -164,10 +159,10 @@ static void yq_viewDidAppear(UIViewController *kvo_self, SEL _sel, BOOL animated
     func(kvo_self, _sel, animated);
     
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-	printf("\norigin_cls：%s %.3f",NSStringFromClass(origin_cls).UTF8String,(endTime-beginTime)/1000.0f);
+	flush(beginTime, endTime,kvo_self, NSStringFromSelector(_sel));
 }
 
-static void yq_viewWillDisappear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
+static void fy_viewWillDisappear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
     Class kvo_cls = object_getClass(kvo_self);
     Class origin_cls = class_getSuperclass(kvo_cls);
     IMP origin_imp = method_getImplementation(class_getInstanceMethod(origin_cls, _sel));
@@ -181,44 +176,42 @@ static void yq_viewWillDisappear(UIViewController *kvo_self, SEL _sel, BOOL anim
     func(kvo_self, _sel, animated);
     
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-	printf("\n viewWillDisappear origin_cls：%s %.3f",NSStringFromClass(origin_cls).UTF8String,(endTime-beginTime)/1000.0f);
+	flush(beginTime, endTime,kvo_self, NSStringFromSelector(_sel));
+
 
 }
 
-static void yq_viewDidDisappear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
+static void fy_viewDidDisappear(UIViewController *kvo_self, SEL _sel, BOOL animated) {
     Class kvo_cls = object_getClass(kvo_self);
     Class origin_cls = class_getSuperclass(kvo_cls);
     IMP origin_imp = method_getImplementation(class_getInstanceMethod(origin_cls, _sel));
     assert(origin_imp != NULL);
     
     void (*func)(UIViewController *, SEL, BOOL) = (void (*)(UIViewController *, SEL, BOOL))origin_imp;
-    
-    
      CFAbsoluteTime beginTime = CFAbsoluteTimeGetCurrent();
-    
     func(kvo_self, _sel, animated);
-    
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-	printf("\n viewDidDisappear origin_cls：%s %.3f",NSStringFromClass(origin_cls).UTF8String,(endTime-beginTime)/1000.0f);
-
+	
+	flush(beginTime, endTime,kvo_self, NSStringFromSelector(_sel));
 }
-
-
-static void addWithData(CFAbsoluteTime beginTime, CFAbsoluteTime endTime, CFAbsoluteTime linkTime, NSString *dateBeginTime, NSString *dateEndTime, UIViewController *kvo_self, NSString *funcName, int lc) {
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        NSString *className = NSStringFromClass([kvo_self class]);
-//        YQInteractiveInfoRecord *infoRecord = [[YQInteractiveInfoRecord alloc] init];
-//        infoRecord.className = className;
-//        infoRecord.funcName = funcName;
-//        infoRecord.beginTime = beginTime;
-//        infoRecord.endTime = endTime;
-//        infoRecord.linkTime = linkTime;
-//        infoRecord.dateBeginTime = dateBeginTime;
-//        infoRecord.dateEndTime = dateEndTime;
-//        infoRecord.lc = lc;
-//        [[YQInteractiveCoreDataRecord sharedInstance] insertWithInteractiveInfoRecord:infoRecord];
-    });
+static void flush(CFAbsoluteTime beginTime, CFAbsoluteTime endTime,UIViewController *kvo_self, NSString *funcName){
+	CFTimeInterval dis = endTime - beginTime;
+	NSDate *date =[NSDate new];
+	NSDateFormatter *formatter = getFormatter();
+	NSString * str = [formatter stringFromDate:date];
+	const char *clsName = NSStringFromClass(kvo_self.class).UTF8String;
+	if(dis > 0.001){
+		printf("cls:%s func:%s %f %s \n",clsName,funcName.UTF8String,dis,str.UTF8String);
+	}
+}
+static NSDateFormatter *getFormatter(){
+	static NSDateFormatter *formatter;
+	if (formatter == nil) {
+		formatter=[[NSDateFormatter alloc]init];
+		formatter.locale =[NSLocale autoupdatingCurrentLocale];
+		[formatter setDateFormat:@"yyyy MM-dd HH:mm:ss"];
+	}
+	return formatter;
 }
 
 @end

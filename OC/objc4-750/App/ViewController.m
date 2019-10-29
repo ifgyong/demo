@@ -23,7 +23,7 @@
 @implementation ViewController
 +(void)load{
     NSLog(@"%s cls:%@",__func__,NSStringFromClass(self));
-//    fy_rebind("class_replaceMethod",fy_class_replaceMethod,(void*)&ori_class_replaceMethod);
+    fy_rebind("class_replaceMethod",fy_class_replaceMethod,(void*)&ori_class_replaceMethod);
 //    fy_rebind("_lookUpImpOrForward", new_lookUpImpOrForward,(void*)&ori_lookUpImpOrForward);
 //    fy_rebind("class_replaceMethod",fy_class_replaceMethod_new,(void*)&ori_class_replaceMethod_new);
 }
@@ -37,23 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    int time = arc4random() %30;
-//    usleep(100000 * time);
-
-//    hookC();
-//    void(^block)(void)=^{
-//        NSLog(@"122");
-//    };
-//    struct Block_layout *layout =(__bridge void*)block;
-
-//    Class cl = object_getClass(self);
-//    Class cl3= self.class;
-//    Class cl2 = object_getClass(cl3);
-//
-//    if (cl == cl2) {
-//        NSLog(@"cl == cl2");
-//    }
-//    test();
+	method_exchangeImplementations(nil, nil);
 
 }
 static IMP (*ori_lookUpImpOrForward)(Class cls, SEL sel, id inst,

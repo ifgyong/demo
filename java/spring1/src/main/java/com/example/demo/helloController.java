@@ -32,21 +32,41 @@ static  DataSource dataSource =
         return "123";
     }
     @RequestMapping(value="/add", produces={"application/json; charset=UTF-8"})
-    public HashMap insertUser(HttpServletRequest request, HttpServletResponse response,String name,int age,int sex){
-        boolean ret = userTemplate.inseret(name,age,sex);
+    public HashMap insertUser(HttpServletRequest request, HttpServletResponse response,String name,int age,int sex,String mobile){
         HashMap map = new HashMap();
-        if (ret){
-
-            map.put("state","success");
-            map.put("data",userList(request,response));
+        if (name.length() == 0){
+            map.put("msg","请填写姓名");
+        }else if (age <0 || age >120){
+            map.put("msg","请填写正确的年龄");
+        }else if (sex <1 || sex >  2){
+            map.put("msg","请填写正确的性别");
+        }else if (mobile.length() != 11 ){
+            map.put("msg","请填写正确的手机号");
         }else {
-            map.put("state","faild");
-            map.put("msg","插入数据失败");
+
+            if (userTemplate.user(name,mobile)){
+                map.put("state","faild");
+                map.put("msg","已存在该用户");
+            }else {
+                boolean ret = userTemplate.inseret(name,age,sex,mobile);
+
+                if (ret){
+                    map.put("state","success");
+//            request.setAttribute("page",0);
+//            map.put("data",userList(request,response));
+                }else {
+                    map.put("state","faild");
+                    map.put("msg","插入数据失败");
+                }
+            }
+
         }
+
         return map;
     }
     @RequestMapping(value="/userlist", produces={"application/json; charset=UTF-8"})
     public HashMap userList(HttpServletRequest request, HttpServletResponse response){
+        request.getParameterNames();
         int page = Integer.parseInt(request.getParameter("page").toString());
         System.out.println("111111");
         HashMap map= this.userTemplate.userList(page);

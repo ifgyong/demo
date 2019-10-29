@@ -25,9 +25,9 @@ public class UserTemplate {
     public DataSource dataSource(){
         return this.dataSource;
     }
-    public boolean inseret(String name , int age , int sex){
-        String sql = "INSERT INTO USER (name,age,sex) VALUES(?,?,?)";
-        int ret = this.UserTemplate.update(sql,new Object[]{name,age,sex});
+    public boolean inseret(String name , int age , int sex,String mobile){
+        String sql = "INSERT INTO USER (name,age,sex,mobile) VALUES(?,?,?,?)";
+        int ret = this.UserTemplate.update(sql,new Object[]{name,age,sex,mobile});
         return ret>0 ? true:false;
     }
     public HashMap userList(long page){
@@ -57,6 +57,7 @@ public class UserTemplate {
                 student.setAge(rs.getInt("age"));
                 student.setSex(rs.getInt("sex"));
                 student.setAddress(rs.getNString("address"));
+                student.setMobile(rs.getNString("mobile"));
                 arr.add(student);
             }
         });
@@ -68,5 +69,11 @@ public class UserTemplate {
             map.put("msg","报错了");
         }
         return map;
+    }
+    public boolean user(String name,String mobile){
+        String sql = "select count(*) from user";
+        boolean have = false;
+        int[] ret =this.UserTemplate.execute(sql);
+        return ret.length > 0;
     }
 }
