@@ -7,16 +7,17 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UserTemplate {
     private DataSource dataSource;
     private JdbcTemplate UserTemplate;
     public UserTemplate(DataSource dataSource){
         this.dataSource = dataSource;
+        this.UserTemplate = new JdbcTemplate(dataSource);
+    }
+    public  UserTemplate(){
+//        this.dataSource = new DataSourceConfig().getdataSource();
         this.UserTemplate = new JdbcTemplate(dataSource);
     }
     public void setDataSource(DataSource db){
@@ -71,9 +72,13 @@ public class UserTemplate {
         return map;
     }
     public boolean user(String name,String mobile){
-        String sql = "select count(*) from user";
-        boolean have = false;
-        int[] ret =this.UserTemplate.execute(sql);
-        return ret.length > 0;
+        String sql = "select count(*) from user WHERE mobile=?";
+//        boolean have = false;
+        List ret =this.UserTemplate.queryForList(sql,new Object[]{mobile});
+        Iterator it = ret.iterator();
+        if (it.hasNext()){
+            return true;
+        }
+        return false;
     }
 }

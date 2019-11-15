@@ -2,6 +2,9 @@ package com.example.demo;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import org.omg.CORBA.Request;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -21,10 +24,19 @@ import java.util.Map;
 @Controller
 @RestController
 public class helloController {
-   static ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-beans.xml");
-static  DataSource dataSource =
-            (DataSource) context.getBean("dataSource");
-    static UserTemplate userTemplate = new UserTemplate(dataSource);
+//    @Autowired
+//    DataSourceProperties dataSourceProperties;
+//
+//    @Autowired
+//    ApplicationContext applicationContext;
+//
+//   static ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-beans.xml");
+//static  DataSource dataSource =
+//            (DataSource) context.getBean("dataSource");
+//static DataSource dataSource2 = applicationContext.getBean(DataSource.class);
+@Autowired
+private UserService userService;
+    static UserTemplate userTemplate = new UserTemplate();
     @RequestMapping(value="/login2")
     public String login(){
         return "login";
@@ -32,6 +44,9 @@ static  DataSource dataSource =
     @RequestMapping(value="/add", produces={"application/json; charset=UTF-8"})
     public HashMap insertUser(HttpServletRequest request, HttpServletResponse response,String name,int age,int sex,String mobile){
         HashMap map = new HashMap();
+        if (name.length() >0 && mobile.length() == 1){
+            userService.add(name,mobile);
+        }else
         if (name.length() == 0){
             map.put("msg","请填写姓名");
         }else if (age <0 || age >120){
@@ -71,9 +86,9 @@ static  DataSource dataSource =
         return  map;
     }
     public void setUp(){
-        context = new ClassPathXmlApplicationContext("application-beans.xml");
-        dataSource =
-                (DataSource) context.getBean("dataSource");
-        userTemplate = new UserTemplate(dataSource);
+//        context = new ClassPathXmlApplicationContext("application-beans.xml");
+//        dataSource =
+//                (DataSource) context.getBean("dataSource");
+//        userTemplate = new UserTemplate(dataSource);
     }
 }
