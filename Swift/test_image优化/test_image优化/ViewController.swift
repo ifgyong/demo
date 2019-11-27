@@ -9,68 +9,88 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+	enum FuncType {
+		case FuncType0
+		case FuncType1
+		case FuncType2
+		case FuncType3
+		case FuncType4
+	}
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var scrollview: UIScrollView!
-	let imagesName = ["6.HEIC","1.jpg","2.jpg"];
+	typealias imageCallBack = (_ image:UIImage)->Void
+	//,"20.jpg","1.jpg" ,"6.HEIC",
+	let imagesName = ["2.jpg","6.HEIC"]//["2.jpg","20.jpg" "6.HEIC"];
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-//		for i in  0..<1{
-//			let bounds = UIScreen.main.bounds
-//			scrollview.contentSize = CGSize.init(width: (bounds.width * CGFloat(imagesName.count)), height: bounds.height)
-//			let im = UIImage.init(named: imagesName[i])
-//			let imV = UIImageView()
-//			imV.frame = CGRect(x: (bounds.size.width * CGFloat(i)), y: 0, width: bounds.width, height: bounds.height)
-//			imV.image = im
-//			imV.contentMode = .scaleAspectFit
-//			scrollview.addSubview(imV)
-//			scrollview.isPagingEnabled=true
-//		}
-		for i in 0..<3{
+		for i in 1..<2{
 			let name = imagesName[i]
-			#if false
-			addImage2(name)
-			#else
-			addImage(name: name,index: i)
-			#endif
-		}
-		 
-		
-	}
-	let queue = DispatchQueue.global(qos: .userInitiated)
-	
-	func addImage2(_ name:String) -> Void {
-		let date = NSDate.init()
-		
-		queue.async {
-			let image = UIImage.init(named: name)
-			DispatchQueue.main.async {
+			let date = NSDate.init()
+			
+			addImageDrawNewImage(name: name,
+								 funcIndex: .FuncType1,
+								 size: CGSize(width: 800,height: 800))
+			{ (image) in
 				let imageV = UIImageView.init(image: image)
-				imageV.frame=CGRect(x: 0, y: 0, width: 200, height: 200)
-				self.view.addSubview(imageV)
-				let now = NSDate.init()
-				print("timeCost:\(now.timeIntervalSince(date as Date))")
+				imageV.frame = CGRect(x: 50, y: (250 * i) + 100, width: 200, height: 200)
+							self.view.addSubview(imageV)
+				if i == self.imagesName.count-1{
+								let now = NSDate.init()
+								print("resizedImage timeCost:\(now.timeIntervalSince(date as Date))s")
+							}
 			}
 		}
 	}
-	func addImage(name:String,index :Int) -> Void {
-		let date = NSDate.init()
+	let queue = DispatchQueue.global(qos: .userInitiated)
+	func addImageDrawNewImage(name:String ,funcIndex:FuncType, size:CGSize, callBack: @escaping (UIImage)->Void) -> Void {
 
 		queue.async {
 			let url = Bundle.main.url(forResource: name, withExtension: nil)!
-			guard let image = self.resizedImage(at: url, for: CGSize(width: 200, height: 200))else{
-				return ;
-			}
-			DispatchQueue.main.sync {
-				let imageV = UIImageView.init(image: image)
-				imageV.frame = CGRect(x: 50, y: (250 * index), width: 200, height: 200)
-				self.view.addSubview(imageV)
-				if index == 2{
-					let now = NSDate.init()
-					print("resizedImage timeCost:\(now.timeIntervalSince(date as Date))")
+
+			switch funcIndex{
+			case .FuncType0:
+				let image = UIImage(named: name)!
+				DispatchQueue.main.async {
+					callBack(image)
+				}
+			case .FuncType1:
+				guard  let image = self.resizedImage(at: url,
+													  for: size)
+					else{
+						return ;
+				}
+				DispatchQueue.main.async {
+					callBack(image)
 				}
 				
+			case .FuncType2:
+			
+				guard  let image = self.resizedImage2(at: url,
+													 for: size)
+					else{
+					return ;
+				}
+				DispatchQueue.main.async {
+					callBack(image)
+				}
+			case .FuncType3:
+				guard  let image = self.resizedImage3(at: url,
+													 for: size)
+					else{
+					return ;
+				}
+				DispatchQueue.main.async {
+					callBack(image)
+				}
+			case .FuncType4:
+				guard  let image = self.resizedImage4(at: url,
+													 for: size)
+					else{
+					return ;
+				}
+				DispatchQueue.main.async {
+					callBack(image)
+				}
 			}
 		}
 	}
@@ -82,6 +102,7 @@ class ViewController: UIViewController {
 		}
 		if #available(iOS 10.0, *) {
 			let renderer = UIGraphicsImageRenderer(size: size)
+		
 			return renderer.image { (context) in
 				image.draw(in: CGRect(origin: .zero, size: size))
 			}
@@ -90,9 +111,9 @@ class ViewController: UIViewController {
 			image.draw(in: CGRect(origin: .zero, size: size))
 			let image = UIGraphicsGetImageFromCurrentImageContext()
 			UIGraphicsEndImageContext()
+			printImageCost(image: image!)
 			return image
 		}
-		
 	}
 	func resizedImage2(at url: URL, for size: CGSize) -> UIImage?{
 		guard let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
@@ -100,17 +121,22 @@ class ViewController: UIViewController {
 		else{
 			return nil;
 		}
-		let cxt = CGContext(data: nil, width: Int(size.width),
-							height: Int(size.height), bitsPerComponent: image.bitsPerComponent,
+		let cxt = CGContext(data: nil,
+							width: Int(size.width),
+							height: Int(size.height),
+							bitsPerComponent: image.bitsPerComponent,
 							bytesPerRow: image.bytesPerRow,
 							space: image.colorSpace ?? CGColorSpace(name: CGColorSpace.sRGB)!
-			, bitmapInfo: image.bitmapInfo.rawValue)
+			,
+							bitmapInfo: image.bitmapInfo.rawValue)
 		cxt?.interpolationQuality = .high
 		cxt?.draw(image, in: CGRect(origin: .zero, size: size))
 		guard let scaledImage = cxt?.makeImage() else {
 			return nil
 		}
-		return UIImage(cgImage: scaledImage)
+		let ima = UIImage(cgImage: scaledImage)
+		printImageCost(image: ima)
+		return ima
 		
 	}
 //	import ImageIO
@@ -124,7 +150,21 @@ class ViewController: UIViewController {
 			let image = CGImageSourceCreateImageAtIndex(imageSource, 0, ops as CFDictionary) else {
 				return nil;
 		}
-		return UIImage(cgImage: image)
+		let ima = UIImage(cgImage: image)
+		printImageCost(image: ima)
+		return ima
+	}
+	func resizedImage4(at url: URL, for size: CGSize) -> UIImage?{
+		let image = UIImage(contentsOfFile: url.path)
+		printImageCost(image: image!)
+		return image
+		
+	}
+	func printImageCost(image:UIImage) -> Void {
+		let imageCG = image.cgImage
+		let cost1 = imageCG!.bytesPerRow * (imageCG?.height ?? 1)
+		let cost2 = imageCG!.height * imageCG!.width * 4
+		print("imageCost1: \(cost1/1024)KB 大约\(cost1/1024/1024)M cost2:\(cost2/1024)KB 大约\(cost2/1024/1024)MB")
 	}
 	func addView2() -> Void {
 		let circleSize = CGSize(width: 600, height: 600)
@@ -163,11 +203,8 @@ class ViewController: UIViewController {
 	var index = 0
 	static var i = 0
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		index += 1
-		index %= imagesName.count
-//		let name = imagesName[index]
-		let name  =  imagesName[index]+".jpg"
-		let image = UIImage.init(named: name, in:nil , with: nil);
+		let name  =  "1.jpg"
+		let image = UIImage(named: name);
 		
 		imageView.image = image
 		let bytesPerRow = (image?.cgImage?.bytesPerRow ?? 0)
