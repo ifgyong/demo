@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accelerate.vImage
 
 class ViewController: UIViewController {
 	enum FuncType {
@@ -15,16 +16,36 @@ class ViewController: UIViewController {
 		case FuncType2
 		case FuncType3
 		case FuncType4
+		case FuncType5
 	}
 	var imageView: UIImageView = UIImageView()
 	typealias imageCallBack = (_ image:UIImage)->Void
 	//,"20.jpg","1.jpg" ,"6.HEIC",
-	let imagesName = ["1.jpg","6.HEIC"]//["2.jpg","20.jpg" "6.HEIC"];
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.loadImage()
+	}
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		self.unloadImage()
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.white
 		
-	
+		NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification,
+											   object: nil,
+											   queue: .main)
+		{[weak self] (note) in
+			self?.unloadImage()
+		}
+		NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
+											   object: nil,
+											   queue: .main)
+		{[weak self] (note) in
+			self?.loadImage()
+		}
+		
 	}
 	let queue = DispatchQueue.global(qos: .userInitiated)
 	func addImageDrawNewImage(name:String ,funcIndex:FuncType, size:CGSize, callBack: @escaping (UIImage)->Void) -> Void {
@@ -76,6 +97,15 @@ class ViewController: UIViewController {
 				DispatchQueue.main.async {
 					callBack(image)
 				}
+				case .FuncType5:
+							guard  let image = self.resizedImage5(at: url,
+																 for: size)
+								else{
+								return ;
+							}
+							DispatchQueue.main.async {
+								callBack(image)
+							}
 			}
 		}
 	}
@@ -96,7 +126,6 @@ class ViewController: UIViewController {
 			image.draw(in: CGRect(origin: .zero, size: size))
 			let image = UIGraphicsGetImageFromCurrentImageContext()
 			UIGraphicsEndImageContext()
-			printImageCost(image: image!)
 			return image
 		}
 	}
@@ -120,7 +149,7 @@ class ViewController: UIViewController {
 			return nil
 		}
 		let ima = UIImage(cgImage: scaledImage)
-		printImageCost(image: ima)
+//		printImageCost(image: ima)
 		return ima
 		
 	}
@@ -140,9 +169,79 @@ class ViewController: UIViewController {
 		return ima
 	}
 	func resizedImage4(at url: URL, for size: CGSize) -> UIImage?{
-		let image = UIImage(contentsOfFile: url.path)
-		printImageCost(image: image!)
-		return image
+		let shareContext = CIContext(options: [.useSoftwareRenderer:true])
+		
+		 guard let image = CIImage(contentsOf: url) else { return nil }
+		let fillter = CIFilter(name: "CILanczosScaleTransform")
+		fillter?.setValue(image, forKey: kCIInputImageKey)
+		fillter?.setValue(1, forKey: kCIInputScaleKey)
+		guard let outPutCIImage = fillter?.outputImage,let outputCGImage = shareContext.createCGImage(outPutCIImage, from: outPutCIImage.extent) else { return nil }
+		
+		return UIImage(cgImage: outputCGImage)
+	}
+	func resizedImage5(at url: URL, for size: CGSize) -> UIImage?{
+		// 解码源图像
+			guard let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
+				let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil),
+				let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
+				let imageWidth = properties[kCGImagePropertyPixelWidth] as? vImagePixelCount,
+				let imageHeight = properties[kCGImagePropertyPixelHeight] as? vImagePixelCount
+			else {
+				return nil
+			}
+		
+		 // 定义图像格式
+			var format = vImage_CGImageFormat(bitsPerComponent: 8,
+											  bitsPerPixel: 32,
+											  colorSpace: nil,
+											  bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.first.rawValue),
+											  version: 0,
+											  decode: nil,
+											  renderingIntent: .defaultIntent)
+
+			var error: vImage_Error
+
+			// 创建并初始化源缓冲区
+			var sourceBuffer = vImage_Buffer()
+			defer { sourceBuffer.data.deallocate() }
+			error = vImageBuffer_InitWithCGImage(&sourceBuffer,
+												 &format,
+												 nil,
+												 image,
+												 vImage_Flags(kvImageNoFlags))
+			guard error == kvImageNoError else { return nil }
+
+			// 创建并初始化目标缓冲区
+			var destinationBuffer = vImage_Buffer()
+			error = vImageBuffer_Init(&destinationBuffer,
+									  vImagePixelCount(size.height),
+									  vImagePixelCount(size.width),
+									  format.bitsPerPixel,
+									  vImage_Flags(kvImageNoFlags))
+			guard error == kvImageNoError else { return nil }
+
+			// 优化缩放图像
+			error = vImageScale_ARGB8888(&sourceBuffer,
+										 &destinationBuffer,
+										 nil,
+										 vImage_Flags(kvImageHighQualityResampling))
+			guard error == kvImageNoError else { return nil }
+
+			// 从目标缓冲区创建一个 CGImage 对象
+			guard let resizedImage =
+				vImageCreateCGImageFromBuffer(&destinationBuffer,
+											  &format,
+											  nil,
+											  nil,
+											  vImage_Flags(kvImageNoAllocate),
+											  &error)?.takeRetainedValue(),
+				error == kvImageNoError
+			else {
+				return nil
+			}
+
+			return UIImage(cgImage: resizedImage)
+
 		
 	}
 	func printImageCost(image:UIImage) -> Void {
@@ -170,21 +269,34 @@ class ViewController: UIViewController {
 			imageV.frame=CGRect(x: 0, y: 0, width: 60, height: 60)
 			view.addSubview(imageV)
 	}
-	
+	func unloadImage() -> Void {
+		
+	}
+	func loadImage() -> Void {
+		
+	}
 	var index = 0
 	static var i = 0
+	let imagesName = ["1.jpg","2.JPG","6.HEIC"]//["2.jpg","20.jpg" "6.HEIC"];
+	var width = UIScreen.main.bounds.width
+	var height = UIScreen.main.bounds.height
 	func addImage() -> Void {
-		for i in 1..<2{
+		
+		width /= 2
+		height /= 2
+		let index = 0
+		
+		for i in index...index{
 			let name = imagesName[i]
 			let date = NSDate.init()
 			
 			addImageDrawNewImage(name: name,
-								 funcIndex: .FuncType2,
-								 size: CGSize(width: 800,height: 800))
+								 funcIndex: .FuncType4,
+								 size: CGSize(width: width,height: height))
 			{ (image) in
 				let imageV = UIImageView.init(image: image)
-				imageV.frame = CGRect(x: 50, y: (250 * i) + 100, width: 200, height: 200)
-				//self.view.addSubview(imageV)
+				imageV.frame = CGRect(x: 0, y: (250 * i) + 0, width:Int( self.width), height: Int (self.height))
+				self.view.addSubview(imageV)
 				if i == self.imagesName.count-1{
 					let now = NSDate.init()
 					print("resizedImage timeCost:\(now.timeIntervalSince(date as Date))s")
@@ -192,37 +304,43 @@ class ViewController: UIViewController {
 			}
 		}
 	}
+	var imageV:UIImageView?
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		addImage()
 		
+//		if let im = imageV {
+//			im.tintColor = UIColor.black
+//		}else{
+//			let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+//			let renderer = UIGraphicsImageRenderer(bounds: bounds)
+//			 let image = renderer.image { (coxt) in
+//				UIColor.red.setFill()
+//				let path = UIBezierPath(roundedRect: bounds,
+//										cornerRadius: 20)
+//				path.addClip()
+//				UIRectFill(bounds)
+//			}
+//			imageV = UIImageView(image: image)
+//			imageV?.frame = bounds
+//			self.view.addSubview(imageV!)
+//		}
+//
+//		print("\(width) \(height)")
+	}
+	func drawUsOldFucn() -> Void {
+		let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+		UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
+		UIColor.red.setFill()
+		let path = UIBezierPath(roundedRect: bounds,
+								cornerRadius: 20)
+		path.addClip()
+		UIRectFill(bounds)
 		
-//		let name  =  "1.jpg"
-//		let image = UIImage(named: name);
-//
-//		imageView.image = image
-//		let bytesPerRow = (image?.cgImage?.bytesPerRow ?? 0)
-//		let height = (image?.cgImage?.height ?? 0)
-//		let width = (image?.cgImage?.width ?? 0)
-//		var lastMemoryCost = bytesPerRow * height/1000
-//		var str = ""
-//		let byteToM = 1000000
-//		if lastMemoryCost/byteToM>1{
-//			str += String(lastMemoryCost/byteToM)
-//			str += "M"
-//			lastMemoryCost %= byteToM
-//		}
-//		let byteToK = 1000
-//		if lastMemoryCost > byteToK {
-//			str += String(lastMemoryCost/byteToK)
-//			str += "Kb"
-//			lastMemoryCost %= byteToK
-//		}
-//
-//
-//		ViewController.i+=1
-//		let v = (width * height * 4/1024/1024)
-//
-//		print("size:\(imageView.frame.size) index:\(ViewController.i) name:\(name) MemoryAdd:\(str) bytesPerRow:\(bytesPerRow)byte h:\(height) w:\(width) cost:h*w*4:\(v)Mb")
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		let imageV = UIImageView(image: image)
+		imageV.frame = bounds
+		self.view.addSubview(imageV)
 	}
 	func getUrlPath(name:String) -> String? {
 		let ma = Bundle.main
